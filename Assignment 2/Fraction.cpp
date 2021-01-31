@@ -11,6 +11,7 @@ int Fraction::precision()
 
 int Fraction::gcd(int a, int b)
 {
+    a = abs(a);
     if(a%b == 0)
         return b;
     return gcd(b,a%b);
@@ -55,19 +56,22 @@ Fraction::Fraction(int m,int n)
    {
        p = -m;
        q = -n;
+       Normalise();
    }
    else
    {
        p = m;
        q = n;
-   }
+       Normalise();
 
+   }
 }
 
 Fraction::Fraction(double d)
 {
     p = d*precision();
     q = precision();
+    Normalise();
 }
 
 Fraction::Fraction(const Fraction & fr)
@@ -91,7 +95,7 @@ Fraction operator+(const Fraction& f)
 
 Fraction operator-(const Fraction& f)
 {
-     Fraction nf(-f.p,f.q);
+    Fraction nf(-f.p,f.q);
     return nf;
 }
 
@@ -99,6 +103,7 @@ Fraction operator-(const Fraction& f)
 Fraction& operator++(Fraction& f)
 {
     f.p = f.p + f.q;
+    f.Normalise();
     return f;
 }
 
@@ -106,12 +111,14 @@ Fraction operator++(Fraction& f,int)
 {
     Fraction nf(f.p,f.q);
     f.p = f.p + f.q;
+    f.Normalise();
     return nf;
 }
 
 Fraction& operator--(Fraction& f)
 {
     f.p = f.p - f.q;
+    f.Normalise();
     return f;
 }
 
@@ -119,6 +126,7 @@ Fraction operator--(Fraction& f,int)
 {
     Fraction nf(f.p,f.q);
     f.p = f.p - f.q;
+    f.Normalise();
     return nf;
 }
 
@@ -164,37 +172,31 @@ Fraction operator%(const Fraction& f1, const Fraction& f2)
 
 bool operator==(const Fraction& f1, const Fraction& f2)
 {
-    //normalise
     return f1.p==f2.p && f1.q==f2.q;
 }
 
 bool operator!=(const Fraction& f1, const Fraction& f2)
 {
-    //normalise
     return f1.p!=f2.p || f1.q==f2.q;
 }
 
 bool operator<(const Fraction& f1, const Fraction& f2)
 {
-    //normalise
     return f1.p*f2.q < f1.q*f2.p;
 }
 
 bool operator<=(const Fraction& f1, const Fraction& f2)
 {
-    //normalise
     return f1.p*f2.q <= f1.q*f2.p;
 }
 
 bool operator>(const Fraction& f1, const Fraction& f2)
 {
-    //normalise
     return f1.p*f2.q > f1.q*f2.p;
 }
 
 bool operator>=(const Fraction& f1, const Fraction& f2)
 {
-    //normalise
     return f1.p*f2.q >= f1.q*f2.p;
 }
 
@@ -242,11 +244,7 @@ ostream & operator<<(ostream& out,const Fraction& f)
 Fraction const Fraction::sc_fUnity = Fraction();
 Fraction const Fraction::sc_fZero = Fraction(0);
 
-
-
-
 Fraction::~Fraction()
 {
-    // delete &p;
-    // delete &q;
+
 }
