@@ -3,7 +3,7 @@
 using namespace std;
 
 /************ PROJECT Headers ********************************/
-#include "Fraction.hpp"
+#include "Fraction.hxx"
 
 void TestFraction(){
     cout << "\nTest Fraction Data Type" << endl;
