@@ -9,6 +9,6 @@ void TestFraction();
 
 int main(){
     TestFraction();
-    
+
     return 0;
 }
