@@ -12,6 +12,7 @@ void Fraction::Normalise()
 
     if( p == 0 )
         q = 1;
+    
 } 
 
 Fraction::Fraction()

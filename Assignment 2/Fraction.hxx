@@ -63,7 +63,7 @@ inline int Fraction::precision()
 
 inline int Fraction::gcd(int a, int b)
 {
-    a = abs(a);
+    a = abs(a),b = abs(b);
     if(a%b == 0)
         return b;
     return gcd(b,a%b);
@@ -71,7 +71,7 @@ inline int Fraction::gcd(int a, int b)
 
 inline int Fraction::lcm(int a ,int b)
 {
-    return (a*b)/gcd(a,b);
+    return abs((a*b)/gcd(a,b));
 }
 
 
@@ -86,11 +86,11 @@ inline ostream & operator<<(ostream& out,const Fraction& f)
 {
     if(f.q == 1)
     {
-        out<< f.p <<endl;
+        out<< f.p;
     }
     else
     {
-        out<< f.p <<" / "<< f.q <<endl;
+        out<< f.p <<" / "<< f.q ;
     }
     return out;
 }
