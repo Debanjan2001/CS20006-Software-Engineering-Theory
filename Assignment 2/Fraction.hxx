@@ -1,5 +1,6 @@
 #ifndef FRACTION_HXX
 #define FRACTION_HXX
+
 #include<iostream>
 #include<stdlib.h>
 using namespace std;
@@ -7,74 +8,91 @@ using namespace std;
 class Fraction
 {
     private:
-        int p;
-        unsigned int q;
-
-        void Normalise();
-        inline static int precision();
-        inline static int gcd(int ,int);
-        inline static int lcm(int, int);
+        int p;  //Numerator
+        unsigned int q; // Denominator
+        
+        void Normalise();   // Utility function to normalise values of p and q.
+        inline static int precision();  //static utility function to return precision for floating point numbers.
+        static int gcd(int ,int);   //static utility function to calculate gcd of two integers. 
+        inline static int lcm(int, int);    //static utility function to calculate lcm of two integers. 
 
     public:
 
-        Fraction();
-        Fraction(int);
-        Fraction(int, int);
-        Fraction(double);
+    //---Constructor---
+
+        Fraction();          //Constructor without parameters
+        Fraction(int);       //Constructor with one integer as parameter (Numerator)
+        Fraction(int, int);  //Constructor with Two integers as parameters (Numerator and Denominator)
+        Fraction(double);    //Constructor with One double as parameter (Numerator)
         
-        Fraction(const Fraction &);
-        Fraction& operator=(const Fraction &);
+    
+    //---Copy Constructor and Copy Assignment Constructor--
 
-        Fraction operator-();
-        Fraction operator+();
-        Fraction& operator++();
-        Fraction operator++(int);
-        Fraction& operator--();
-        Fraction operator--(int);
+        Fraction(const Fraction &); //Copy Constructor with reference to a constant object that is to be copied.
+        Fraction& operator=(const Fraction &);  //Copy Assignment Operator for assignment to constant object. Return by reference
 
-        friend Fraction operator+(const Fraction&,const Fraction&);
-        friend Fraction operator-(const Fraction&,const Fraction&);
-        friend Fraction operator*(const Fraction&,const Fraction&);
-        friend Fraction operator/(const Fraction&,const Fraction&);
-        friend Fraction operator%(const Fraction&,const Fraction&);
-        
-        bool operator==(const Fraction&);
-        bool operator!=(const Fraction&);
-        bool operator<(const Fraction&);
-        bool operator<=(const Fraction&);
-        bool operator>(const Fraction&);
-        bool operator>=(const Fraction&);
 
-        Fraction operator!();
-        
-        friend inline istream & operator>>(istream &,Fraction&);
-        friend inline ostream & operator<<(ostream &,const Fraction&);
+    //---Unary Arithmetic Operators---
 
-        static const Fraction sc_fUnity;
-        static const Fraction sc_fZero;
+        Fraction operator-(); //Unary Minus , return by value
+        Fraction operator+(); //Unary Plus , return by value
+        Fraction operator++();     //Pre-Increment, return by value
+        Fraction operator++(int);  //Post-Increment, return by value
+        Fraction operator--();   //Pre-Decrement, return by value
+        Fraction operator--(int);   //Post-Decrement, return by value
 
-        ~Fraction();
+
+    //---Binary Arithmetic Operators---
+
+        friend Fraction operator+(const Fraction&,const Fraction&);  //Addition of two non-modifiable Fraction class objects, return by value 
+        friend Fraction operator-(const Fraction&,const Fraction&);  //Subtraction of two non-modifiable Fraction class objects, return by value 
+        friend Fraction operator*(const Fraction&,const Fraction&);  //Multiplication of two non-modifiable Fraction class objects, return by value 
+        friend Fraction operator/(const Fraction&,const Fraction&);  //Division of two non-modifiable Fraction class objects, return by value 
+        friend Fraction operator%(const Fraction&,const Fraction&);  //Remainder of two non-modifiable Fraction class objects, return by value 
+
+
+    //---Binary Relational Operators---
+
+        bool operator==(const Fraction&);  //Equality, return by boolean value
+        bool operator!=(const Fraction&);  //Inequality,return by boolean value
+        bool operator<(const Fraction&);   //Less than, return by boolean value
+        bool operator<=(const Fraction&);  //Less than Equal to, return by boolean value
+        bool operator>(const Fraction&);   //Greater than, return by boolean value
+        bool operator>=(const Fraction&);  //Greater than Equal to, return by boolean value
+
+    //---Special Operator---
+        Fraction operator!();   // Inversion Operator for a Fraction Class object. Return by value.
+    
+
+    //---I/O Operators---
+        friend inline istream & operator>>(istream &,Fraction&);  //Input stream overloading.return by reference
+        friend inline ostream & operator<<(ostream &,const Fraction&); //Output Stream overloading. return by reference.
+
+    //---Static Constants of UDT---
+        static const Fraction sc_fUnity; //static constant Unity of Fraction Data Type
+        static const Fraction sc_fZero;  //static constant Zero of Fraction Data type
+
+    //---Destructor---
+        ~Fraction(); 
 };
 
+
+// Returns a precision value of 100000. Inlined for minimising overhead calls.
 inline int Fraction::precision()
 {
     return 100000;
 }
 
-inline int Fraction::gcd(int a, int b)
-{
-    a = abs(a),b = abs(b);
-    if(a%b == 0)
-        return b;
-    return gcd(b,a%b);
-} 
 
+// Returns absolute value of lcm of two integers. Inlined for optimisation.
 inline int Fraction::lcm(int a ,int b)
 {
     return abs((a*b)/gcd(a,b));
 }
 
 
+// Reads two consecutive integers as a Fraction Class Object from input stream.
+//Inlined for optimisation.
 inline istream & operator>>(istream& in,Fraction& f)
 {
     in>>f.p>>f.q;
@@ -82,6 +100,9 @@ inline istream & operator>>(istream& in,Fraction& f)
     return in;
 }
 
+
+// Prints numerator and denominator of a Fraction Class Object in a formatted way to output stream.
+//Inlined for optimisation.
 inline ostream & operator<<(ostream& out,const Fraction& f)
 {
     if(f.q == 1)
@@ -94,7 +115,5 @@ inline ostream & operator<<(ostream& out,const Fraction& f)
     }
     return out;
 }
-
-
 
 #endif

@@ -4,6 +4,19 @@ using namespace std;
 
 #include "Fraction.hxx"
 
+
+int Fraction::gcd(int a, int b)
+{
+    a = abs(a),b = abs(b);
+    if(b == 0)
+        return a;
+    if(a == 0)
+    {
+        return b;
+    }
+    return gcd(b%a,a);
+} 
+
 void Fraction::Normalise()
 {
     int g = gcd(p,q);
@@ -49,6 +62,7 @@ Fraction::Fraction(int m,int n)
    {
        p = m;
        q = n;
+       
        Normalise();
    }
 }
@@ -71,8 +85,11 @@ Fraction::Fraction(const Fraction & fr)
 
 Fraction& Fraction::operator=(const Fraction & fr)
 {
-    p = fr.p;
-    q = fr.q;
+    if(this != &fr)
+    {
+        p = fr.p;
+        q = fr.q;
+    }
     return *this;
 }
 
@@ -88,7 +105,7 @@ Fraction Fraction::operator-()
     return nf;
 }
 
-Fraction& Fraction::operator++()
+Fraction Fraction::operator++()
 {
     p = p + q;
     Normalise();
@@ -103,7 +120,7 @@ Fraction Fraction::operator++(int)
     return nf;
 }
 
-Fraction& Fraction::operator--()
+Fraction Fraction::operator--()
 {
     p = p - q;
     Normalise();
