@@ -36,9 +36,9 @@ class Fraction
 
         Fraction operator-(); //Unary Minus , return by value
         Fraction operator+(); //Unary Plus , return by value
-        Fraction& operator++();     //Pre-Increment, return by value
+        Fraction& operator++();     //Pre-Increment, return by reference
         Fraction operator++(int);  //Post-Increment, return by value
-        Fraction& operator--();   //Pre-Decrement, return by value
+        Fraction& operator--();   //Pre-Decrement, return by reference
         Fraction operator--(int);   //Post-Decrement, return by value
 
 
