@@ -7,8 +7,11 @@ Debanjan Saha
 
 #include<iostream>
 #include<string>
-
 using namespace std;
+
+#include "Railways.h"
+
+class Railways;
 
 class Station
 {
@@ -18,7 +21,7 @@ class Station
     public: 
         Station(string name);
         string GetName() const;
-        int GetDistance () const;
+        int GetDistance (string otherStation) const;
         ~Station();
 
 };

@@ -7,28 +7,30 @@ Debanjan Saha
 
 #include<iostream>
 #include<string>
-#include<vector>
 #include<map>
+using namespace std;
+
 #include "Station.h"
 
-using namespace std;
+class Station;
 
 class Railways
 {
     private:
-        // static vector<Station> sStations;
         static map<const string,const Station*> sStations;
         static map<pair<const Station*,const Station*>,int> sDistStations;
 
     public:
+        Railways();
+        ~Railways();
+        
         static const Railways& TheRailway()
         {
             static const Railways IndianRailways;
             return IndianRailways;
         }
 
-        Railways();
-        ~Railways();
+        
         int GetDistance(string from,string to);
 
 };

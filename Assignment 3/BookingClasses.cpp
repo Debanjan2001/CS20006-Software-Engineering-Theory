@@ -4,9 +4,10 @@ Debanjan Saha
 -----------------*/
 #include<iostream>
 #include<string>
+using namespace std;
+
 #include "BookingClasses.h"
 
-using namespace std;
 
 BookingClasses::BookingClasses(){}
 

@@ -7,10 +7,11 @@ Debanjan Saha
 
 #include<iostream>
 #include<string>
+using namespace std;
 
 #include "Date.h"
 
-using namespace std;
+class Date;
 
 class Passenger
 {

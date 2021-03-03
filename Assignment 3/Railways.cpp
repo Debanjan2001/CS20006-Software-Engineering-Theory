@@ -4,11 +4,13 @@ Debanjan Saha
 -----------------*/
 
 #include<iostream>
-#include "Station.h"
-#include "Railways.h"
-
+#include<map>
 using namespace std;
 
+#include "Railways.h"
+
+map<const string,const Station*> Railways::sStations;
+map<pair<const Station*,const Station*>,int> Railways::sDistStations;
 
 Railways::Railways()
 {
@@ -62,6 +64,6 @@ Railways::~Railways()
 
 int Railways::GetDistance(string from, string to)
 {
-    return sDistStations[make_pair(sStations[from],sStations[to]))];
+    return sDistStations[make_pair(sStations[from],sStations[to])];
 }
 

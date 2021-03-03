@@ -7,12 +7,11 @@ Debanjan Saha
 
 #include<iostream>
 #include<string>
-
 using namespace std;
 
 class Booking
 {
-    
+
 };
 
 #endif

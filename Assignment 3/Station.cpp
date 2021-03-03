@@ -5,23 +5,22 @@ Debanjan Saha
 
 #include<iostream>
 #include<string>
-#include "Station.h"
-
 using namespace std;
 
+#include "Station.h"
+
 Station::Station(string name): name_(name)
-{
-}
+{}
 
 string Station::GetName() const
 {
     return name_;
 }
 
-// to be done
-int Station::GetDistance() const
+int Station::GetDistance(string otherStation) const
 {
-    return 0;
+    Railways indianRailway = Railways::TheRailway();
+    return indianRailway.GetDistance(name_,otherStation);
 }
 
 Station::~Station()

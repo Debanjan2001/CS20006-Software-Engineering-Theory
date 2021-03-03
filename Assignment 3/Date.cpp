@@ -2,11 +2,10 @@
 Debanjan Saha
 19CS30014
 -----------------*/
-
 #include<iostream>
-#include "Date.h"
-
 using namespace std;
+
+#include "Date.h"
 
 const vector<string> Date::sMonths = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Aug","Oct","Nov","Dec"};
 const vector<string> Date::sDays = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
