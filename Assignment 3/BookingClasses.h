@@ -23,13 +23,15 @@ class BookingClasses
         bool IsAC() const;
         int GetNumberOfTiers() const;
         bool IsLuxury() const;
-        virtual ~BookingClasses();
+        virtual double GetLoadFactor() const = 0;
+        virtual ~BookingClasses() = 0;
 };
 
 class SeatingClass:public BookingClasses
 {
     public:
         SeatingClass();
+        virtual double GetLoadFactor() const = 0;
         virtual ~SeatingClass();
 
 };
@@ -38,6 +40,7 @@ class BerthClass:public BookingClasses
 {
     public:
         BerthClass();
+        virtual double GetLoadFactor() const = 0;
         virtual ~BerthClass();        
 };
 
@@ -55,7 +58,6 @@ class ACFirstClass:public BerthClass
             return obj;
         }
         double GetLoadFactor() const;
-
         
 };
 
@@ -153,7 +155,6 @@ class ACChairCar:public SeatingClass
             return obj;
         }
         double GetLoadFactor() const;
-
         
 };
 

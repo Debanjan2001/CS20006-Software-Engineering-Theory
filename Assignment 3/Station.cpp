@@ -17,10 +17,10 @@ string Station::GetName() const
     return name_;
 }
 
-int Station::GetDistance(string otherStation) const
+int Station::GetDistance(Station& otherStation) const
 {
     Railways indianRailway = Railways::TheRailway();
-    return indianRailway.GetDistance(name_,otherStation);
+    return indianRailway.GetDistance(name_,otherStation.GetName());
 }
 
 Station::~Station()

@@ -21,7 +21,7 @@ class Station
     public: 
         Station(string name);
         string GetName() const;
-        int GetDistance (string otherStation) const;
+        int GetDistance (Station& otherStation) const;
         ~Station();
 
 };
