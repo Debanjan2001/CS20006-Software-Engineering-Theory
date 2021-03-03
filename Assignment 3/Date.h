@@ -7,14 +7,16 @@ Debanjan Saha
 #define _DATE_H
 #include<iostream>
 #include<string>
+#include<vector>
 using namespace std;
 
 class Date
 {
     private:
-        enum sMonths { Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
+        const static vector<string> sMonths;
+        const static vector<string> sDays; 
         typedef unsigned int UINT;
-        UINT day_; sMonths month_; UINT year_;
+        UINT day_; string month_; UINT year_;
     
     public:
         Date(UINT d, UINT m, UINT y);

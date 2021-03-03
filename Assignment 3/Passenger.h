@@ -22,6 +22,8 @@ class Passenger
     public:
         Passenger(string name,long long int aadhar,Date &dob,string gender,string category,long long int mobile);        
         ~Passenger();
+
+        virtual string GetName() = 0;
 };
 
 #endif

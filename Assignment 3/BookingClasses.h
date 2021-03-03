@@ -50,6 +50,11 @@ class ACFirstClass:public BerthClass
     public:
         ACFirstClass();
         ~ACFirstClass();
+        static const ACFirstClass& Type()
+        {
+            static const ACFirstClass obj;
+            return obj;
+        }
         double GetLoadFactor() const;
 
         
@@ -65,6 +70,11 @@ class AC2Tier:public BerthClass
     public:
         AC2Tier();
         ~AC2Tier();
+        static const AC2Tier& Type()
+        {
+            static const AC2Tier obj;
+            return obj;
+        }
         double GetLoadFactor() const;
 
         
@@ -80,6 +90,11 @@ class FirstClass:public BerthClass
     public:
         FirstClass();
         ~FirstClass();
+        static const FirstClass& Type()
+        {
+            static const FirstClass obj;
+            return obj;
+        }
         double GetLoadFactor() const;
 
         
@@ -95,6 +110,11 @@ class AC3Tier:public BerthClass
     public:
         AC3Tier();
         ~AC3Tier();
+        static const AC3Tier& Type()
+        {
+            static const AC3Tier obj;
+            return obj;
+        }
         double GetLoadFactor() const;
 
         
@@ -110,9 +130,12 @@ class Sleeper:public BerthClass
     public:
         Sleeper();
         ~Sleeper();
+        static const Sleeper& Type()
+        {
+            static const Sleeper obj;
+            return obj;
+        }
         double GetLoadFactor() const;
-
-        
 };
 
 
@@ -125,6 +148,11 @@ class ACChairCar:public SeatingClass
     public:
         ACChairCar();
         ~ACChairCar();
+        static const ACChairCar& Type()
+        {
+            static const ACChairCar obj;
+            return obj;
+        }
         double GetLoadFactor() const;
 
         
@@ -138,6 +166,11 @@ class SecondSitting:public SeatingClass
     public:
         SecondSitting();
         ~SecondSitting();
+        static const SecondSitting& Type()
+        {
+            static const SecondSitting obj;
+            return obj;
+        }
         double GetLoadFactor() const;
         
 };

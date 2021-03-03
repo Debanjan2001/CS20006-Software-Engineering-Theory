@@ -17,3 +17,4 @@ name_(name),aadhar_(aadhar),dateOfBirth_(dob),gender_(gender),category_(category
 
 Passenger::~Passenger()
 {}
+

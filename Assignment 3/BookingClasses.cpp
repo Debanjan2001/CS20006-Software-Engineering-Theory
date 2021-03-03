@@ -66,6 +66,7 @@ double ACFirstClass::GetLoadFactor() const
     return sLoadFactor_;
 }
 
+
 AC2Tier::AC2Tier()
 {
     name_ = "AC 2 Tier";
@@ -80,6 +81,7 @@ double AC2Tier::GetLoadFactor() const
 {
     return sLoadFactor_;
 }
+
 
 FirstClass::FirstClass()
 {
@@ -111,6 +113,8 @@ double AC3Tier::GetLoadFactor() const
     return sLoadFactor_;
 }
 
+
+
 ACChairCar::ACChairCar()
 {
     name_ = "AC Chair Car";
@@ -126,6 +130,7 @@ double ACChairCar::GetLoadFactor() const
 {
     return sLoadFactor_;
 }
+
 
 Sleeper::Sleeper()
 {
@@ -158,6 +163,7 @@ double SecondSitting::GetLoadFactor() const
 {
     return sLoadFactor_;
 }
+
 
 
 const double ACFirstClass::sLoadFactor_ = 3.00;
