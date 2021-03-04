@@ -36,7 +36,7 @@ class Booking
     public:
         static vector<Booking *> sBookings;
 
-        Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingclass);
+        Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingclass,const Passenger *passenger);
         ~Booking();
         virtual int ComputeFare();
 

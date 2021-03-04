@@ -17,10 +17,10 @@ const double Booking::sACSurcharge = 50.00;
 const double Booking::sLuxuryTaxPercent = 0.25; 
 
 
-Booking::Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingClass):
+Booking::Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingClass,const Passenger *passenger = 0):
 fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass)
 {
-    passenger_ = NULL;
+    passenger_ = passenger;
     pnrNumber_ = sBookingPNRSerial++;
     bookingStatus_ = true;
     bookingMessage_ = "BOOKING SUCCEEDED";

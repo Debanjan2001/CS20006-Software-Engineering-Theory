@@ -11,7 +11,7 @@ using namespace std;
 
 #include "Date.h"
 
-// class Date;
+class Date;
 
 class Passenger
 {
