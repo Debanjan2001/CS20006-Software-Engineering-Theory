@@ -10,9 +10,12 @@ using namespace std;
 #include "Passenger.h"
 
 
-Passenger::Passenger(string name,long long int aadhar,Date &dob,string gender,string category,long long int mobile = 0):
-name_(name),aadhar_(aadhar),dateOfBirth_(dob),gender_(gender),category_(category),mobile_(mobile)
-{}
+Passenger::Passenger(const string name,const long long int aadhar,const Date &dob,const string gender,const string category,const long long int mobile):
+name_(name),dateOfBirth_(dob),gender_(gender),category_(category)
+{
+    aadhar_ = static_cast<long long int>(aadhar);
+    mobile_ =static_cast<long long int>(mobile);
+}
 
 Passenger::~Passenger()
 {}

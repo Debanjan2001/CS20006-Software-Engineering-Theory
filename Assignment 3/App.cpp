@@ -1,14 +1,15 @@
 #include<iostream>
 #include<vector>
+using namespace std;
+
+
 #include "Date.h"
 #include "Station.h"
 #include "BookingClasses.h"
 #include "Booking.h"
 
-using namespace std;
 
 int main(){
-    cout<<"I am fine"<<endl;
     
     Booking b1(Station("Mumbai"), Station("Delhi"), Date(15, 2, 2021), ACFirstClass::Type());
     Booking b2(Station("Kolkata"), Station("Delhi"), Date(5, 3, 2021), AC2Tier::Type());
@@ -19,10 +20,10 @@ int main(){
     Booking b7(Station("Mumbai"), Station("Delhi"), Date(19, 5, 2021), SecondSitting::Type());
     Booking b8(Station("Delhi"), Station("Mumbai"), Date(22, 5, 2021), SecondSitting::Type());
 
-// Output the bookings done where sBookings is the collection of bookings done
+    // Output the bookings done where sBookings is the collection of bookings done
     vector<Booking*>::iterator it;
     for (it = Booking::sBookings.begin(); it < Booking::sBookings.end(); ++it) {
-    cout << *(*it);
+        cout << *(*it) <<endl;
     }
 
     return 0;

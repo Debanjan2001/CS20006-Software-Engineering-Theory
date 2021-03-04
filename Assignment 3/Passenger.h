@@ -21,10 +21,10 @@ class Passenger
         Date dateOfBirth_;
 
     public:
-        Passenger(string name,long long int aadhar,Date &dob,string gender,string category,long long int mobile);        
+        Passenger(const string name,const long long int aadhar,const Date &dob,const string gender,const string category,const long long int mobile);        
         ~Passenger();
 
-        virtual string GetName() = 0;
+        // virtual string GetName() = 0;
 };
 
 #endif

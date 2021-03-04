@@ -15,9 +15,9 @@ using namespace std;
 #include "BookingClasses.h"
 #include "Passenger.h"
 
-// class Station;
-// class Date;
-// class Passenger;
+class Station;
+class Date;
+class Passenger;
 
 class Booking
 {

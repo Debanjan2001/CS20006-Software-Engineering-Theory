@@ -14,7 +14,6 @@ map<pair<const Station*,const Station*>,int> Railways::sDistStations;
 
 Railways::Railways()
 {
-    cout<<"ctor rail"<<endl;
     sStations["Mumbai"] = new Station("Mumbai");
     sStations["Delhi"] = new Station("Delhi");
     sStations["Bangalore"] = new Station("Bangalore");
@@ -60,7 +59,6 @@ Railways::~Railways()
     {
         delete it->second;
     }
-
 } 
 
 int Railways::GetDistance(string from, string to) const

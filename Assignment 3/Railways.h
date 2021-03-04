@@ -12,7 +12,7 @@ using namespace std;
 
 #include "Station.h"
 
-// class Station;
+class Station;
 
 class Railways
 {
@@ -30,7 +30,6 @@ class Railways
             return IndianRailways;
         }
 
-        
         int GetDistance(string from,string to) const;
 
 };
