@@ -9,6 +9,11 @@ using namespace std;
 
 #include "Station.h"
 
+
+#include "Railways.h"
+
+// class Railways;
+
 Station::Station(string name): name_(name)
 {}
 
@@ -19,8 +24,7 @@ string Station::GetName() const
 
 int Station::GetDistance(Station& otherStation) const
 {
-    Railways indianRailway = Railways::TheRailway();
-    return indianRailway.GetDistance(name_,otherStation.GetName());
+    return (Railways::TheRailway()).GetDistance(name_,otherStation.GetName());
 }
 
 Station::~Station()

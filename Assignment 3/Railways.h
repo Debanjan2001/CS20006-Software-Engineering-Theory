@@ -12,7 +12,7 @@ using namespace std;
 
 #include "Station.h"
 
-class Station;
+// class Station;
 
 class Railways
 {
@@ -31,7 +31,7 @@ class Railways
         }
 
         
-        int GetDistance(string from,string to);
+        int GetDistance(string from,string to) const;
 
 };
 

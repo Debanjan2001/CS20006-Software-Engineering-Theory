@@ -1,7 +1,7 @@
 all : compile run
 
 compile:
-	g++ Date.cpp Passenger.cpp Station.cpp Railways.cpp BookingClasses.cpp App.cpp
+	g++ -std=c++11 Passenger.cpp Station.cpp Railways.cpp Booking.cpp App.cpp BookingClasses.cpp Date.cpp
 
 run:
 	./a.out

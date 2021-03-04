@@ -25,6 +25,7 @@ class Date
         friend ostream& operator<<(ostream& os,const Date& date)
         {
             os<< date.day_ <<"/"<< date.month_ <<"/"<<date.year_ ;
+            return os;
         }
 };
 

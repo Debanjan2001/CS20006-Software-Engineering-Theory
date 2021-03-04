@@ -17,32 +17,34 @@ const double Booking::sACSurcharge = 50.00;
 const double Booking::sLuxuryTaxPercent = 0.25; 
 
 
-Booking::Booking(Station& from,Station& to,Date& date,const BookingClasses& bookingClass):
+
+Booking::Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingClass):
 fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass)
 {
     pnrNumber_ = sBookingPNRSerial++;
     bookingStatus_ = true;
     bookingMessage_ = "BOOKING SUCCEEDED";
-    this->ComputeFare();
+    fare_ = ComputeFare();
     sBookings.push_back(this);
 }
 
 Booking::~Booking()
 {
-    delete passenger_;
+
 }
 
-void Booking::ComputeFare()
+int Booking::ComputeFare()
 {
     double amount = 0.0;
     amount += sBaseFarePerKM * fromStation_.GetDistance(toStation_);
     amount = amount * bookingClass_.GetLoadFactor();
-    if( bookingClass_.IsAC())
+
+    if( bookingClass_.IsAC() )
         amount += sACSurcharge;
 
     if( bookingClass_.IsLuxury())
         amount = amount + amount * sLuxuryTaxPercent;
 
-    fare_ = round(amount);
+    int amt = round(amount);
+    return amt;
 }
-

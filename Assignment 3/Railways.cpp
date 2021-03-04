@@ -14,12 +14,12 @@ map<pair<const Station*,const Station*>,int> Railways::sDistStations;
 
 Railways::Railways()
 {
+    cout<<"ctor rail"<<endl;
     sStations["Mumbai"] = new Station("Mumbai");
     sStations["Delhi"] = new Station("Delhi");
     sStations["Bangalore"] = new Station("Bangalore");
     sStations["Kolkata"] = new Station("Kolkata");
     sStations["Chennai"] = new Station("Chennai");
-
 
     sDistStations[make_pair(sStations["Mumbai"],sStations["Delhi"])] = 1447;
     sDistStations[make_pair(sStations["Delhi"],sStations["Mumbai"])] = 1447;
@@ -60,9 +60,10 @@ Railways::~Railways()
     {
         delete it->second;
     }
+
 } 
 
-int Railways::GetDistance(string from, string to)
+int Railways::GetDistance(string from, string to) const
 {
     return sDistStations[make_pair(sStations[from],sStations[to])];
 }
