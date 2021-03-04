@@ -3,8 +3,8 @@ Debanjan Saha
 19CS30014
 -----------------*/
 // Start of "Date.h"
-#ifndef _DATE_H
-#define _DATE_H
+#ifndef __DATE_H
+#define __DATE_H
 #include<iostream>
 #include<string>
 #include<vector>
@@ -19,6 +19,7 @@ class Date
         UINT day_; string month_; UINT year_;
     
     public:
+        Date();
         Date(UINT d, UINT m, UINT y);
         ~Date();
 

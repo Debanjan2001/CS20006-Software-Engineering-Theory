@@ -2,8 +2,8 @@
 Debanjan Saha
 19CS30014
 -----------------*/
-#ifndef _BOOKING_H
-#define _BOOKING_H
+#ifndef __BOOKING_H
+#define __BOOKING_H
 
 #include<iostream>
 #include<string>
@@ -22,11 +22,12 @@ class Passenger;
 class Booking
 {
     private:
-        Station fromStation_,toStation_ ;
-        Date date_;
+        const Station fromStation_,toStation_ ;
+        const Date date_;
         const BookingClasses& bookingClass_;
         const Passenger* passenger_;
-        int fare_,pnrNumber_;
+        int fare_;
+        const int pnrNumber_;
         bool bookingStatus_;
         string bookingMessage_; 
 

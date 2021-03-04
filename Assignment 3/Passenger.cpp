@@ -17,6 +17,9 @@ name_(name),dateOfBirth_(dob),gender_(gender),category_(category)
     mobile_ =static_cast<long long int>(mobile);
 }
 
+Passenger::Passenger():name_(""),aadhar_(0),dateOfBirth_(Date(1,1,1979)),gender_(""),category_(""),mobile_(0)
+{}
+
 Passenger::~Passenger()
 {}
 

@@ -11,17 +11,16 @@ using namespace std;
 #include "Booking.h"
 
 int Booking::sBookingPNRSerial = 1;
-vector<Booking *> Booking::sBookings = vector<Booking *>();
+vector<Booking *> Booking::sBookings;
+
 const double Booking::sBaseFarePerKM = 0.50; 
 const double Booking::sACSurcharge = 50.00; 
 const double Booking::sLuxuryTaxPercent = 0.25; 
 
-
 Booking::Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingClass):
-fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass)
+fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass),pnrNumber_(sBookingPNRSerial++)
 {
     passenger_ = NULL;
-    pnrNumber_ = sBookingPNRSerial++;
     bookingStatus_ = true;
     bookingMessage_ = "BOOKING SUCCEEDED";
     fare_ = ComputeFare();
@@ -29,9 +28,7 @@ fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass)
 }
 
 Booking::~Booking()
-{
-
-}
+{}
 
 int Booking::ComputeFare()
 {

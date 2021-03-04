@@ -10,6 +10,11 @@ using namespace std;
 const vector<string> Date::sMonths = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Aug","Oct","Nov","Dec"};
 const vector<string> Date::sDays = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
 
+Date::Date():day_(1),year_(1979)
+{
+    month_ = sMonths[0];
+}
+
 Date::Date(UINT d, UINT m, UINT y): day_(d),year_(y)
 {
     month_ = sMonths[m-1];

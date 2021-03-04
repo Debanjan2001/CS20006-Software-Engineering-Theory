@@ -10,8 +10,9 @@ using namespace std;
 #include "BookingClasses.h"
 
 
-
-BookingClasses::BookingClasses(){}
+BookingClasses::BookingClasses(string name,bool isSeat,bool ac,bool luxury,int numTiers):
+name_(name),isSeat_(isSeat),ac_(ac),luxury_(luxury),numTiers_(numTiers)
+{}
 
 string BookingClasses::GetName() const
 {
@@ -40,27 +41,18 @@ bool BookingClasses::IsLuxury() const
 
 BookingClasses::~BookingClasses(){}
 
-SeatingClass::SeatingClass()
-{
-    isSeat_ = true;
-}
+SeatingClass::SeatingClass(string name,bool ac,bool luxury,int numTiers):BookingClasses(name,true,ac,luxury,numTiers)
+{}
 
 SeatingClass::~SeatingClass(){}
 
-BerthClass::BerthClass()
-{
-    isSeat_ = false;
-}
+BerthClass::BerthClass(string name,bool ac,bool luxury,int numTiers):BookingClasses(name,false,ac,luxury,numTiers)
+{}
 
 BerthClass::~BerthClass(){}
 
-ACFirstClass::ACFirstClass()
-{
-    name_ = "AC First Class";
-    ac_ = true;
-    numTiers_ = 2;
-    luxury_ = true;
-}
+ACFirstClass::ACFirstClass():BerthClass("AC First Class",true,true,2)
+{}
 
 ACFirstClass::~ACFirstClass(){}
 
@@ -70,13 +62,8 @@ double ACFirstClass::GetLoadFactor() const
 }
 
 
-AC2Tier::AC2Tier()
-{
-    name_ = "AC 2 Tier";
-    ac_ = true;
-    numTiers_ = 2;
-    luxury_ = false;
-}
+AC2Tier::AC2Tier():BerthClass("AC 2 Tier",true,false,2)
+{}
 
 AC2Tier::~AC2Tier(){}
 
@@ -86,13 +73,8 @@ double AC2Tier::GetLoadFactor() const
 }
 
 
-FirstClass::FirstClass()
-{
-    name_ = "First Class";
-    ac_ = false;
-    numTiers_ = 2;
-    luxury_ = true;
-}
+FirstClass::FirstClass():BerthClass("First Class",false,true,2)
+{}
 
 FirstClass::~FirstClass(){}
 
@@ -101,13 +83,8 @@ double FirstClass::GetLoadFactor() const
     return sLoadFactor_;
 }
 
-AC3Tier::AC3Tier()
-{
-    name_ = "AC 3 Tier";
-    ac_ = true;
-    numTiers_ = 3;
-    luxury_ = false;
-}
+AC3Tier::AC3Tier():BerthClass("AC 3 Tier",true,false,3)
+{}
 
 AC3Tier::~AC3Tier(){}
 
@@ -117,17 +94,10 @@ double AC3Tier::GetLoadFactor() const
 }
 
 
-
-ACChairCar::ACChairCar()
-{
-    name_ = "AC Chair Car";
-    ac_ = true;
-    numTiers_ = 0;
-    luxury_ = false;
-}
+ACChairCar::ACChairCar():SeatingClass("AC Chair Car",true,false,0)
+{}
 
 ACChairCar::~ACChairCar(){}
-
 
 double ACChairCar::GetLoadFactor() const
 {
@@ -135,13 +105,8 @@ double ACChairCar::GetLoadFactor() const
 }
 
 
-Sleeper::Sleeper()
-{
-    name_ = "Sleeper";
-    ac_ = false;
-    numTiers_ = 3;
-    luxury_ = false;
-}
+Sleeper::Sleeper():BerthClass("Sleeper",false,false,3)
+{}
 
 Sleeper::~Sleeper(){}
 
@@ -151,13 +116,8 @@ double Sleeper::GetLoadFactor() const
     return sLoadFactor_;
 }
 
-SecondSitting::SecondSitting()
-{
-    name_ = "Second Sitting";
-    ac_ = false;
-    numTiers_ = 0;
-    luxury_ = false;
-}
+SecondSitting::SecondSitting():SeatingClass("Second Sitting",false,false,0)
+{}
 
 SecondSitting::~SecondSitting(){}
 

@@ -9,6 +9,9 @@ using namespace std;
 
 #include "Station.h"
 
+Station::Station():name_("")
+{}
+
 Station::Station(string name): name_(name)
 {}
 
@@ -17,9 +20,9 @@ string Station::GetName() const
     return name_;
 }
 
-int Station::GetDistance(Station& otherStation) const
+int Station::GetDistance(const Station& otherStation) const
 {
-    return (Railways::TheRailway()).GetDistance(name_,otherStation.GetName());
+    return (Railways::IndianRailways()).GetDistance(name_,otherStation.GetName());
 }
 
 Station::~Station()

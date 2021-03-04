@@ -2,8 +2,8 @@
 Debanjan Saha
 19CS30014
 -----------------*/
-#ifndef _BOOKINGCLASSES_H
-#define _BOOKINGCLASSES_H
+#ifndef __BOOKINGCLASSES_H
+#define __BOOKINGCLASSES_H
 
 #include<iostream>
 #include<string>
@@ -11,13 +11,16 @@ using namespace std;
 
 class BookingClasses
 {
-    protected:
+    private:
         string name_;
-        bool isSeat_,ac_,luxury_;
-        int numTiers_;
+
+    protected:
+        const bool isSeat_,ac_;
+        bool luxury_;
+        const int numTiers_;
 
     public:
-        BookingClasses();
+        BookingClasses(string name,bool isSeat,bool ac,bool luxury,int numTiers);
         string GetName() const;
         bool IsSitting() const;
         bool IsAC() const;
@@ -30,7 +33,7 @@ class BookingClasses
 class SeatingClass:public BookingClasses
 {
     public:
-        SeatingClass();
+        SeatingClass(string name,bool ac,bool luxury,int numTiers);
         virtual double GetLoadFactor() const = 0;
         virtual ~SeatingClass();
 
@@ -39,7 +42,7 @@ class SeatingClass:public BookingClasses
 class BerthClass:public BookingClasses
 {
     public:
-        BerthClass();
+        BerthClass(string name,bool ac,bool luxury,int numTiers);
         virtual double GetLoadFactor() const = 0;
         virtual ~BerthClass();        
 };

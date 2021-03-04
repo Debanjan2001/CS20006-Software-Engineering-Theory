@@ -2,8 +2,8 @@
 Debanjan Saha
 19CS30014
 -----------------*/
-#ifndef _PASSENGER_H
-#define _PASSENGER_H
+#ifndef __PASSENGER_H
+#define __PASSENGER_H
 
 #include<iostream>
 #include<string>
@@ -21,6 +21,7 @@ class Passenger
         Date dateOfBirth_;
 
     public:
+        Passenger();
         Passenger(const string name,const long long int aadhar,const Date &dob,const string gender,const string category,const long long int mobile);        
         ~Passenger();
 

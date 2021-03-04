@@ -2,8 +2,8 @@
 Debanjan Saha
 19CS30014
 -----------------*/
-#ifndef _RAILWAYS_H
-#define _RAILWAYS_H
+#ifndef __RAILWAYS_H
+#define __RAILWAYS_H
 
 #include<iostream>
 #include<string>
@@ -19,18 +19,22 @@ class Railways
     private:
         static map<const string,const Station*> sStations;
         static map<pair<const Station*,const Station*>,int> sDistStations;
-
+        
+        const Station* GetStation(const string& stationName) const;
+    
     public:
         Railways();
         ~Railways();
         
-        static const Railways& TheRailway()
+        static const Railways& IndianRailways()
         {
-            static const Railways IndianRailways;
-            return IndianRailways;
+            static const Railways indianRailways;
+            return indianRailways;
         }
 
-        int GetDistance(string from,string to) const;
+        int GetDistance(const string& from,const string& to) const;
+        
+
 
 };
 

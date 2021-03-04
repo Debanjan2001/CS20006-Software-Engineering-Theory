@@ -2,8 +2,8 @@
 Debanjan Saha
 19CS30014
 -----------------*/
-#ifndef _STATION_H
-#define _STATION_H
+#ifndef __STATION_H
+#define __STATION_H
 
 #include<iostream>
 #include<string>
@@ -19,9 +19,10 @@ class Station
         string name_;
     
     public: 
+        Station();
         Station(string name);
         string GetName() const;
-        int GetDistance (Station& otherStation) const;
+        int GetDistance (const Station& otherStation) const;
         ~Station();
 
 };
