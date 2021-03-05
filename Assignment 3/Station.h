@@ -37,7 +37,7 @@ class Station
         int GetDistance (const Station& otherStation) const;
 
         // Output Stream Overloading
-        friend ostream operator<<(ostream& os,const Station& station);
+        friend ostream& operator<<(ostream& os,const Station& station);
 };
 
 #endif

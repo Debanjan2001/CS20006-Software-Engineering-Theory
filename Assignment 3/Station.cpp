@@ -36,8 +36,9 @@ Station::~Station()
 {}
 
 // Output Stream Overloading
-ostream operator<<(ostream& os,const Station& station)
+ostream& operator<<(ostream& os,const Station& station)
 {
     os<<station.GetName();
+    return os;
 }
 

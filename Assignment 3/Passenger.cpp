@@ -16,8 +16,8 @@ Passenger::Passenger(const string name,const long long int aadhar,const Date &do
 name_(name),dateOfBirth_(dob),gender_(gender),category_(category)
 {
     //Assigns data members with appropriate values 
-    aadhar_ = static_cast<long long int>(aadhar);
-    mobile_ =static_cast<long long int>(mobile);
+    aadhar_ = static_cast<const long long int>(aadhar);
+    mobile_ =static_cast<const long long int>(mobile);
 }
 
 // Default Constructor
