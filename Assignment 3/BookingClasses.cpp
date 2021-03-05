@@ -11,7 +11,7 @@ using namespace std;
 // ***** Project Headers
 #include "BookingClasses.h"
 
-// Implementation of BookingClass
+// Implementation of BookingClasses
 BookingClasses::BookingClasses(const string name,const bool isSeat,const bool ac,bool luxury,const int numTiers):
 name_(name),isSeat_(isSeat),ac_(ac),luxury_(luxury),numTiers_(numTiers)
 {}
@@ -48,16 +48,19 @@ bool BookingClasses::IsLuxury() const
 
 BookingClasses::~BookingClasses(){}
 
+// Implementation of SeatingClass
 SeatingClass::SeatingClass(const string name,const bool ac,bool luxury,const int numTiers):BookingClasses(name,true,ac,luxury,numTiers)
 {}
 
 SeatingClass::~SeatingClass(){}
 
+// Implementation of BerthClass
 BerthClass::BerthClass(const string name,const bool ac,bool luxury,const int numTiers):BookingClasses(name,false,ac,luxury,numTiers)
 {}
 
 BerthClass::~BerthClass(){}
 
+// Implementation of ACFirstClass
 ACFirstClass::ACFirstClass():BerthClass("AC First Class",true,true,2)
 {}
 
@@ -65,10 +68,11 @@ ACFirstClass::~ACFirstClass(){}
 
 double ACFirstClass::GetLoadFactor() const
 {
+    //returns Load factor of this class
     return sLoadFactor;
 }
 
-
+//Implementation of AC2Tier
 AC2Tier::AC2Tier():BerthClass("AC 2 Tier",true,false,2)
 {}
 
@@ -76,10 +80,11 @@ AC2Tier::~AC2Tier(){}
 
 double AC2Tier::GetLoadFactor() const
 {
+    //returns Load factor of this class
     return sLoadFactor;
 }
 
-
+//Implementation of FirstClass
 FirstClass::FirstClass():BerthClass("First Class",false,true,2)
 {}
 
@@ -87,9 +92,11 @@ FirstClass::~FirstClass(){}
 
 double FirstClass::GetLoadFactor() const
 {
+    //returns Load factor of this class
     return sLoadFactor;
 }
 
+//Implementation of AC3Tier
 AC3Tier::AC3Tier():BerthClass("AC 3 Tier",true,false,3)
 {}
 
@@ -97,10 +104,11 @@ AC3Tier::~AC3Tier(){}
 
 double AC3Tier::GetLoadFactor() const
 {
+    //returns Load factor of this class
     return sLoadFactor;
 }
 
-
+// AC Chair Car Implementation
 ACChairCar::ACChairCar():SeatingClass("AC Chair Car",true,false,0)
 {}
 
@@ -108,10 +116,11 @@ ACChairCar::~ACChairCar(){}
 
 double ACChairCar::GetLoadFactor() const
 {
+    //returns Load factor of this class
     return sLoadFactor;
 }
 
-
+//Implementation of Sleeper
 Sleeper::Sleeper():BerthClass("Sleeper",false,false,3)
 {}
 
@@ -120,9 +129,11 @@ Sleeper::~Sleeper(){}
 
 double Sleeper::GetLoadFactor() const
 {
+    //returns Load factor of this class
     return sLoadFactor;
 }
 
+//Implementation of SecondSitting
 SecondSitting::SecondSitting():SeatingClass("Second Sitting",false,false,0)
 {}
 
@@ -131,10 +142,11 @@ SecondSitting::~SecondSitting(){}
 
 double SecondSitting::GetLoadFactor() const
 {
+    //returns Load factor of this class
     return sLoadFactor;
 }
 
-
+//Static Constant definitions 
 const double ACFirstClass::sLoadFactor = 3.00;
 const double AC2Tier::sLoadFactor = 2.00;
 const double FirstClass::sLoadFactor = 2.00;
