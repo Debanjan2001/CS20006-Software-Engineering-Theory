@@ -24,7 +24,6 @@ class Station
         string GetName() const;
         int GetDistance (const Station& otherStation) const;
         ~Station();
-
 };
 
 #endif

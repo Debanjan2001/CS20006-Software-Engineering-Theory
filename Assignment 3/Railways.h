@@ -34,8 +34,6 @@ class Railways
 
         int GetDistance(const string& from,const string& to) const;
         
-
-
 };
 
 #endif

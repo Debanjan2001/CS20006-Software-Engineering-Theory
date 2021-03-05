@@ -51,7 +51,7 @@ class BerthClass:public BookingClasses
 class ACFirstClass:public BerthClass
 {
     private:
-        static const double sLoadFactor_;
+        static const double sLoadFactor;
     public:
         ACFirstClass();
         ~ACFirstClass();
@@ -68,7 +68,7 @@ class ACFirstClass:public BerthClass
 class AC2Tier:public BerthClass
 {
     private:
-        static const double sLoadFactor_;
+        static const double sLoadFactor;
 
 
     public:
@@ -88,7 +88,7 @@ class AC2Tier:public BerthClass
 class FirstClass:public BerthClass
 {
     private:
-        static const double sLoadFactor_;
+        static const double sLoadFactor;
 
 
     public:
@@ -108,7 +108,7 @@ class FirstClass:public BerthClass
 class AC3Tier:public BerthClass
 {
     private:
-        static const double sLoadFactor_;
+        static const double sLoadFactor;
 
 
     public:
@@ -128,7 +128,7 @@ class AC3Tier:public BerthClass
 class Sleeper:public BerthClass
 {
     private:
-        static const double sLoadFactor_;
+        static const double sLoadFactor;
 
 
     public:
@@ -146,7 +146,7 @@ class Sleeper:public BerthClass
 class ACChairCar:public SeatingClass
 {
     private:
-        static const double sLoadFactor_;
+        static const double sLoadFactor;
 
 
     public:
@@ -164,7 +164,7 @@ class ACChairCar:public SeatingClass
 class SecondSitting:public SeatingClass
 {
     private:
-        static const double sLoadFactor_;
+        static const double sLoadFactor;
 
     public:
         SecondSitting();

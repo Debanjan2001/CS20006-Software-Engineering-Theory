@@ -58,7 +58,7 @@ ACFirstClass::~ACFirstClass(){}
 
 double ACFirstClass::GetLoadFactor() const
 {
-    return sLoadFactor_;
+    return sLoadFactor;
 }
 
 
@@ -69,7 +69,7 @@ AC2Tier::~AC2Tier(){}
 
 double AC2Tier::GetLoadFactor() const
 {
-    return sLoadFactor_;
+    return sLoadFactor;
 }
 
 
@@ -80,7 +80,7 @@ FirstClass::~FirstClass(){}
 
 double FirstClass::GetLoadFactor() const
 {
-    return sLoadFactor_;
+    return sLoadFactor;
 }
 
 AC3Tier::AC3Tier():BerthClass("AC 3 Tier",true,false,3)
@@ -90,7 +90,7 @@ AC3Tier::~AC3Tier(){}
 
 double AC3Tier::GetLoadFactor() const
 {
-    return sLoadFactor_;
+    return sLoadFactor;
 }
 
 
@@ -101,7 +101,7 @@ ACChairCar::~ACChairCar(){}
 
 double ACChairCar::GetLoadFactor() const
 {
-    return sLoadFactor_;
+    return sLoadFactor;
 }
 
 
@@ -113,7 +113,7 @@ Sleeper::~Sleeper(){}
 
 double Sleeper::GetLoadFactor() const
 {
-    return sLoadFactor_;
+    return sLoadFactor;
 }
 
 SecondSitting::SecondSitting():SeatingClass("Second Sitting",false,false,0)
@@ -124,16 +124,16 @@ SecondSitting::~SecondSitting(){}
 
 double SecondSitting::GetLoadFactor() const
 {
-    return sLoadFactor_;
+    return sLoadFactor;
 }
 
 
 
-const double ACFirstClass::sLoadFactor_ = 3.00;
-const double AC2Tier::sLoadFactor_ = 2.00;
-const double FirstClass::sLoadFactor_ = 2.00;
-const double AC3Tier::sLoadFactor_ = 1.75;
-const double ACChairCar::sLoadFactor_ = 1.25;
-const double Sleeper::sLoadFactor_ = 1.00;
-const double SecondSitting::sLoadFactor_ = 0.50;
+const double ACFirstClass::sLoadFactor = 3.00;
+const double AC2Tier::sLoadFactor = 2.00;
+const double FirstClass::sLoadFactor = 2.00;
+const double AC3Tier::sLoadFactor = 1.75;
+const double ACChairCar::sLoadFactor = 1.25;
+const double Sleeper::sLoadFactor = 1.00;
+const double SecondSitting::sLoadFactor = 0.50;
 
