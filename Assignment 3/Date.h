@@ -15,19 +15,18 @@ class Date
     private:
         const static vector<string> sMonths;
         const static vector<string> sDays; 
+        enum Month { Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
+        enum Day { Mon, Tue, Wed, Thr, Fri, Sat, Sun };
+        
         typedef unsigned int UINT;
-        UINT day_; string month_; UINT year_;
+        UINT date_; Month month_; UINT year_;
     
     public:
         Date();
         Date(UINT d, UINT m, UINT y);
         ~Date();
 
-        friend ostream& operator<<(ostream& os,const Date& date)
-        {
-            os<< date.day_ <<"/"<< date.month_ <<"/"<<date.year_ ;
-            return os;
-        }
+        friend ostream& operator<<(ostream& os,const Date& date);
 };
 
 #endif
