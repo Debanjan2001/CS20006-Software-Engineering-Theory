@@ -2,18 +2,21 @@
 Debanjan Saha
 19CS30014
 -----------------*/
+
+// ***** C++ Standard Library Headers
 #include<iostream>
 #include<string>
-
 using namespace std;
 
+// ***** Project Headers
 #include "BookingClasses.h"
 
-
-BookingClasses::BookingClasses(string name,bool isSeat,bool ac,bool luxury,int numTiers):
+// Implementation of BookingClass
+BookingClasses::BookingClasses(const string name,const bool isSeat,const bool ac,bool luxury,const int numTiers):
 name_(name),isSeat_(isSeat),ac_(ac),luxury_(luxury),numTiers_(numTiers)
 {}
 
+// Gets name of bookingclass
 string BookingClasses::GetName() const
 {
     return name_;
@@ -21,32 +24,36 @@ string BookingClasses::GetName() const
 
 bool BookingClasses::IsSitting() const
 {
+    // Returns true if it has seats only and not berth.
     return isSeat_;
 }
 
 bool BookingClasses::IsAC() const
 {
+    // returns true if it has AC
     return ac_;
 }
 
 int BookingClasses::GetNumberOfTiers() const
 {
+    // return number of Tiers of its booking class
     return numTiers_;
 }
 
 bool BookingClasses::IsLuxury() const 
 {
+    // returns true if it is a luxury booking class
     return luxury_;
 }
 
 BookingClasses::~BookingClasses(){}
 
-SeatingClass::SeatingClass(string name,bool ac,bool luxury,int numTiers):BookingClasses(name,true,ac,luxury,numTiers)
+SeatingClass::SeatingClass(const string name,const bool ac,bool luxury,const int numTiers):BookingClasses(name,true,ac,luxury,numTiers)
 {}
 
 SeatingClass::~SeatingClass(){}
 
-BerthClass::BerthClass(string name,bool ac,bool luxury,int numTiers):BookingClasses(name,false,ac,luxury,numTiers)
+BerthClass::BerthClass(const string name,const bool ac,bool luxury,const int numTiers):BookingClasses(name,false,ac,luxury,numTiers)
 {}
 
 BerthClass::~BerthClass(){}
@@ -126,7 +133,6 @@ double SecondSitting::GetLoadFactor() const
 {
     return sLoadFactor;
 }
-
 
 
 const double ACFirstClass::sLoadFactor = 3.00;

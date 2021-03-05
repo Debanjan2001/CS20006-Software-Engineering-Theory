@@ -3,17 +3,23 @@ Debanjan Saha
 19CS30014
 -----------------*/
 
+// ***** C++ Standard Library Headers
 #include<iostream>
 #include<map>
 using namespace std;
 
+// ***** Project Headers
 #include "Railways.h"
 
+// ***** Static definitions
 map<const string,const Station*> Railways::sStations;
 map<pair<const Station*,const Station*>,int> Railways::sDistStations;
 
+// Implementation of Railways
 Railways::Railways()
 {
+
+    // Predefined data
     sStations["Mumbai"] = new Station("Mumbai");
     sStations["Delhi"] = new Station("Delhi");
     sStations["Bangalore"] = new Station("Bangalore");
@@ -41,8 +47,10 @@ Railways::Railways()
     sDistStations[make_pair(sStations["Kolkata"],sStations["Chennai"])] = 1659;
 }
 
+// Destructor
 Railways::~Railways()
 {
+    // Cleans up the stations created before 
     map<const string,const Station*>::iterator it;
 
     for(it = sStations.begin(); it!= sStations.end(); ++it)
@@ -51,8 +59,10 @@ Railways::~Railways()
     }
 } 
 
+
 const Station* Railways::GetStation(const string& stationName) const
 {
+    // Looks for a Station with matching name 
     map<const string,const Station* >::iterator it;
 
     for(it = sStations.begin(); it != sStations.end() ; ++it)
@@ -61,14 +71,17 @@ const Station* Railways::GetStation(const string& stationName) const
             return it->second;
     }
 
+    // returns NULL if Station with given name is not found.
     return NULL;
 }
 
 int Railways::GetDistance(const string& from,const string& to) const
 {
+    // Get source and destination stations from their names.
     const Station* source = GetStation(from);
     const Station* destination = GetStation(to);
 
+    // Gets distance between the two Stations
     map<pair<const Station*,const Station*>,int>::iterator it;
     it = sDistStations.find(make_pair(source,destination));
 

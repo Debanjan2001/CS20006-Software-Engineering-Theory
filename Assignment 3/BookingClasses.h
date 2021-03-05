@@ -5,22 +5,24 @@ Debanjan Saha
 #ifndef __BOOKINGCLASSES_H
 #define __BOOKINGCLASSES_H
 
+// ***** C++ Standard Library Headers
 #include<iostream>
 #include<string>
 using namespace std;
 
 class BookingClasses
 {
-    private:
-        string name_;
-
     protected:
+        const string name_;
         const bool isSeat_,ac_;
-        bool luxury_;
         const int numTiers_;
 
+        //Not constant since it is changeable according to tax rules
+        bool luxury_;
+
+
     public:
-        BookingClasses(string name,bool isSeat,bool ac,bool luxury,int numTiers);
+        BookingClasses(const string name,const bool isSeat,const bool ac,bool luxury,const int numTiers);
         string GetName() const;
         bool IsSitting() const;
         bool IsAC() const;
@@ -33,7 +35,7 @@ class BookingClasses
 class SeatingClass:public BookingClasses
 {
     public:
-        SeatingClass(string name,bool ac,bool luxury,int numTiers);
+        SeatingClass(const string name,const bool ac,bool luxury,const int numTiers);
         virtual double GetLoadFactor() const = 0;
         virtual ~SeatingClass();
 
@@ -42,7 +44,7 @@ class SeatingClass:public BookingClasses
 class BerthClass:public BookingClasses
 {
     public:
-        BerthClass(string name,bool ac,bool luxury,int numTiers);
+        BerthClass(const string name,const bool ac,bool luxury,const int numTiers);
         virtual double GetLoadFactor() const = 0;
         virtual ~BerthClass();        
 };

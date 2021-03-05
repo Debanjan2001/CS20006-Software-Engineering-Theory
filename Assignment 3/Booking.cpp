@@ -2,34 +2,44 @@
 Debanjan Saha
 19CS30014
 -----------------*/
+
+// ***** C++ Standard Library Headers
 #include<iostream>
 #include<string>
 #include<vector>
-#include<math.h>
 using namespace std;
 
+// ***** Project Headers
 #include "Booking.h"
 
+// ***** Static Definitions
 int Booking::sBookingPNRSerial = 1;
 vector<Booking *> Booking::sBookings;
 
+// ***** Static constant definitions.
 const double Booking::sBaseFarePerKM = 0.50; 
 const double Booking::sACSurcharge = 50.00; 
 const double Booking::sLuxuryTaxPercent = 0.25; 
 
+// Implementation of Booking class
 Booking::Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingClass):
 fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass),pnrNumber_(sBookingPNRSerial++)
 {
+    //Initialised passenger as null.
     passenger_ = NULL;
+
+    // Booking is successful always.
     bookingStatus_ = true;
     bookingMessage_ = "BOOKING SUCCEEDED";
     fare_ = ComputeFare();
     sBookings.push_back(this);
 }
 
+//Destructor
 Booking::~Booking()
 {}
 
+//Gets Fare for a particular type of booking
 int Booking::ComputeFare()
 {
     double amount = 0.0;
@@ -42,10 +52,11 @@ int Booking::ComputeFare()
     if( bookingClass_.IsLuxury())
         amount += amount * sLuxuryTaxPercent;
 
-    int finalAmount = round(amount);
+    int finalAmount = static_cast<int>(amount+0.50);
     return finalAmount;
 }
 
+// Output Stream Overloading.
 ostream& operator<<(ostream& os,const Booking& booking)
 {
     os<<booking.bookingMessage_<<"\n";
