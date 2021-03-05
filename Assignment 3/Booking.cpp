@@ -40,8 +40,8 @@ int Booking::ComputeFare()
         amount += sACSurcharge;
 
     if( bookingClass_.IsLuxury())
-        amount = amount + amount * sLuxuryTaxPercent;
+        amount += amount * sLuxuryTaxPercent;
 
-    int amt = round(amount);
-    return amt;
+    int finalAmount = round(amount);
+    return finalAmount;
 }
