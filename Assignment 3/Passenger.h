@@ -34,7 +34,7 @@ class Passenger
 
         // pure virtual getter method of passenger 
         // I made it pure to make it abstract base class.
-        virtual string GetName() = 0;
+        // virtual string GetName() = 0;
 };
 
 #endif

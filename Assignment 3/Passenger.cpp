@@ -25,3 +25,5 @@ Passenger::Passenger():name_(""),aadhar_(0),dateOfBirth_(Date()),gender_(""),cat
 Passenger::~Passenger()
 {}
 
+Passenger a("a",100,Date(),"s","m");
+
