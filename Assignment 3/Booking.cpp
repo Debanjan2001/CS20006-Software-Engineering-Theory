@@ -22,13 +22,10 @@ const double Booking::sACSurcharge = 50.00;
 const double Booking::sLuxuryTaxPercent = 0.25; 
 
 // Implementation of Booking class
-Booking::Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingClass):
-fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass),pnrNumber_(sBookingPNRSerial++)
+Booking::Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingClass,const Passenger* passenger):
+fromStation_(from),toStation_(to),date_(date),bookingClass_(bookingClass),pnrNumber_(sBookingPNRSerial++),passenger_(passenger)
 {
-    //Initialised passenger as null.
-    passenger_ = NULL;
-
-    // Booking is successful always.
+    // Booking is always successful.
     bookingStatus_ = true;
     bookingMessage_ = "BOOKING SUCCEEDED";
     fare_ = ComputeFare();
@@ -59,16 +56,16 @@ int Booking::ComputeFare()
 // Output Stream Overloading.
 ostream& operator<<(ostream& os,const Booking& booking)
 {
-    os<<booking.bookingMessage_<<"\n";
-    os<<"PNR NUMBER = "<<booking.pnrNumber_<<"\n";
+    os<<booking.bookingMessage_<<":\n";
+    os<<"PNR Number = "<<booking.pnrNumber_<<"\n";
     os<<"From Station = "<<booking.fromStation_.GetName()<<"\n";
     os<<"To Station = "<<booking.toStation_.GetName()<<"\n";
     os<<"Travel Date = "<<booking.date_<<"\n";
     os<<"Travel Class = "<<booking.bookingClass_.GetName()<<"\n";
-    os<<" : Mode : "<< ((booking.bookingClass_.IsSitting())?"Sitting":"Sleeping" )<<"\n";
-    os<<" : Comfort : "<< ((booking.bookingClass_.IsAC())?"AC":"Non-AC" ) <<"\n";
-    os<<" : Bunks : "<< booking.bookingClass_.GetNumberOfTiers()<<"\n";
-    os<<" : Luxury : "<< ((booking.bookingClass_.IsLuxury())?"Yes":"No")<<"\n";
+    os<<"  : Mode: "<< ((booking.bookingClass_.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((booking.bookingClass_.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< booking.bookingClass_.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((booking.bookingClass_.IsLuxury())?"Yes":"No")<<"\n";
     os<<"Fare = "<<booking.fare_<<"\n";
     return os;
 }

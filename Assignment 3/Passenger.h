@@ -22,9 +22,9 @@ class Date;
 class Passenger
 {
     private:
-        string name_,gender_,category_;
-        long long int aadhar_,mobile_;
-        Date dateOfBirth_;
+        const string name_,gender_,category_;
+        const long long int aadhar_,mobile_;
+        const Date dateOfBirth_;
 
     public:
         //Constructor and Destructor

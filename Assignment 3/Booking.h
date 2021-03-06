@@ -52,7 +52,7 @@ class Booking
         static vector<Booking *> sBookings;
 
         //Constructor and Destructor
-        Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingclass);
+        Booking(const Station& from,const Station& to,const Date& date,const BookingClasses& bookingclass,const Passenger* passenger = NULL);
         ~Booking();
 
         // Gets fare for all types of booking
@@ -61,6 +61,8 @@ class Booking
         // Output Stream overloading 
         friend ostream& operator<<(ostream& os,const Booking& booking);
 
+        //Static method to test class Booking
+        static void UnitTestBooking();
         
 };
 

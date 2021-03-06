@@ -155,3 +155,71 @@ const double ACChairCar::sLoadFactor = 1.25;
 const double Sleeper::sLoadFactor = 1.00;
 const double SecondSitting::sLoadFactor = 0.50;
 
+//Output Stream Overload Implementation
+ostream& operator<<(ostream& os, const ACFirstClass& acFirstClass )
+{
+    os<<"Travel Class = "<<acFirstClass.GetName()<<"\n";
+    os<<"  : Mode: "<< ((acFirstClass.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((acFirstClass.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< acFirstClass.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((acFirstClass.IsLuxury())?"Yes":"No")<<"\n";
+}
+
+ostream& operator<<(ostream& os, const FirstClass& firstClass )
+{
+    os<<"Travel Class = "<<firstClass.GetName()<<"\n";
+    os<<"  : Mode: "<< ((firstClass.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((firstClass.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< firstClass.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((firstClass.IsLuxury())?"Yes":"No")<<"\n";
+}
+
+
+ostream& operator<<(ostream& os, const AC2Tier& ac2Tier )
+{
+    os<<"Travel Class = "<<ac2Tier.GetName()<<"\n";
+    os<<"  : Mode: "<< ((ac2Tier.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((ac2Tier.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< ac2Tier.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((ac2Tier.IsLuxury())?"Yes":"No")<<"\n";
+}
+
+
+ostream& operator<<(ostream& os, const AC3Tier& ac3Tier )
+{
+    os<<"Travel Class = "<<ac3Tier.GetName()<<"\n";
+    os<<"  : Mode: "<< ((ac3Tier.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((ac3Tier.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< ac3Tier.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((ac3Tier.IsLuxury())?"Yes":"No")<<"\n";
+}
+
+ostream& operator<<(ostream& os, const Sleeper& sleeper )
+{
+    os<<"Travel Class = "<<sleeper.GetName()<<"\n";
+    os<<"  : Mode: "<< ((sleeper.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((sleeper.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< sleeper.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((sleeper.IsLuxury())?"Yes":"No")<<"\n";
+}
+
+ostream& operator<<(ostream& os, const ACChairCar& acChairCar )
+{
+    os<<"Travel Class = "<<acChairCar.GetName()<<"\n";
+    os<<"  : Mode: "<< ((acChairCar.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((acChairCar.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< acChairCar.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((acChairCar.IsLuxury())?"Yes":"No")<<"\n";
+}
+
+ostream& operator<<(ostream& os, const SecondSitting& secondSitting )
+{
+    os<<"Travel Class = "<<secondSitting.GetName()<<"\n";
+    os<<"  : Mode: "<< ((secondSitting.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((secondSitting.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< secondSitting.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((secondSitting.IsLuxury())?"Yes":"No")<<"\n";
+}
+
+// Unit Tests Implementations
+

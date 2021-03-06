@@ -48,7 +48,9 @@ class Railways
 
         //Gets distance between two stations from their names
         int GetDistance(const string& from,const string& to) const;
-        
+
+        //Static method to test class Railways
+        static void UnitTestRailways();
 };
 
 #endif

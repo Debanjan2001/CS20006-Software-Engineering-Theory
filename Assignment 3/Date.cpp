@@ -26,6 +26,24 @@ Date::Date(UINT d, UINT m, UINT y): date_(d),month_(static_cast<Month>(m)),year_
 Date::~Date()
 {}
 
+//UnitTest
+void Date::UnitTestDate()
+{
+    // Different cases of construction
+    Date d1; // Default Date object with no parameter
+    Date d2 = Date(14,7,2001); // Date with a user-defined date 
+
+    if(d1.date_ != 1 || d1.sMonths[d1.month_-1] != "Jan" || d1.year_!= 1979)
+        cout<<"  Date construction error on Date()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed" <<endl;
+
+    if(d2.date_ != 14 || d2.sMonths[d2.month_-1] != "Jul" || d2.year_!= 2001)
+        cout<<"  Date construction error on Date(14,7,2001)"<<endl;
+    else
+        cout<<"  Subtest-2 Passed" <<endl;
+}
+
 // Friend function definition for output stream overloading
 ostream& operator<<(ostream& os,const Date& date)
 {

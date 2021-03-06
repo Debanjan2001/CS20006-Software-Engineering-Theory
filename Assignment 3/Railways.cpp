@@ -18,7 +18,6 @@ map<pair<const Station*,const Station*>,int> Railways::sDistStations;
 // Implementation of Railways
 Railways::Railways()
 {
-
     // Predefined data
     sStations["Mumbai"] = new Station("Mumbai");
     sStations["Delhi"] = new Station("Delhi");
@@ -92,6 +91,11 @@ int Railways::GetDistance(const string& from,const string& to) const
 
     int distance = it->second;
     return distance;
+}
 
+//UnitTest
+void Railways::UnitTestRailways()
+{
+    
 }
 

@@ -12,12 +12,9 @@ using namespace std;
 #include "Passenger.h"
 
 // Constructor
-Passenger::Passenger(const string name,const long long int aadhar,const Date &dob,const string gender,const string category,const long long int mobile):
-name_(name),dateOfBirth_(dob),gender_(gender),category_(category)
+Passenger::Passenger(const string name,const long long int aadhar,const Date &dob,const string gender,const string category,const long long int mobile = 0):
+name_(name),dateOfBirth_(dob),gender_(gender),category_(category),aadhar_(static_cast<const long long int>(aadhar)),mobile_(static_cast<const long long int>(mobile))
 {
-    //Assigns data members with appropriate values 
-    aadhar_ = static_cast<const long long int>(aadhar);
-    mobile_ =static_cast<const long long int>(mobile);
 }
 
 // Default Constructor

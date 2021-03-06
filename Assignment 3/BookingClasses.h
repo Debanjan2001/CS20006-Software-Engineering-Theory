@@ -10,6 +10,7 @@ Debanjan Saha
 #include<string>
 using namespace std;
 
+//Abstract base class BookingClasses
 class BookingClasses
 {
     protected:
@@ -32,21 +33,23 @@ class BookingClasses
         virtual ~BookingClasses() = 0;
 };
 
+//Abstract Base Class SeatingClass
 class SeatingClass:public BookingClasses
 {
     public:
         SeatingClass(const string name,const bool ac,bool luxury,const int numTiers);
         virtual double GetLoadFactor() const = 0;
-        virtual ~SeatingClass();
+        virtual ~SeatingClass() = 0;
 
 };
 
+//Abstract Base Class BerthClass
 class BerthClass:public BookingClasses
 {
     public:
         BerthClass(const string name,const bool ac,bool luxury,const int numTiers);
         virtual double GetLoadFactor() const = 0;
-        virtual ~BerthClass();        
+        virtual ~BerthClass() = 0;        
 };
 
 
@@ -57,12 +60,21 @@ class ACFirstClass:public BerthClass
     public:
         ACFirstClass();
         ~ACFirstClass();
+
+        //Singleton ACFirstClass
         static const ACFirstClass& Type()
         {
             static const ACFirstClass obj;
             return obj;
         }
         double GetLoadFactor() const;
+
+        //Output Stream Overloading
+        friend ostream& operator<<(ostream& os,const ACFirstClass& acFirstClass);
+
+
+        //Static method to test clTestACFirstClass
+        static void UnitTestACFirstClass();
         
 };
 
@@ -76,12 +88,21 @@ class AC2Tier:public BerthClass
     public:
         AC2Tier();
         ~AC2Tier();
+
+        //Singleton AC2Tier
         static const AC2Tier& Type()
         {
             static const AC2Tier obj;
             return obj;
         }
         double GetLoadFactor() const;
+
+        //Output Stream Overloading
+        friend ostream& operator<<(ostream& os,const AC2Tier& ac2Tier);
+
+
+        //Static method to test classtAC2Tier
+        static void UnitTestAC2Tier();
 
         
 };
@@ -96,12 +117,21 @@ class FirstClass:public BerthClass
     public:
         FirstClass();
         ~FirstClass();
+
+        //Singleton FirstClass
         static const FirstClass& Type()
         {
             static const FirstClass obj;
             return obj;
         }
         double GetLoadFactor() const;
+
+        //Output Stream Overloading
+        friend ostream& operator<<(ostream& os,const FirstClass& firstClass);
+
+
+        //Static method to test class FirstClass
+        static void UnitTestFirstClass();
 
         
 };
@@ -116,12 +146,21 @@ class AC3Tier:public BerthClass
     public:
         AC3Tier();
         ~AC3Tier();
+
+        //Singleton AC3Tier
         static const AC3Tier& Type()
         {
             static const AC3Tier obj;
             return obj;
         }
         double GetLoadFactor() const;
+
+         //Output Stream Overloading
+        friend ostream& operator<<(ostream& os,const AC3Tier& ac3Tier);
+
+
+        //Static method to test class AC3Tier
+        static void UnitTestAC3Tier();
 
         
 };
@@ -136,12 +175,20 @@ class Sleeper:public BerthClass
     public:
         Sleeper();
         ~Sleeper();
+
+        //Singleton Sleeper
         static const Sleeper& Type()
         {
             static const Sleeper obj;
             return obj;
         }
         double GetLoadFactor() const;
+
+         //Output Stream Overloading
+        friend ostream& operator<<(ostream& os,const Sleeper& sleeper);        
+
+        //Static method to test class Sleeper
+        static void UnitTestSleeper();
 };
 
 
@@ -150,16 +197,23 @@ class ACChairCar:public SeatingClass
     private:
         static const double sLoadFactor;
 
-
     public:
         ACChairCar();
         ~ACChairCar();
+
+        //Singleton ACChairCar
         static const ACChairCar& Type()
         {
             static const ACChairCar obj;
             return obj;
         }
         double GetLoadFactor() const;
+
+        //Output Stream Overloading
+        friend ostream& operator<<(ostream& os,const ACChairCar& acChairCar);
+
+        //Static method to test classtACChairCar
+        static void UnitTestACChairCar();
         
 };
 
@@ -171,14 +225,22 @@ class SecondSitting:public SeatingClass
     public:
         SecondSitting();
         ~SecondSitting();
+
+        //Singleton SecondSitting
         static const SecondSitting& Type()
         {
             static const SecondSitting obj;
             return obj;
         }
         double GetLoadFactor() const;
-        
-};
 
+        //Output Stream Overloading
+        friend ostream& operator<<(ostream& os,const SecondSitting& secondSitting);
+
+        //Static method to test class SecondSitting
+        static void UnitTestSecondSitting();
+
+
+};
 
 #endif

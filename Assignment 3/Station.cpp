@@ -35,6 +35,30 @@ int Station::GetDistance(const Station& otherStation) const
 Station::~Station()
 {}
 
+//UnitTest
+void Station::UnitTestStation()
+{
+    Station s1; // Station  with no parameter
+    Station s2("Kolkata"); // Station with a user defined name
+    Station s3("Delhi");
+
+    if(s1.GetName().length()!=0)
+        cout<<"  Station construction error on Station"<<endl;
+    else
+        cout<<"  Subtest-1 Passed" <<endl;
+
+    if(s2.GetName() != "Kolkata")
+        cout<<"  Station construction error on Station(\"Kolkata\")"<<endl;
+    else
+        cout<<"  Subtest-2 Passed" <<endl;
+
+    if(s2.GetDistance(s3) != 1472)
+        cout<<"  Station GetDistance error on Station(\"Kolkata\").GetDistance(Station(\"Delhi\"))"<<endl;
+    else
+        cout<<"  Subtest-3 Passed" <<endl;
+
+}
+
 // Output Stream Overloading
 ostream& operator<<(ostream& os,const Station& station)
 {

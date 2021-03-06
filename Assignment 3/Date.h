@@ -36,6 +36,9 @@ class Date
 
         // Output Stream Overloading friend function Declaration
         friend ostream& operator<<(ostream& os,const Date& date);
+
+        //Static method to test class Date
+        static void UnitTestDate();
 };
 
 #endif

@@ -1,15 +1,23 @@
+/*---------------- 
+Debanjan Saha
+19CS30014
+-----------------*/
+
+// ***** C++ Standard Library Headers
+
 #include<iostream>
 #include<vector>
 using namespace std;
 
+// ***** Project Headers
 #include "Date.h"
 #include "Station.h"
 #include "BookingClasses.h"
 #include "Booking.h"
 
-
-int main(){
-    
+// Test application for booking.
+void BookingApplication()
+{
     Booking b1(Station("Mumbai"), Station("Delhi"), Date(15, 2, 2021), ACFirstClass::Type());
     Booking b2(Station("Kolkata"), Station("Delhi"), Date(5, 3, 2021), AC2Tier::Type());
     Booking b3(Station("Mumbai"), Station("Kolkata"), Date(17, 3, 2021), FirstClass::Type());
@@ -22,8 +30,11 @@ int main(){
     // Output the bookings done where sBookings is the collection of bookings done
     vector<Booking*>::iterator it;
     for (it = Booking::sBookings.begin(); it < Booking::sBookings.end(); ++it) {
-        cout << *(*it) <<endl;
+        cout << *(*it);
     }
+}
 
-    return 0;
+int main()
+{
+    BookingApplication();
 }

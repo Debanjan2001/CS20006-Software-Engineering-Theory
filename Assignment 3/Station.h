@@ -38,6 +38,10 @@ class Station
 
         // Output Stream Overloading
         friend ostream& operator<<(ostream& os,const Station& station);
+
+        //Static method to test class Station
+        static void UnitTestStation();
+
 };
 
 #endif
