@@ -96,6 +96,6 @@ int Railways::GetDistance(const string& from,const string& to) const
 //UnitTest
 void Railways::UnitTestRailways()
 {
-    
+
 }
 

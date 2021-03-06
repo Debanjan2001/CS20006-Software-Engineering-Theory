@@ -163,6 +163,7 @@ ostream& operator<<(ostream& os, const ACFirstClass& acFirstClass )
     os<<"  : Comfort: "<< ((acFirstClass.IsAC())?"AC":"Non-AC" ) <<"\n";
     os<<"  : Bunks: "<< acFirstClass.GetNumberOfTiers()<<"\n";
     os<<"  : Luxury: "<< ((acFirstClass.IsLuxury())?"Yes":"No")<<"\n";
+    return os;
 }
 
 ostream& operator<<(ostream& os, const FirstClass& firstClass )
@@ -172,6 +173,7 @@ ostream& operator<<(ostream& os, const FirstClass& firstClass )
     os<<"  : Comfort: "<< ((firstClass.IsAC())?"AC":"Non-AC" ) <<"\n";
     os<<"  : Bunks: "<< firstClass.GetNumberOfTiers()<<"\n";
     os<<"  : Luxury: "<< ((firstClass.IsLuxury())?"Yes":"No")<<"\n";
+    return os;
 }
 
 
@@ -182,6 +184,7 @@ ostream& operator<<(ostream& os, const AC2Tier& ac2Tier )
     os<<"  : Comfort: "<< ((ac2Tier.IsAC())?"AC":"Non-AC" ) <<"\n";
     os<<"  : Bunks: "<< ac2Tier.GetNumberOfTiers()<<"\n";
     os<<"  : Luxury: "<< ((ac2Tier.IsLuxury())?"Yes":"No")<<"\n";
+    return os;
 }
 
 
@@ -192,6 +195,7 @@ ostream& operator<<(ostream& os, const AC3Tier& ac3Tier )
     os<<"  : Comfort: "<< ((ac3Tier.IsAC())?"AC":"Non-AC" ) <<"\n";
     os<<"  : Bunks: "<< ac3Tier.GetNumberOfTiers()<<"\n";
     os<<"  : Luxury: "<< ((ac3Tier.IsLuxury())?"Yes":"No")<<"\n";
+    return os;
 }
 
 ostream& operator<<(ostream& os, const Sleeper& sleeper )
@@ -201,6 +205,7 @@ ostream& operator<<(ostream& os, const Sleeper& sleeper )
     os<<"  : Comfort: "<< ((sleeper.IsAC())?"AC":"Non-AC" ) <<"\n";
     os<<"  : Bunks: "<< sleeper.GetNumberOfTiers()<<"\n";
     os<<"  : Luxury: "<< ((sleeper.IsLuxury())?"Yes":"No")<<"\n";
+    return os;
 }
 
 ostream& operator<<(ostream& os, const ACChairCar& acChairCar )
@@ -210,6 +215,7 @@ ostream& operator<<(ostream& os, const ACChairCar& acChairCar )
     os<<"  : Comfort: "<< ((acChairCar.IsAC())?"AC":"Non-AC" ) <<"\n";
     os<<"  : Bunks: "<< acChairCar.GetNumberOfTiers()<<"\n";
     os<<"  : Luxury: "<< ((acChairCar.IsLuxury())?"Yes":"No")<<"\n";
+    return os;
 }
 
 ostream& operator<<(ostream& os, const SecondSitting& secondSitting )
@@ -219,7 +225,264 @@ ostream& operator<<(ostream& os, const SecondSitting& secondSitting )
     os<<"  : Comfort: "<< ((secondSitting.IsAC())?"AC":"Non-AC" ) <<"\n";
     os<<"  : Bunks: "<< secondSitting.GetNumberOfTiers()<<"\n";
     os<<"  : Luxury: "<< ((secondSitting.IsLuxury())?"Yes":"No")<<"\n";
+    return os;
 }
 
 // Unit Tests Implementations
 
+void ACFirstClass::UnitTestACFirstClass()
+{
+    // Singleton Object
+    const ACFirstClass& acFirstClass = ACFirstClass::Type();
+
+    if( acFirstClass.GetName()!= "AC First Class")
+        cout<<"  Error on ACFirstClass::Type().GetName()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed"<<endl;
+
+    if( acFirstClass.IsSitting()!= false)
+        cout<<"  Error on ACFirstClass::Type().IsSitting()"<<endl;
+    else
+        cout<<"  Subtest-2 Passed"<<endl;
+
+    if( acFirstClass.IsLuxury() != true)
+        cout<<"  Error on ACFirstClass::Type().IsLuxury"<<endl;
+    else
+        cout<<"  Subtest-3 Passed"<<endl;
+
+    if( acFirstClass.IsAC()!= true)
+        cout<<"  Error on ACFirstClass::Type().IsAC()"<<endl;
+    else
+        cout<<"  Subtest-4 Passed"<<endl;
+
+    if( acFirstClass.GetNumberOfTiers()!= 2)
+        cout<<"  Error on ACFirstClass::Type().GetNumberOfTiers()"<<endl;
+    else
+        cout<<"  Subtest-5 Passed"<<endl;
+
+    if( acFirstClass.GetLoadFactor()!= 3.00)
+        cout<<"  Error on ACFirstClass::Type().GetLoadFactor()"<<endl;
+    else
+        cout<<"  Subtest-6 Passed"<<endl;
+}
+
+
+void AC2Tier::UnitTestAC2Tier()
+{
+    // Singleton Object
+    const AC2Tier& ac2Tier = AC2Tier::Type();
+
+    if( ac2Tier.GetName()!= "AC 2 Tier")
+        cout<<"  Error on AC2Tier::Type().GetName()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed"<<endl;
+
+    if( ac2Tier.IsSitting()!= false)
+        cout<<"  Error on AC2Tier::Type().IsSitting()"<<endl;
+    else
+        cout<<"  Subtest-2 Passed"<<endl;
+
+    if( ac2Tier.IsLuxury() != false)
+        cout<<"  Error on AC2Tier::Type().IsLuxury"<<endl;
+    else
+        cout<<"  Subtest-3 Passed"<<endl;
+
+    if( ac2Tier.IsAC()!= true)
+        cout<<"  Error on AC2Tier::Type().IsAC()"<<endl;
+    else
+        cout<<"  Subtest-4 Passed"<<endl;
+
+    if( ac2Tier.GetNumberOfTiers()!= 2)
+        cout<<"  Error on AC2Tier::Type().GetNumberOfTiers()"<<endl;
+    else
+        cout<<"  Subtest-5 Passed"<<endl;
+
+    if( ac2Tier.GetLoadFactor()!= 2.00)
+        cout<<"  Error on AC2Tier::Type().GetLoadFactor()"<<endl;
+    else
+        cout<<"  Subtest-6 Passed"<<endl;
+}
+
+
+void FirstClass::UnitTestFirstClass()
+{
+    // Singleton Object
+    const FirstClass& firstClass = FirstClass::Type();
+
+    if( firstClass.GetName()!= "First Class")
+        cout<<"  Error on FirstClass::Type().GetName()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed"<<endl;
+
+    if( firstClass.IsSitting()!= false)
+        cout<<"  Error on FirstClass::Type().IsSitting()"<<endl;
+    else
+        cout<<"  Subtest-2 Passed"<<endl;
+
+    if( firstClass.IsLuxury() != true)
+        cout<<"  Error on FirstClass::Type().IsLuxury"<<endl;
+    else
+        cout<<"  Subtest-3 Passed"<<endl;
+
+    if( firstClass.IsAC()!= false)
+        cout<<"  Error on FirstClass::Type().IsAC()"<<endl;
+    else
+        cout<<"  Subtest-4 Passed"<<endl;
+
+    if( firstClass.GetNumberOfTiers()!= 2)
+        cout<<"  Error on FirstClass::Type().GetNumberOfTiers()"<<endl;
+    else
+        cout<<"  Subtest-5 Passed"<<endl;
+
+    if( firstClass.GetLoadFactor() != 2.00)
+        cout<<"  Error on FirstClass::Type().GetLoadFactor()"<<endl;
+    else
+        cout<<"  Subtest-6 Passed"<<endl;
+}
+
+void AC3Tier::UnitTestAC3Tier()
+{
+    // Singleton Object
+    const AC3Tier& ac3Tier = AC3Tier::Type();
+
+    if( ac3Tier.GetName()!= "AC 3 Tier")
+        cout<<"  Error on AC3Tier::Type().GetName()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed"<<endl;
+
+    if( ac3Tier.IsSitting()!= false)
+        cout<<"  Error on AC3Tier::Type().IsSitting()"<<endl;
+    else
+        cout<<"  Subtest-2 Passed"<<endl;
+
+    if( ac3Tier.IsLuxury() != false)
+        cout<<"  Error on AC3Tier::Type().IsLuxury"<<endl;
+    else
+        cout<<"  Subtest-3 Passed"<<endl;
+
+    if( ac3Tier.IsAC()!= true)
+        cout<<"  Error on AC3Tier::Type().IsAC()"<<endl;
+    else
+        cout<<"  Subtest-4 Passed"<<endl;
+
+    if( ac3Tier.GetNumberOfTiers()!= 3)
+        cout<<"  Error on AC3Tier::Type().GetNumberOfTiers()"<<endl;
+    else
+        cout<<"  Subtest-5 Passed"<<endl;
+
+    if( ac3Tier.GetLoadFactor()!= 1.75)
+        cout<<"  Error on AC3Tier::Type().GetLoadFactor()"<<endl;
+    else
+        cout<<"  Subtest-6 Passed"<<endl;
+}
+
+
+void ACChairCar::UnitTestACChairCar()
+{
+    // Singleton Object
+    const ACChairCar& acChairCar = ACChairCar::Type();
+
+    if( acChairCar.GetName()!= "AC Chair Car")
+        cout<<"  Error on ACFirstClass::Type().GetName()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed"<<endl;
+
+    if( acChairCar.IsSitting()!= true)
+        cout<<"  Error on ACChairCar::Type().IsSitting()"<<endl;
+    else
+        cout<<"  Subtest-2 Passed"<<endl;
+
+    if( acChairCar.IsLuxury() != false)
+        cout<<"  Error on ACChairCar::Type().IsLuxury"<<endl;
+    else
+        cout<<"  Subtest-3 Passed"<<endl;
+
+    if( acChairCar.IsAC()!= true)
+        cout<<"  Error on ACChairCar::Type().IsAC()"<<endl;
+    else
+        cout<<"  Subtest-4 Passed"<<endl;
+
+    if( acChairCar.GetNumberOfTiers()!= 0)
+        cout<<"  Error on ACChairCar::Type().GetNumberOfTiers()"<<endl;
+    else
+        cout<<"  Subtest-5 Passed"<<endl;
+
+    if( acChairCar.GetLoadFactor()!= 1.25)
+        cout<<"  Error on ACChairCar::Type().GetLoadFactor()"<<endl;
+    else
+        cout<<"  Subtest-6 Passed"<<endl;
+}
+
+
+void Sleeper::UnitTestSleeper()
+{
+    // Singleton Object
+    const Sleeper& sleeper = Sleeper::Type();
+
+    if( sleeper.GetName()!= "Sleeper")
+        cout<<"  Error on Sleeper::Type().GetName()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed"<<endl;
+
+    if( sleeper.IsSitting()!= false)
+        cout<<"  Error on Sleeper::Type().IsSitting()"<<endl;
+    else
+        cout<<"  Subtest-2 Passed"<<endl;
+
+    if( sleeper.IsLuxury() != false)
+        cout<<"  Error on Sleeper::Type().IsLuxury"<<endl;
+    else
+        cout<<"  Subtest-3 Passed"<<endl;
+
+    if( sleeper.IsAC()!= false)
+        cout<<"  Error on Sleeper::Type().IsAC()"<<endl;
+    else
+        cout<<"  Subtest-4 Passed"<<endl;
+
+    if( sleeper.GetNumberOfTiers()!= 3)
+        cout<<"  Error on Sleeper::Type().GetNumberOfTiers()"<<endl;
+    else
+        cout<<"  Subtest-5 Passed"<<endl;
+
+    if( sleeper.GetLoadFactor()!= 1.00)
+        cout<<"  Error on Sleeper::Type().GetLoadFactor()"<<endl;
+    else
+        cout<<"  Subtest-6 Passed"<<endl;
+}
+
+
+void SecondSitting::UnitTestSecondSitting()
+{
+    // Singleton Object
+    const SecondSitting& secondSitting = SecondSitting::Type();
+
+    if( secondSitting.GetName()!= "Second Sitting")
+        cout<<"  Error on SecondSitting::Type().GetName()"<<endl;
+    else
+        cout<<"  Subtest-1 Passed"<<endl;
+
+    if( secondSitting.IsSitting()!=true)
+        cout<<"  Error on SecondSitting::Type().IsSitting()"<<endl;
+    else
+        cout<<"  Subtest-2 Passed"<<endl;
+
+    if( secondSitting.IsLuxury() != false)
+        cout<<"  Error on SecondSitting::Type().IsLuxury"<<endl;
+    else
+        cout<<"  Subtest-3 Passed"<<endl;
+
+    if( secondSitting.IsAC()!= false)
+        cout<<"  Error on SecondSitting::Type().IsAC()"<<endl;
+    else
+        cout<<"  Subtest-4 Passed"<<endl;
+
+    if( secondSitting.GetNumberOfTiers()!= 0)
+        cout<<"  Error on SecondSitting::Type().GetNumberOfTiers()"<<endl;
+    else
+        cout<<"  Subtest-5 Passed"<<endl;
+
+    if( secondSitting.GetLoadFactor()!= 0.50)
+        cout<<"  Error on SecondSitting::Type().GetLoadFactor()"<<endl;
+    else
+        cout<<"  Subtest-6 Passed"<<endl;
+}

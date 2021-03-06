@@ -69,3 +69,14 @@ ostream& operator<<(ostream& os,const Booking& booking)
     os<<"Fare = "<<booking.fare_<<"\n";
     return os;
 }
+
+void Booking::UnitTestBooking()
+{
+    Booking b1(Station("Kolkata"),Station("Chennai"),Date(14,7,2021),ACFirstClass::Type());
+
+    if(b1.ComputeFare()!= 3173)
+        cout<<"  Error on Booking(Station(\"Kolkata\"),Station(\"Chennai\"),Date(14,7,2021),ACFirstClass::Type()).ComputeFare()"<<endl;
+    else
+        cout<<"   Subtest-1 Passed";
+    
+}
