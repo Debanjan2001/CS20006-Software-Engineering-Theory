@@ -106,8 +106,14 @@ Subtest-1) Booking(Station("Kolkata"),Station("Chennai"),Date(14,7,2021),ACFirst
 
 /*****************APPLICATION TEST************************/
 1) TEST-1 Custom Booking Testing
+Subtest-1) Booking from Kolkata to Chennai in AC3Tier Class on Date 14/07/2021
+Subtest-2) Booking from Chennai to Bangalore in Sleeper Class on Date 15/07/2021
+Subtest-3) Booking from Bangalore to Delhi in ACFirstClass on Date 16/07/2021
+Subtest-4) Booking from Delhi to Mumbai in SecondSitting on Date 17/07/2021
+Subtest-5) Booking from Mumbai to Kolkata in AC2Tier on Date 18/07/2021
+
 2) TEST-2 From Slides
 
-Outuputs will be stored in Apptest1.txt and Apptest2.txt respectively
+Outputs will be stored in Output.txt respectively
 /***********************************************************/
 
