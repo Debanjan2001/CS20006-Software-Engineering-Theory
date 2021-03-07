@@ -61,11 +61,6 @@ ostream& operator<<(ostream& os,const Booking& booking)
     os<<"From Station = "<<booking.fromStation_.GetName()<<"\n";
     os<<"To Station = "<<booking.toStation_.GetName()<<"\n";
     os<<"Travel Date = "<<booking.date_<<"\n";
-    // os<<"Travel Class = "<<booking.bookingClass_.GetName()<<"\n";
-    // os<<"  : Mode: "<< ((booking.bookingClass_.IsSitting())?"Sitting":"Sleeping" )<<"\n";
-    // os<<"  : Comfort: "<< ((booking.bookingClass_.IsAC())?"AC":"Non-AC" ) <<"\n";
-    // os<<"  : Bunks: "<< booking.bookingClass_.GetNumberOfTiers()<<"\n";
-    // os<<"  : Luxury: "<< ((booking.bookingClass_.IsLuxury())?"Yes":"No")<<"\n";
     os<<booking.bookingClass_<<"\n";
     os<<"Fare = "<<booking.fare_<<"\n";
     return os;

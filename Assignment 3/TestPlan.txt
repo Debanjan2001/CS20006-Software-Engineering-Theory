@@ -1,0 +1,32 @@
+/*----------------
+Debanjan Saha
+19CS30014
+-----------------*/
+
+/*---------------------------UNIT TESTS--------------------------*/
+Unit Test Plan for Date:
+Subtest-1) Date constructor without any parameter
+Subtest-2) Date constructor with a user-defined date,month,year parameter
+
+Unit Test Plan for Station:
+Subtest-1) Station without any parameter (Empty name Station object creation)
+Subtest-2) Station with a name passed by user
+Subtest-3) GetDistance Method Test for 2 Stations already preloaded in Railways
+
+Unit Test Plan for every concrete BookingClass (i.e - ACChairCar,Sleeper etc)
+Subtest-1)  GetName() Method Test for the constant static object
+Subtest-2)  IsSitting() Method Test for the constant static object
+Subtest-3)  IsLuxury() Method Test for the constant static object
+Subtest-4)  IsAC() Method Test for the constant static object
+Subtest-5)  GetNumberOfTiers() Method Test for the constant static object
+Subtest-6)  GetLoadFactor() Method Test for the constant static object
+
+Unit Test Plan for Booking
+Subtest-1) ComputeFare() Method Test for a booking between two stations.
+
+/*----------------------------------*/
+
+/*****************APPLICATION TEST************************/
+
+/***********************************************************/
+

@@ -58,8 +58,5 @@ int main()
     Booking::UnitTestBooking();
     cout<<endl;
 
-    cout<<"TESTING class Railways"<<endl;
-    Railways::UnitTestRailways();
-    cout<<endl;
 
 }
