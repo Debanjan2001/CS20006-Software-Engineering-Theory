@@ -24,7 +24,8 @@ class BookingClasses
     protected:
         //Kept protected to prevent Instance Creation
         BookingClasses(const string name,const bool isSeat,const bool ac,bool luxury,const int numTiers);
-    
+        virtual ~BookingClasses() = 0;
+
     public:
         string GetName() const;
         bool IsSitting() const;
@@ -32,29 +33,28 @@ class BookingClasses
         int GetNumberOfTiers() const;
         bool IsLuxury() const;
         virtual double GetLoadFactor() const = 0;
-        virtual ~BookingClasses() = 0;
 
         //Output stream overloading for printing in Booking Class
         friend ostream& operator<<(ostream& os,const BookingClasses& bookingClass);
 };
 
-//Abstract Base Class SeatingClass
+//Base Class SeatingClass
 class SeatingClass:public BookingClasses
 {
-    public:
+    // Protected to prevent creating objects 
+    protected:
         SeatingClass(const string name,const bool ac,bool luxury,const int numTiers);
-        virtual double GetLoadFactor() const = 0;
-        virtual ~SeatingClass() = 0;
+        ~SeatingClass();
 
 };
 
-//Abstract Base Class BerthClass
+//Base Class BerthClass
 class BerthClass:public BookingClasses
 {
-    public:
+    // Protected to prevent creating objects 
+    protected:
         BerthClass(const string name,const bool ac,bool luxury,const int numTiers);
-        virtual double GetLoadFactor() const = 0;
-        virtual ~BerthClass() = 0;        
+        ~BerthClass();        
 };
 
 class ACFirstClass:public BerthClass
