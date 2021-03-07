@@ -9,7 +9,7 @@ This design is for a better understanding of specifications of classes used in t
 
 Station:-------------------------------------------------------------------------------------------------------------
 1. It has the name of the station as a private attribute.
-2. It has two public methods  - GetName and GetDistance. GetName returns the name of the station, and GetDistance returns the distance between itself and the name of the station received as parameter by invoking GetDistance method of Railways.
+2. It has two public methods  - GetName and GetDistance. GetName returns the name of the station, and GetDistance returns the distance between itself and the station received as parameter by invoking GetDistance method of Railways.
 3. Both GetName and GetDistance are constant functions, and so can be invoked from constant instances of Station.
 4. Output stream has been overloaded using friend function  and it prints the name of the Station.
 It has a static void function for Unit Testing, and it checks whether the class works for a number of scenarios.
@@ -25,7 +25,7 @@ Date:---------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------
 
 Passenger:-------------------------------------------------------------------------------------------------------------
-1. It has the following constant private data members: name, aadhar, date of birth, gender, mobile number and the category.
+1. It has the following constant private data members: name, aadhar, date of birth, gender, mobile number(optional) and the category.
 2. It’s currently an abstract base class and will be used in future extensions of the project. It has been made abstract by declaring a pure virtual function GetName.
 3. It’s constructor takes the respective values as parameters and initialises the data members in the initialiser list of constructor.
 -------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ BerthClass ---> ACFirstClass, AC2Tier, AC3Tier, FirstClass, Sleeper
 BookingClasses:-------------------------------------------------------------------------------------------------------------
 1. It is the base class of the polymorphic hierarchy. 
 2. It is an abstract base class to various Booking Classes, and holds information about attributes which are related to the booking class.
-3. It has the private attribute name of the class and the protected attributes: isSeat, isAC, number of tiers, and isLuxury.
+3. It has the private attribute name of the class,isSeat, isAC, number of tiers, and isLuxury.
 4. It has constant public getter functions for the attributes: GetNumberOfTiers, IsSitting, GetName, IsAC, IsLuxury.
 5. It also has a pure virtual function GetLoadFactor which is implemented by the derived classes when the load factor for the derived classes is written.
 6. The ostream operator is overloaded using friend function and it prints the values of the attributes of the class.
