@@ -23,7 +23,8 @@ BookingClass.cpp - Implementation of all the abstract base classes and concrete 
 Booking.h - Header file of class Booking 
 Booking.cpp - Implementation of class Booking
 
-ApplicationTesting.cpp - Invoking of Application Tests inside main
+ApplicationTesting1.cpp - Invoking of Application Tests-1 inside main
+ApplicationTesting2.cpp - Invoking of Application Tests-2 inside main
 UnitTesting.cpp - Invoking of All unit tests inside main
 --------------------------------------------------------------------------
 
@@ -45,6 +46,8 @@ Run the following commands
 
 2) To run the application tests-
 
-    (i) g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp ApplicationTesting.cpp 
-    (ii) ./a.out > Output.txt
+    (i) g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp ApplicationTesting1.cpp 
+    (ii) ./a.out >> Output.txt
+    (iii) g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp ApplicationTesting1.cpp 
+    (iv) ./a.out >> Output.txt
 -----------------------------------------------------------------------------------------------------------------------------------
