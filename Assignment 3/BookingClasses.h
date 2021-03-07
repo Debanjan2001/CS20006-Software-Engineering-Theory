@@ -31,6 +31,9 @@ class BookingClasses
         bool IsLuxury() const;
         virtual double GetLoadFactor() const = 0;
         virtual ~BookingClasses() = 0;
+
+        //Output stream overloading for printing in Booking Class
+        friend ostream& operator<<(ostream& os,const BookingClasses& bookingClass);
 };
 
 //Abstract Base Class SeatingClass
@@ -51,7 +54,6 @@ class BerthClass:public BookingClasses
         virtual double GetLoadFactor() const = 0;
         virtual ~BerthClass() = 0;        
 };
-
 
 class ACFirstClass:public BerthClass
 {

@@ -96,6 +96,11 @@ int Railways::GetDistance(const string& from,const string& to) const
 //UnitTest
 void Railways::UnitTestRailways()
 {
+    const Railways& indianRailways = Railways::IndianRailways();
 
+    if( indianRailways.GetDistance("Chennai","Kolkata") != 1659)
+        cout<<"  Error on Railways::IndianRailways.GetDistance(\"Chennai\",\"Kolkata\")"<<endl;
+    else 
+        cout<<"  Subtest-1 Passed"<<endl; 
 }
 

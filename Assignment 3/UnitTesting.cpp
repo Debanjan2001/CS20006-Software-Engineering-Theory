@@ -14,7 +14,7 @@ using namespace std;
 #include "Station.h"
 #include "BookingClasses.h"
 #include "Booking.h"
-
+#include "Railways.h"
 
 int main()
 {
@@ -54,10 +54,12 @@ int main()
     SecondSitting::UnitTestSecondSitting();
     cout<<endl;
 
-
-
     cout<<"TESTING class Booking"<<endl;
     Booking::UnitTestBooking();
+    cout<<endl;
+
+    cout<<"TESTING class Railways"<<endl;
+    Railways::UnitTestRailways();
     cout<<endl;
 
 }

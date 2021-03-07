@@ -156,6 +156,17 @@ const double Sleeper::sLoadFactor = 1.00;
 const double SecondSitting::sLoadFactor = 0.50;
 
 //Output Stream Overload Implementation
+
+ostream& operator<<(ostream& os,const BookingClasses& bookingClass)
+{
+    os<<"Travel Class = "<<bookingClass.GetName()<<"\n";
+    os<<"  : Mode: "<< ((bookingClass.IsSitting())?"Sitting":"Sleeping" )<<"\n";
+    os<<"  : Comfort: "<< ((bookingClass.IsAC())?"AC":"Non-AC" ) <<"\n";
+    os<<"  : Bunks: "<< bookingClass.GetNumberOfTiers()<<"\n";
+    os<<"  : Luxury: "<< ((bookingClass.IsLuxury())?"Yes":"No");
+    return os;
+}
+
 ostream& operator<<(ostream& os, const ACFirstClass& acFirstClass )
 {
     os<<"Travel Class = "<<acFirstClass.GetName()<<"\n";
