@@ -5,8 +5,8 @@ compile:
 
 
 run:
-	./a.out >> Output.txt
+	./a.out > Output1.txt
 	g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp ApplicationTesting2.cpp
-	./a.out >> Output.txt
+	./a.out > Output2.txt
 	g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp UnitTesting.cpp 
 	./a.out 

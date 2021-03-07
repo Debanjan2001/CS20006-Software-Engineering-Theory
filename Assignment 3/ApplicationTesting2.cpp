@@ -36,7 +36,6 @@ void BookingApplicationTest2()
 
 int main()
 {
-    cout<<"// OUTPUT FOR TEST-2------------------------------"<<endl;
     BookingApplicationTest2();
     cout<<endl;
 }

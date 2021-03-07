@@ -33,10 +33,8 @@ void BookingApplicationTest1()
 }
 
 
-
 int main()
 {
-    cout<<"// OUTPUT FOR TEST-1------------------------------"<<endl;
     BookingApplicationTest1();
     cout<<endl;
 }

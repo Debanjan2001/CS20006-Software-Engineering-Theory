@@ -114,6 +114,5 @@ Subtest-5) Booking from Mumbai to Kolkata in AC2Tier on Date 18/07/2021
 
 2) TEST-2 From Slides
 
-Outputs will be stored in Output.txt respectively
+Outputs will be stored in Output1.txt and Output2.txt respectively
 /***********************************************************/
-

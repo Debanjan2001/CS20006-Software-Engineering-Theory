@@ -47,7 +47,7 @@ Run the following commands
 2) To run the application tests-
 
     (i) g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp ApplicationTesting1.cpp 
-    (ii) ./a.out >> Output.txt
-    (iii) g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp ApplicationTesting1.cpp 
-    (iv) ./a.out >> Output.txt
+    (ii) ./a.out > Output1.txt
+    (iii) g++ -std=c++11 Passenger.cpp  Railways.cpp Booking.cpp BookingClasses.cpp Date.cpp Station.cpp ApplicationTesting2.cpp 
+    (iv) ./a.out > Output2.txt
 -----------------------------------------------------------------------------------------------------------------------------------

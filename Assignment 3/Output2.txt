@@ -9,6 +9,7 @@ Travel Class = AC First Class
   : Bunks: 2
   : Luxury: Yes
 Fare = 2776
+
 BOOKING SUCCEEDED:
 PNR Number = 2
 From Station = Kolkata
@@ -20,6 +21,7 @@ Travel Class = AC 2 Tier
   : Bunks: 2
   : Luxury: No
 Fare = 1522
+
 BOOKING SUCCEEDED:
 PNR Number = 3
 From Station = Mumbai
@@ -31,6 +33,7 @@ Travel Class = First Class
   : Bunks: 2
   : Luxury: Yes
 Fare = 2518
+
 BOOKING SUCCEEDED:
 PNR Number = 4
 From Station = Mumbai
@@ -42,6 +45,7 @@ Travel Class = AC 3 Tier
   : Bunks: 3
   : Luxury: No
 Fare = 1316
+
 BOOKING SUCCEEDED:
 PNR Number = 5
 From Station = Chennai
@@ -53,6 +57,7 @@ Travel Class = AC Chair Car
   : Bunks: 0
   : Luxury: No
 Fare = 1413
+
 BOOKING SUCCEEDED:
 PNR Number = 6
 From Station = Chennai
@@ -64,6 +69,7 @@ Travel Class = Sleeper
   : Bunks: 3
   : Luxury: No
 Fare = 830
+
 BOOKING SUCCEEDED:
 PNR Number = 7
 From Station = Mumbai
@@ -75,6 +81,7 @@ Travel Class = Second Sitting
   : Bunks: 0
   : Luxury: No
 Fare = 362
+
 BOOKING SUCCEEDED:
 PNR Number = 8
 From Station = Delhi
@@ -86,3 +93,5 @@ Travel Class = Second Sitting
   : Bunks: 0
   : Luxury: No
 Fare = 362
+
+
