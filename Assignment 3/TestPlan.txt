@@ -3,15 +3,28 @@ Debanjan Saha
 19CS30014
 -----------------*/
 
-/*---------------------------UNIT TESTS--------------------------*/
+/*****************************UNIT TESTS*******************************/
+
 Unit Test Plan for Date:
 Subtest-1) Date constructor without any parameter
 Subtest-2) Date constructor with a user-defined date,month,year parameter
 
+/----Golden Output for Date------/
+Subtest-1 ) "1/Jan/1979"
+subtest-2 ) Date(14,7,2001) should give output "14/Jul/2001"
+/---------------------------------
+
 Unit Test Plan for Station:
 Subtest-1) Station without any parameter (Empty name Station object creation)
-Subtest-2) Station with a name passed by user
+Subtest-2) Station with a name given by user
 Subtest-3) GetDistance Method Test for 2 Stations already preloaded in Railways
+
+/----Golden Output for Station------/
+Subtest-1 ) Station() should give "" (empty name Station)
+Subtest-2 ) Station s("Kolkata") should give Station with name "Kolkata"
+Subtest-3 ) s.GetDistance(Station("Delhi")) should give output 1472.
+/---------------------------------
+
 
 Unit Test Plan for every concrete BookingClass (i.e - ACChairCar,Sleeper etc)
 Subtest-1)  GetName() Method Test for the constant static object
@@ -21,12 +34,80 @@ Subtest-4)  IsAC() Method Test for the constant static object
 Subtest-5)  GetNumberOfTiers() Method Test for the constant static object
 Subtest-6)  GetLoadFactor() Method Test for the constant static object
 
+/--------Golden Output for each Booking Class-----/
+For Class ACFirstClass:
+Subtest-1)  "AC First Class"
+Subtest-2)  false
+Subtest-3)  true
+Subtest-4)  true
+Subtest-5)  2
+Subtest-6)  3.00
+
+For Class AC2Tier:
+Subtest-1)  "AC 2 Tier"
+Subtest-2)  false
+Subtest-3)  false
+Subtest-4)  true
+Subtest-5)  2
+Subtest-6)  2.00
+
+For Class FirstClass:
+Subtest-1)  "First Class"
+Subtest-2)  false
+Subtest-3)  true
+Subtest-4)  false
+Subtest-5)  2
+Subtest-6)  2.00
+
+For Class AC3Tier:
+Subtest-1)  "AC 3 Tier"
+Subtest-2)  false
+Subtest-3)  false
+Subtest-4)  true
+Subtest-5)  3
+Subtest-6)  1.75
+
+For Class ACChairCar:
+Subtest-1)  "AC Chair Car"
+Subtest-2)  true
+Subtest-3)  false
+Subtest-4)  true
+Subtest-5)  0
+Subtest-6)  1.25
+
+For Class Sleeper:
+Subtest-1)  "Sleeper"
+Subtest-2)  false
+Subtest-3)  false
+Subtest-4)  false
+Subtest-5)  3
+Subtest-6)  1.00
+
+For Class SecondSitting:
+Subtest-1)  "Second Sitting"
+Subtest-2)  true
+Subtest-3)  false
+Subtest-4)  false
+Subtest-5)  0
+Subtest-6)  0.50
+
+/---------------------------------------------------/
+
+
 Unit Test Plan for Booking
 Subtest-1) ComputeFare() Method Test for a booking between two stations.
 
+/----Golden Output for Booking-------/
+Subtest-1) Booking(Station("Kolkata"),Station("Chennai"),Date(14,7,2021),ACFirstClass::Type()).ComputeFare() should give output 3173
 /*----------------------------------*/
 
-/*****************APPLICATION TEST************************/
+/************************************************************/
 
+
+/*****************APPLICATION TEST************************/
+1) TEST-1 Custom Booking Testing
+2) TEST-2 From Slides
+
+Outuputs will be stored in Apptest1.txt and Apptest2.txt respectively
 /***********************************************************/
 

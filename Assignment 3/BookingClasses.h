@@ -13,7 +13,7 @@ using namespace std;
 //Abstract base class BookingClasses
 class BookingClasses
 {
-    protected:
+    private:
         const string name_;
         const bool isSeat_,ac_;
         const int numTiers_;
