@@ -21,9 +21,11 @@ class BookingClasses
         //Not constant since it is changeable according to tax rules
         bool luxury_;
 
-
-    public:
+    protected:
+        //Kept protected to prevent Instance Creation
         BookingClasses(const string name,const bool isSeat,const bool ac,bool luxury,const int numTiers);
+    
+    public:
         string GetName() const;
         bool IsSitting() const;
         bool IsAC() const;
@@ -59,9 +61,10 @@ class ACFirstClass:public BerthClass
 {
     private:
         static const double sLoadFactor;
-    public:
-        ACFirstClass();
+         ACFirstClass();
         ~ACFirstClass();
+
+    public:
 
         //Singleton ACFirstClass
         static const ACFirstClass& Type()
@@ -86,10 +89,11 @@ class AC2Tier:public BerthClass
     private:
         static const double sLoadFactor;
 
-
-    public:
+        //Private Constructor
         AC2Tier();
         ~AC2Tier();
+
+    public:
 
         //Singleton AC2Tier
         static const AC2Tier& Type()
@@ -114,11 +118,11 @@ class FirstClass:public BerthClass
 {
     private:
         static const double sLoadFactor;
-
-
-    public:
         FirstClass();
         ~FirstClass();
+
+    public:
+        
 
         //Singleton FirstClass
         static const FirstClass& Type()
@@ -143,11 +147,11 @@ class AC3Tier:public BerthClass
 {
     private:
         static const double sLoadFactor;
-
-
-    public:
         AC3Tier();
         ~AC3Tier();
+
+    public:
+        
 
         //Singleton AC3Tier
         static const AC3Tier& Type()
@@ -172,12 +176,12 @@ class Sleeper:public BerthClass
 {
     private:
         static const double sLoadFactor;
-
-
-    public:
         Sleeper();
         ~Sleeper();
 
+
+    public:
+        
         //Singleton Sleeper
         static const Sleeper& Type()
         {
@@ -198,10 +202,10 @@ class ACChairCar:public SeatingClass
 {
     private:
         static const double sLoadFactor;
-
-    public:
         ACChairCar();
         ~ACChairCar();
+
+    public:
 
         //Singleton ACChairCar
         static const ACChairCar& Type()
@@ -223,10 +227,10 @@ class SecondSitting:public SeatingClass
 {
     private:
         static const double sLoadFactor;
-
-    public:
         SecondSitting();
         ~SecondSitting();
+
+    public:
 
         //Singleton SecondSitting
         static const SecondSitting& Type()

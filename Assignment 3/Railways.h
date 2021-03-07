@@ -33,10 +33,11 @@ class Railways
         // Gets Station from a given station name.
         const Station* GetStation(const string& stationName) const;
     
-    public:
-
-        //Constructor and Destructor
+    private:
+        //Constructor made private to prevent creation of objects
         Railways();
+
+    public:
         ~Railways();
         
         // Singleton Railways

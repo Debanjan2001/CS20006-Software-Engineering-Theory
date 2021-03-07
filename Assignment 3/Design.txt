@@ -2,4 +2,136 @@
 Debanjan Saha
 19CS30014
 -----------------*/
-Class Date :-
+-----------------DESIGN FOR RAILWAYS RESERVATION SYSTEM-----------------------------
+
+This design is for a better understanding of specifications of classes used in the project: 
+
+
+Station:-------------------------------------------------------------------------------------------------------------
+1. It has the name of the station as a private attribute.
+2. It has two public methods  - GetName and GetDistance. GetName returns the name of the station, and GetDistance returns the distance between itself and the name of the station received as parameter by invoking GetDistance method of Railways.
+3. Both GetName and GetDistance are constant functions, and so can be invoked from constant instances of Station.
+4. Output stream has been overloaded using friend function  and it prints the name of the Station.
+It has a static void function for Unit Testing, and it checks whether the class works for a number of scenarios.
+---------------------------------------------------------------------------------------------------------------------
+
+Date:-------------------------------------------------------------------------------------------------------------
+1. It has constant static lists of names of Months and Days as private attribute.
+2. It has 3 private data members - date,month and year.
+3. Its Default Constructor creates an object of predefined date.
+4. The constructor with parameter date,month and year constructs an object of the given parameters.
+5. Output stream has been overloaded using friend function for Date objects and it prints to the output stream in the format dd/mmm/yyyy.
+6. It has a static void method for Unit Testing, and it checks whether this class works for some use cases.
+-------------------------------------------------------------------------------------------------------------------
+
+Passenger:-------------------------------------------------------------------------------------------------------------
+1. It has the following constant private data members: name, aadhar, date of birth, gender, mobile number and the category.
+2. It’s currently an abstract base class and will be used in future extensions of the project. It has been made abstract by declaring a pure virtual function GetName.
+3. It’s constructor takes the respective values as parameters and initialises the data members in the initialiser list of constructor.
+-------------------------------------------------------------------------------------------------------------
+
+Hierarchy Design:--------------------------------------------------------------------------------------------------------
+
+BookingClasses--->SeatingClass,BerthClass
+SeatingClass ---> ACChairCar, SecondSitting
+BerthClass ---> ACFirstClass, AC2Tier, AC3Tier, FirstClass, Sleeper
+
+--------------------------------------------------------------------------------------------------------
+
+
+BookingClasses:-------------------------------------------------------------------------------------------------------------
+1. It is the base class of the polymorphic hierarchy. 
+2. It is an abstract base class to various Booking Classes, and holds information about attributes which are related to the booking class.
+3. It has the private attribute name of the class and the protected attributes: isSeat, isAC, number of tiers, and isLuxury.
+4. It has constant public getter functions for the attributes: GetNumberOfTiers, IsSitting, GetName, IsAC, IsLuxury.
+5. It also has a pure virtual function GetLoadFactor which is implemented by the derived classes when the load factor for the derived classes is written.
+6. The ostream operator is overloaded using friend function and it prints the values of the attributes of the class.
+7. It has a protected constructor which is invoked by derived classes to instantiate the data members and a virtual destructor.
+8. Single inheritance is used due to its efficiency, and it is done on the basis of strong property which is whether that class was a seating or sleeping.
+9. The hierarchy is easily extensible and new booking classes can be added to it.
+10. The ostream operator is overloaded and prints the attributes relevant to the booking.
+-------------------------------------------------------------------------------------------------------------
+
+SeatingClass-------------------------------------------------------------------------------------------------------------
+1. It is derived from BookingClasses and acts as an intermediate between concrete classes and abstract base class BookingClasses.
+2. It calls the constructor of BookingClasses and sets the value of IsSitting variable to true.
+-------------------------------------------------------------------------------------------------------------
+
+BerthClass:-------------------------------------------------------------------------------------------------------------
+1. It is derived from BookingClasses and acts as an intermediate between concrete classes and abstract base class BookingClasses.
+2. It calls the constructor of BookingClasses and sets the value of IsSitting variable to false.
+-------------------------------------------------------------------------------------------------------------
+
+ACFirstClass:-------------------------------------------------------------------------------------------------------------
+1. It is a singleton concrete class which is derived from BerthClass by calling its constructor with its appropriate name, isAC,isLuxury and number of tiers.
+2. It also has a redefinition of the constant member function GetLoadFactor which returns its Load Factor.
+3. The output stream is also overloaded with friend functions to print the relevant attributes.
+4. It also has a static void public member function for unit Testing of its singleton object .
+-------------------------------------------------------------------------------------------------------------
+
+AC2Tier:-------------------------------------------------------------------------------------------------------------
+1. It is a singleton concrete class which is derived from BerthClass by calling its constructor with its appropriate name, isAC,isLuxury and number of tiers.
+2. It also has a redefinition of the constant member function GetLoadFactor which returns its Load Factor.
+3. The output stream is also overloaded with friend functions to print the relevant attributes.
+4. It also has a static void public member function for unit Testing of its singleton object .
+-------------------------------------------------------------------------------------------------------------
+
+FirstClass:-------------------------------------------------------------------------------------------------------------
+1. It is a singleton concrete class which is derived from BerthClass by calling its constructor with its appropriate name, isAC,isLuxury and number of tiers.
+2. It also has a redefinition of the constant member function GetLoadFactor which returns its Load Factor.
+3. The output stream is also overloaded with friend functions to print the relevant attributes.
+4. It also has a static void public member function for unit Testing of its singleton object .
+-------------------------------------------------------------------------------------------------------------
+
+AC3Tier:-------------------------------------------------------------------------------------------------------------
+1. It is a singleton concrete class which is derived from BerthClass by calling its constructor with its appropriate name, isAC,isLuxury and number of tiers.
+2. It also has a redefinition of the constant member function GetLoadFactor which returns its Load Factor.
+3. The output stream is also overloaded with friend functions to print the relevant attributes.
+4. It also has a static void public member function for unit Testing of its singleton object .
+-------------------------------------------------------------------------------------------------------------
+
+ACChairCar:-------------------------------------------------------------------------------------------------------------
+1. It is a singleton concrete class which is derived from SeatingClass by calling its constructor with its appropriate name, isAC,isLuxury and number of tiers.
+2. It also has a redefinition of the constant member function GetLoadFactor which returns its Load Factor.
+3. The output stream is also overloaded with friend functions to print the relevant attributes.
+4. It also has a static void public member function for unit Testing of its singleton object .
+-------------------------------------------------------------------------------------------------------------
+
+Sleeper:-------------------------------------------------------------------------------------------------------------
+1. It is a singleton concrete class which is derived from BerthClass by calling its constructor with its appropriate name, isAC,isLuxury and number of tiers.
+2. It also has a redefinition of the constant member function GetLoadFactor which returns its Load Factor.
+3. The output stream is also overloaded with friend functions to print the relevant attributes.
+4. It also has a static void public member function for unit Testing of its singleton object .
+-------------------------------------------------------------------------------------------------------------
+
+SecondSitting:-------------------------------------------------------------------------------------------------------------
+1. It is a singleton concrete class which is derived from SeatingClass by calling its constructor with its appropriate name, isAC,isLuxury and number of tiers.
+2. It also has a redefinition of the constant member function GetLoadFactor which returns its Load Factor.
+3. The output stream is also overloaded with friend functions to print the relevant attributes.
+4. It also has a static void public member function for unit Testing of its singleton object .
+-------------------------------------------------------------------------------------------------------------
+
+Railways:-------------------------------------------------------------------------------------------------------------
+1. It acts as the master data, storing the stations and distance between them. It’s implemented as a Meyer’s singleton. IndianRailways() is a public static method in Railways which returns a static constant instance of the Railways.
+2. It’s a singleton because there can be only one Railways.
+3. The constructor has been made private, so as to prevent construction of objects.
+4. It has 2 private static  attributes: sStations and sDistStations.
+5. It makes use of STL containers(map), thus making it a clean and concise implementation.
+6. sStations is a static map, mapping name of station to a const pointer to the Station.
+7. sDistStations is a map of pairs of const Station pointers to the distance between those stations.
+8. As maps are made private to enforce encapsulation, therefore two public methods are provided:
+(i) GetDistance: takes names of two stations and returns distance between them. 
+(ii) GetStation: takes the name of the station as a constant string and returns a constant pointer to it.
+-------------------------------------------------------------------------------------------------------------
+
+Booking :-------------------------------------------------------------------------------------------------------------
+1. It has the following constant private data members: a source station, a destination station, Date of Booking, PNR number of booking and a pointer to a passenger which is initialised to NULL by default.
+2. It also has non-constants bookingMessage and a bookingStatus as its private attribute which are set to “BOOKING SUCCEEDED” and “true” respectively for this assignment.
+3. It has a fare for a successful booking  and it is computed from the public method ComputeFare().This method is made virtual for flexibility on extensions from this class.
+4. It has a static sBookingPNRSerial and some static constants - sBaseFarePerKM, sACSurcharge, sLuxuryTaxPercent for generation of PNR numbers, and computing Fare for a booking respectively.  
+5. It has a public static list sBookings of all bookings done. 
+6. Its output stream has been overloaded using friend function to print all the corresponding details of a booking which are relevant to the user.
+7. It also consists of a static void method for unit tests of the class.
+-------------------------------------------------------------------------------------------------------------
+
+
