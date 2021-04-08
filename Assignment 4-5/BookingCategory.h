@@ -20,7 +20,7 @@ class BookingCategory
     private:
         const string name_;
     protected:
-        BookingCategory(const string& name);
+        BookingCategory(const string name);
         virtual ~BookingCategory() = 0;
 
     public:
@@ -50,14 +50,14 @@ class General: public BookingCategory
 class ConcessionCategory: public BookingCategory
 {
     protected:
-        ConcessionCategory(const string& name);
+        ConcessionCategory(const string  name);
         virtual ~ConcessionCategory() = 0;
 };
 
 class PriorityCategory: public BookingCategory
 {
    protected:
-        PriorityCategory(const string& name);
+        PriorityCategory(const string  name);
         virtual ~PriorityCategory() = 0;
 
 };

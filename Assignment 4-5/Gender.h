@@ -15,7 +15,7 @@ class GenderTypes;  // Generic Gender type to generate specific genders
 class Gender // Abstract Base Class
 { 
     private:
-        const string& name_;  // Name of the Gender
+        const string name_;  // Name of the Gender
         
         // Tag types - to instantiate the template
         // Note that these names are placeholders only and are not exposed outside the class
@@ -24,11 +24,11 @@ class Gender // Abstract Base Class
         struct FemaleType {};
     
     protected:
-        Gender(const string& name) : name_(name) {}
+        Gender(const string name) : name_(name) {}
         virtual ~Gender() { }
         
     public:
-        const string& GetName() const { return name_; }
+        const string GetName() const { return name_; }
         virtual const string GetTitle() const = 0; // Salutation specific to gender
         
         static bool IsMale(const Gender&); // Checking and matching gender
@@ -46,7 +46,7 @@ class GenderTypes : public Gender
         static const string sName;  // Respective name of the gender
         static const string sSalutation;    // Respective salutation for the gender
         
-        GenderTypes(const string& name = GenderTypes<T>::sName) : Gender(name) { }
+        GenderTypes(const string name = GenderTypes<T>::sName) : Gender(name) { }
         ~GenderTypes() { }
     
     public:

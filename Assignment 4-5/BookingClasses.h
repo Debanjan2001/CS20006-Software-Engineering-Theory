@@ -15,7 +15,7 @@ class BookingClassesTypes;
 
 class BookingClasses
 {
-	const string& name_;
+	const string name_;
 	const bool isAc_, isSeating_, isLuxury_;
 	struct ACFirstClassType{};
 	struct FirstClassType{};
@@ -28,12 +28,12 @@ class BookingClasses
 
 
 protected:
-	BookingClasses(const string& name, const bool isAc, const bool isSeating, const bool isLuxury): name_(name), isLuxury_(isLuxury), isAc_(isAc), isSeating_(isSeating){}
+	BookingClasses(const string name, const bool isAc, const bool isSeating, const bool isLuxury): name_(name), isLuxury_(isLuxury), isAc_(isAc), isSeating_(isSeating){}
 	virtual ~BookingClasses() {}
     
 public:
 
-	const string& GetName() const {	return name_;}
+	const string GetName() const {	return name_;}
 	virtual const double GetLoadFactor() const = 0;
 	virtual const int GetNumberOfTiers() const = 0;
 	virtual const double GetReservationCharge() const = 0;
@@ -62,7 +62,7 @@ class BookingClassesTypes: public BookingClasses{
 		static const bool sIsAc, sIsSeating,sIsLuxury;
 		static const double sLoadFactor;
 
-		BookingClassesTypes(const string& name = BookingClassesTypes<T>::sName, const bool isAc = BookingClassesTypes<T>::sIsAc,const bool isLuxury = BookingClassesTypes<T>::sIsLuxury, const bool isSeating = BookingClassesTypes<T>::sIsSeating):
+		BookingClassesTypes(const string name = BookingClassesTypes<T>::sName, const bool isAc = BookingClassesTypes<T>::sIsAc,const bool isLuxury = BookingClassesTypes<T>::sIsLuxury, const bool isSeating = BookingClassesTypes<T>::sIsSeating):
 			BookingClasses(name, isAc, isSeating, isLuxury){}
 		~BookingClassesTypes() {}
 

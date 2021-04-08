@@ -10,7 +10,7 @@ using namespace std;
 
 #include "BookingCategory.h"
 
-BookingCategory::BookingCategory(const string& name): name_(name){};
+BookingCategory::BookingCategory(const string name): name_(name){};
 
 BookingCategory::~BookingCategory() {};
 
@@ -29,7 +29,7 @@ General::General():BookingCategory("General"){};
 
 General::~General(){};
 
-ConcessionCategory::ConcessionCategory(const string&name):BookingCategory(name){};
+ConcessionCategory::ConcessionCategory(const string name):BookingCategory(name){};
 
 ConcessionCategory::~ConcessionCategory(){};
 
@@ -41,7 +41,7 @@ Ladies::Ladies():ConcessionCategory("Ladies"){};
 
 Ladies::~Ladies(){};
 
-PriorityCategory::PriorityCategory(const string& name):BookingCategory(name){};
+PriorityCategory::PriorityCategory(const string name):BookingCategory(name){};
 
 PriorityCategory::~PriorityCategory(){};
 

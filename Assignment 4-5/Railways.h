@@ -47,10 +47,10 @@ class Railways
 
     
         //Gets distance between two stations from their names
-        int GetDistance(const string& from,const string& to) const;
+        int GetDistance(const string from,const string to) const;
 
-        void AddStation(const string& station);
-        void AddDistance(const string& station1, const string& station2,int distance);
+        void AddStation(const string station);
+        void AddDistance(const string station1, const string station2,int distance);
 
 };
 

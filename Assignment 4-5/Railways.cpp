@@ -44,7 +44,7 @@ Railways::~Railways()
 {
 } 
 
-int Railways::GetDistance(const string& from,const string& to) const
+int Railways::GetDistance(const string from,const string to) const
 {
     
     // Gets distance between the two Stations
@@ -60,7 +60,7 @@ int Railways::GetDistance(const string& from,const string& to) const
     return distance;
 }
 
-void Railways::AddStation(const string& station)
+void Railways::AddStation(const string station)
 {
     try
     {
@@ -77,7 +77,7 @@ void Railways::AddStation(const string& station)
 }
 
 
-void Railways::AddDistance(const string& station1,const string& station2,int distance)
+void Railways::AddDistance(const string station1,const string station2,int distance)
 {
     try
     {

@@ -15,7 +15,7 @@ using namespace std;
 
 
 //Constructor with one parameter
-Station::Station(const string& name): name_(name)
+Station::Station(const string name): name_(name)
 {}
 
 string Station::GetName() const
@@ -24,7 +24,7 @@ string Station::GetName() const
     return name_;
 }
 
-const Station Station::CreateStation(const string& name)
+const Station& Station::CreateStation(const string name)
 {
     try
     {
@@ -35,7 +35,8 @@ const Station Station::CreateStation(const string& name)
         }
         else
         {
-            return Station(name);
+            Station* station = new Station(name);
+            return *station;
         }
     }
     catch(Bad_Railways& error)

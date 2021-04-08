@@ -27,13 +27,13 @@ class Disability // Abstract Base Class
         struct TBType{};
     
     protected:
-        Disability(const string& name) : name_(name) {}
+        Disability(const string name) : name_(name) {}
         virtual ~Disability() { }
         
     public:
 
-        const string& GetName() const { return name_; }
-        virtual const string& GetKey() const = 0; // Salutation specific to Disability
+        const string GetName() const { return name_; }
+        virtual const string GetKey() const = 0; // Salutation specific to Disability
         
         
         // Enumerated types - the target sub-types
@@ -52,7 +52,7 @@ class DisabilityTypes : public Disability
         static const string sName;  // Respective name of the Disability
         static const string sKey;    // Respective salutation for the Disability
         
-        DisabilityTypes(const string& name = DisabilityTypes<T>::sName) : Disability(name) { }
+        DisabilityTypes(const string name = DisabilityTypes<T>::sName) : Disability(name) { }
         ~DisabilityTypes() { }
     
     public:
@@ -63,7 +63,7 @@ class DisabilityTypes : public Disability
             return theObject;
         }
         
-        const string& GetKey() const           // Dynamic dispatch
+        const string GetKey() const           // Dynamic dispatch
         { return DisabilityTypes<T>::sKey; } // Salutation parametrized by static
 };
   

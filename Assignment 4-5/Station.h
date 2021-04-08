@@ -27,7 +27,7 @@ class Station
     public: 
         //Constructor and Destructor
         ~Station();
-        Station(const string& name);
+        Station(const string name);
 
 
         //Gets name of Station
@@ -39,7 +39,7 @@ class Station
 
         //Static method for checking validity of data
         //Returns reference to instance of Station class if data is valid
-        static const Station CreateStation(const string& name);
+        static const Station& CreateStation(const string name);
 
         // Output Stream Overloading
         friend ostream& operator<<(ostream& os,const Station& station);

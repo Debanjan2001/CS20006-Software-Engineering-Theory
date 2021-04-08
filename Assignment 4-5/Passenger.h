@@ -27,14 +27,14 @@ class Passenger
         const Date& dateOfBirth_;
         const string disabilityID_;
 
-        Passenger(const string& fName,const string& mName,const string& lName,const string& aadhar,const Date& dob,const Gender& gender,const string& mobile,const Disability* disabilityType, const string& disabilityID );        
+        Passenger(const string fName,const string mName,const string lName,const string aadhar,const Date& dob,const Gender& gender,const string mobile,const Disability* disabilityType, const string disabilityID );        
 
 
     public:
         //Constructor and Destructor
         ~Passenger();
 
-        static Passenger CreatePassenger(const Gender& gender,const string& aadhar,const Date& dob,const Disability* disabilityType,const string& mobile ,const string& disabilityID ,const string& fName ,const string& mName ,const string& lName  );
+        static Passenger CreatePassenger(const Gender& gender,const string aadhar,const Date& dob,const Disability* disabilityType,const string mobile ,const string disabilityID ,const string fName ,const string mName ,const string lName  );
 
         const string GetName() const;
         const Disability* GetDisabilityType() const;
