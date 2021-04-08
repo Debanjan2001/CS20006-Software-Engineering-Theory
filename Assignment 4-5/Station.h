@@ -22,12 +22,12 @@ class Railways;
 class Station
 {
     private:
-        string name_;
+        const string& name_;
     
     public: 
         //Constructor and Destructor
         Station();
-        Station(const string name);
+        Station(const string& name);
         ~Station();
 
         //Gets name of Station
@@ -35,6 +35,10 @@ class Station
 
         //Gets distance from self to another Station.
         int GetDistance (const Station& otherStation) const;
+
+        //Static method for checking validity of data
+        //Returns reference to instance of Station class if data is valid
+        static const Station& CreateStation(const string& name);
 
         // Output Stream Overloading
         friend ostream& operator<<(ostream& os,const Station& station);

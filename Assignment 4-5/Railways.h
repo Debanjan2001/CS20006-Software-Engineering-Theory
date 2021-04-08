@@ -30,9 +30,7 @@ class Railways
         // List of distance between a pair of Stations as Station-Station pairs
         static map<pair<const Station*,const Station*>,int> sDistStations;
         
-        // Gets Station from a given station name.
-        const Station* GetStation(const string& stationName) const;
-    
+       
     private:
         //Constructor made private to prevent creation of objects
         Railways();
@@ -46,6 +44,10 @@ class Railways
             static const Railways indianRailways;
             return indianRailways;
         }
+
+        // Gets Station from a given station name.
+        const Station* GetStation(const string& stationName) const;
+    
 
         //Gets distance between two stations from their names
         int GetDistance(const string& from,const string& to) const;

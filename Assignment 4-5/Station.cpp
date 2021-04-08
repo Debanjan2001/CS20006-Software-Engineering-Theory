@@ -8,21 +8,49 @@ Debanjan Saha
 #include<string>
 using namespace std;
 
+
 // ***** Project Headers
 #include "Station.h"
+#include "Exceptions.h"
+
+//Forward Declaration
+class Bad_Station;
 
 //Default Constructor with empty string as name
 Station::Station():name_("")
 {}
 
 //Constructor with one parameter
-Station::Station(const string name): name_(name)
+Station::Station(const string& name): name_(name)
 {}
 
 string Station::GetName() const
 {
     //return name of self(a Station)
     return name_;
+}
+
+const Station& Station::CreateStation(const string& name)
+{
+    const Station* station = (Railways::IndianRailways()).GetStation(name);
+    try
+    {
+        if(station == NULL)
+        {
+            Bad_Station error;
+            throw error;
+        }
+        else
+        {
+            return Station(station->GetName());
+        }
+    }
+    catch(Bad_Station& error)
+    {
+        cout<<error.what()<<endl;
+    }
+
+    return Station(name);
 }
 
 int Station::GetDistance(const Station& otherStation) const
