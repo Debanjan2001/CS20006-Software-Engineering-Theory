@@ -37,11 +37,8 @@ public:
 	virtual const double GetLoadFactor() const = 0;
 	virtual const int GetNumberOfTiers() const = 0;
 	virtual const double GetReservationCharge() const = 0;
-	virtual const int GetMinDistance() const = 0;
-	virtual const double GetMinTatkalCharge() const = 0;
-	virtual const double GetMaxTatkalCharge() const = 0;
-
-	const bool& IsAC() const{	return isAc_; }
+	
+	const bool& IsAC() const{	return isAc_;}
 	const bool& IsSitting() const{	return isSeating_;}
 	const bool& IsLuxury() const{	return isLuxury_;}
 
@@ -76,8 +73,8 @@ class BookingClassesTypes: public BookingClasses{
 		}
 
 		const int GetMinDistance() const { return sMinDistance; }
-		const double GetMinTatkalCharge() const { return sMinTatkalCharge; }
-		const double GetMaxTatkalCharge() const { return sMaxTatkalCharge; }
+		const int GetMinTatkalCharge() const { return sMinTatkalCharge; }
+		const int GetMaxTatkalCharge() const { return sMaxTatkalCharge; }
 		const int GetNumberOfTiers() const { return sNumTiers; };
 		const double GetReservationCharge() const { return sReservationCharge; };
 		const double GetLoadFactor() const{	return BookingClassesTypes<T>::sLoadFactor;}

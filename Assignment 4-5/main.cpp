@@ -41,7 +41,7 @@ int main(){
     // cout<< d->GetKey() <<endl;
 
 
-    // cout<< BookingClasses::AC2Tier::Type().GetLoadFactor()<<endl;
+    // cout<< BookingClasses::AC2Tier::Type().GetName()<<endl;
 
     // try{
     //     Station a = Station::CreateStation("sas");
@@ -52,7 +52,7 @@ int main(){
     //     cout<<err.what()<<endl;
     // }
 
-    Passenger a = Passenger::CreatePassenger(Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),&Disability::Orthopaedic::Type(),"100","20","apan","dey","sarkar");
+    // Passenger a = Passenger::CreatePassenger(Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),&Disability::Orthopaedic::Type(),"100","20","apan","dey","sarkar");
     // cout<< a.GetDisabilityType().GetKey()<<endl;
     // cout<<a.GetGender().GetName()<<endl;
 
@@ -69,6 +69,6 @@ int main(){
     // cout<<b.CalculateFare(a,BookingClasses::AC2Tier::Type())<<endl; 
     // cout<<b<<endl;
 
-    
+
     return 0;
 }
