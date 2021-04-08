@@ -3,7 +3,7 @@ using namespace std;
 
 #include "Gender.h"
 #include "Passenger.h"
-// #include "Booking.h"
+#include "Booking.h"
 #include "BookingClasses.h"
 #include "BookingCategory.h"
 #include "Date.h"
@@ -52,7 +52,7 @@ int main(){
     //     cout<<err.what()<<endl;
     // }
 
-    // Passenger a = Passenger::CreatePassenger(Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),&Disability::Orthopaedic::Type(),"100","20","apan","dey","sarkar");
+    Passenger a = Passenger::CreatePassenger(Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),&Disability::Orthopaedic::Type(),"100","20","apan","dey","sarkar");
     // cout<< a.GetDisabilityType().GetKey()<<endl;
     // cout<<a.GetGender().GetName()<<endl;
 
@@ -68,6 +68,14 @@ int main(){
     // const BookingCategory&b = SeniorCitizen::Type();
     // cout<<b.CalculateFare(a,BookingClasses::AC2Tier::Type())<<endl; 
     // cout<<b<<endl;
+
+    Booking a1 = Booking::CreateBooking(Station::CreateStation("Delhi"),Station::CreateStation("Mumbai"),Date::CreateDate(9,4,2021),Date::CreateDate(24,9,2021),BookingClasses::AC2Tier::Type(),Divyaang::Type(),a);
+    Booking a2 = Booking::CreateBooking(Station::CreateStation("Delhi"),Station::CreateStation("Chennai"),Date::CreateDate(9,4,2021),Date::CreateDate(24,9,2021),BookingClasses::AC3Tier::Type(),Divyaang::Type(),a);
+
+    vector<Booking*>::iterator it;
+    for (it = Booking::sBookings.begin(); it < Booking::sBookings.end(); ++it) {
+        cout <<(*(*it))<<endl;
+    }
 
 
     return 0;

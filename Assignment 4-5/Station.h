@@ -22,9 +22,8 @@ class Railways;
 class Station
 {
     private:
-        const string& name_;
+        const string name_;
 
-    
     public: 
         //Constructor and Destructor
         ~Station();

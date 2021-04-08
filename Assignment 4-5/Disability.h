@@ -16,7 +16,7 @@ class DisabilityTypes;  // Generic Disability type to generate specific Disabili
 class Disability // Abstract Base Class
 { 
     private:
-        const string& name_;  // Name of the Disability
+        const string name_;  // Name of the Disability
         
         // Tag types - to instantiate the template
         // Note that these names are placeholders only and are not exposed outside the class

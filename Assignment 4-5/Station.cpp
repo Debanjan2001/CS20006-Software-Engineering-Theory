@@ -53,7 +53,9 @@ int Station::GetDistance(const Station& otherStation) const
 
 //Destructor
 Station::~Station()
-{}
+{
+    cout<<"Deleted "<<name_<<endl;
+}
 
 
 // Output Stream Overloading

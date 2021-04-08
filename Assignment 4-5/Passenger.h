@@ -21,11 +21,11 @@ using namespace std;
 class Passenger
 {
     private:
-        const string& firstName_,lastName_,middleName_, aadhar_,mobile_;
+        const string firstName_,lastName_,middleName_, aadhar_,mobile_;
         const Disability* disabilityType_;
         const Gender& gender_;
         const Date& dateOfBirth_;
-        const string& disabilityID_;
+        const string disabilityID_;
 
         Passenger(const string& fName,const string& mName,const string& lName,const string& aadhar,const Date& dob,const Gender& gender,const string& mobile,const Disability* disabilityType, const string& disabilityID );        
 
