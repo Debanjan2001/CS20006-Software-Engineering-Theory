@@ -13,9 +13,9 @@ const char* Bad_Date::what() const throw()
     return "Exception occured.Error in date";
 }
 
-const char* Bad_Station::what() const throw()
+const char* Bad_Passenger::what() const throw()
 {
-    return "Exception occured.Error in station";
+    return "Exception occured.Error in Passenger";
 }
 
 const char* Bad_Railways::what() const throw()

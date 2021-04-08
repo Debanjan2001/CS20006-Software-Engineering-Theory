@@ -16,27 +16,27 @@ using namespace std;
 class Date
 {
     private:
-        // List of months and days
-        const static vector<string> sMonths;
-        const static vector<string> sDays;
-
-        // enum of Month and Day
-        enum Month { Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
-        enum Day { Mon, Tue, Wed, Thr, Fri, Sat, Sun };
         
-        typedef unsigned int UINT;
-        UINT date_; Month month_; UINT year_;
+        const int date_, month_, year_;
+
+        //Constructor
+        Date();
+        Date(int d, int m, int y);
     
     public:
 
-        // Constructor and Destructor
-        Date();
-        Date(UINT d, UINT m, UINT y);
+        // Destructor
         ~Date();
+
+        static Date CreateDate(int day,int month,int year);
+        int ComputeAge(const Date& otherDate);
+        bool IsWithinAYear(const Date& otherDate);
+        bool operator==(const Date& date);
 
         // Output Stream Overloading friend function Declaration
         friend ostream& operator<<(ostream& os,const Date& date);
-
+        
+        bool operator<(const Date& date);
         //Static method to test class Date
         static void UnitTestDate();
 };

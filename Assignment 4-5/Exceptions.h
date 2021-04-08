@@ -15,7 +15,7 @@ class Bad_Date: public exception
 };
 
 
-class Bad_Station: public exception
+class Bad_Passenger: public exception
 {
     public:
         const char* what() const throw();

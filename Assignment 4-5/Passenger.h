@@ -14,22 +14,23 @@ using namespace std;
 
 // ***** Project Headers
 #include "Date.h"
-
-// Forward declaration
-class Date;
+#include "Disability.h"
 
 // Abstract Base Class Passenger
 class Passenger
 {
     private:
-        const string name_,gender_,category_;
-        const long long int aadhar_,mobile_;
-        const Date dateOfBirth_;
+        const string& firstName_,lastName_,middleName_,gender_,category_, aadhar_,mobile_;
+        const Disability* disabilityType_;
+        const Date& dateOfBirth_;
+        const string& disabilityID_;
+
+        Passenger(const string& name,const string& aadhar,const Date &dob,const string gender,const string category,const long long int mobile);        
+
+        
 
     public:
         //Constructor and Destructor
-        Passenger();
-        Passenger(const string name,const long long int aadhar,const Date &dob,const string gender,const string category,const long long int mobile);        
         ~Passenger();
 
         // pure virtual getter method of passenger 

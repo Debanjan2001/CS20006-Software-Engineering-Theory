@@ -9,47 +9,59 @@ using namespace std;
 
 // ***** Project Headers
 #include "Date.h"
+#include "Exceptions.h"
 
-// ***** Static definitions
-const vector<string> Date::sMonths = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Aug","Oct","Nov","Dec"};
-const vector<string> Date::sDays = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+//Forward Declaration
+class Bad_Date;
 
 // Constructor without parameters (Default set to 1/1/1979).Since 1979,C++ started being developed.
-Date::Date():date_(1),month_(static_cast<Month>(1)),year_(1979)
+Date::Date():date_(1),month_(1),year_(1979)
 {}
 
 // Constructor with 3 parameters
-Date::Date(UINT d, UINT m, UINT y): date_(d),month_(static_cast<Month>(m)),year_(y)
+Date::Date(int d, int m, int y): date_(d),month_(m),year_(y)
 {}
 
 // Destructor
 Date::~Date()
 {}
 
-//UnitTest
-void Date::UnitTestDate()
+Date Date::CreateDate(int date,int month,int year)
 {
-    // Different cases of construction
-    Date d1; // Default Date object with no parameter
-    Date d2 = Date(14,7,2001); // Date with a user-defined date 
+    try
+    {
+    }
+    catch(Bad_Date& err)
+    {
+        cerr << err.what();
+    }
 
-    if(d1.date_ != 1 || d1.sMonths[d1.month_-1] != "Jan" || d1.year_!= 1979)
-        cout<<"  Date construction error on Date()"<<endl;
-    else
-        cout<<"  Subtest-1 Passed" <<endl;
+    return Date();
+    
+}
 
-    if(d2.date_ != 14 || d2.sMonths[d2.month_-1] != "Jul" || d2.year_!= 2001)
-        cout<<"  Date construction error on Date(14,7,2001)"<<endl;
-    else
-        cout<<"  Subtest-2 Passed" <<endl;
+// bool Date::IsWithinAYear(const Date& otherDate)
+// {   
+// }
+
+bool Date::operator==(const Date& date)
+{
+    return date_== date.date_ && month_ == date.month_ && year_ == date.year_;
 }
 
 // Friend function definition for output stream overloading
 ostream& operator<<(ostream& os,const Date& date)
 {
-    os<< date.date_ <<"/"<< date.sMonths[date.month_-1] <<"/"<<date.year_ ;
+    os<< date.date_ <<"/"<< date.month_ <<"/"<<date.year_ ;
     return os;
 }
+
+//UnitTest
+void Date::UnitTestDate()
+{
+   
+}
+
 
 
 

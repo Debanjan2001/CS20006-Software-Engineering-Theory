@@ -10,243 +10,71 @@ Debanjan Saha
 #include<string>
 using namespace std;
 
-//Abstract base class BookingClasses
+template<typename T>
+class BookingClassesTypes;
+
 class BookingClasses
 {
-    private:
-        const string name_;
-        const bool isSeat_,ac_;
-        const int numTiers_;
-
-        //Not constant since it is changeable according to tax rules
-        bool luxury_;
-
-    protected:
-        //Kept protected to prevent Instance Creation
-        BookingClasses(const string name,const bool isSeat,const bool ac,bool luxury,const int numTiers);
-        virtual ~BookingClasses() = 0;
-
-    public:
-        string GetName() const;
-        bool IsSitting() const;
-        bool IsAC() const;
-        int GetNumberOfTiers() const;
-        bool IsLuxury() const;
-        virtual double GetLoadFactor() const = 0;
-
-        //Output stream overloading for printing in Booking Class
-        friend ostream& operator<<(ostream& os,const BookingClasses& bookingClass);
-};
-
-//Base Class SeatingClass
-class SeatingClass:public BookingClasses
-{
-    // Protected to prevent creating objects 
-    protected:
-        SeatingClass(const string name,const bool ac,bool luxury,const int numTiers);
-        ~SeatingClass();
-
-};
-
-//Base Class BerthClass
-class BerthClass:public BookingClasses
-{
-    // Protected to prevent creating objects 
-    protected:
-        BerthClass(const string name,const bool ac,bool luxury,const int numTiers);
-        ~BerthClass();        
-};
-
-class ACFirstClass:public BerthClass
-{
-    private:
-        static const double sLoadFactor;
-         ACFirstClass();
-        ~ACFirstClass();
-
-    public:
-
-        //Singleton ACFirstClass
-        static const ACFirstClass& Type()
-        {
-            static const ACFirstClass obj;
-            return obj;
-        }
-        double GetLoadFactor() const;
-
-        //Output Stream Overloading
-        friend ostream& operator<<(ostream& os,const ACFirstClass& acFirstClass);
+	const string& name_;
+	const bool isAc_, isSeating_, isLuxury_;
+	struct ACFirstClassType{};
+	struct FirstClassType{};
+	struct ExecutiveChairCarType{};
+	struct AC2TierType{};
+	struct AC3TierType{};
+	struct ACChairCarType{};
+	struct SleeperType{};
+	struct SecondSittingType{};
 
 
-        //Static method to test clTestACFirstClass
-        static void UnitTestACFirstClass();
-        
-};
+protected:
+	BookingClasses(const string& name, const bool isAc, const bool isSeating, const bool isLuxury): name_(name), isLuxury_(isLuxury), isAc_(isAc), isSeating_(isSeating){}
+	virtual ~BookingClasses() {}
+    
+public:
 
+	const string& GetName() const {	return name_;}
+	virtual const double GetLoadFactor() const = 0;
+	virtual const int GetNumberOfTiers() const = 0;
+	virtual const double GetReservationCharge() const = 0;
+	const bool& IsAC() const{	return isAc_;}
+	const bool& IsSitting() const{	return isSeating_;}
+	const bool& IsLuxury() const{	return isLuxury_;}
 
-class AC2Tier:public BerthClass
-{
-    private:
-        static const double sLoadFactor;
-
-        //Private Constructor
-        AC2Tier();
-        ~AC2Tier();
-
-    public:
-
-        //Singleton AC2Tier
-        static const AC2Tier& Type()
-        {
-            static const AC2Tier obj;
-            return obj;
-        }
-        double GetLoadFactor() const;
-
-        //Output Stream Overloading
-        friend ostream& operator<<(ostream& os,const AC2Tier& ac2Tier);
-
-
-        //Static method to test classtAC2Tier
-        static void UnitTestAC2Tier();
-
-        
-};
-
-
-class FirstClass:public BerthClass
-{
-    private:
-        static const double sLoadFactor;
-        FirstClass();
-        ~FirstClass();
-
-    public:
-        
-
-        //Singleton FirstClass
-        static const FirstClass& Type()
-        {
-            static const FirstClass obj;
-            return obj;
-        }
-        double GetLoadFactor() const;
-
-        //Output Stream Overloading
-        friend ostream& operator<<(ostream& os,const FirstClass& firstClass);
-
-
-        //Static method to test class FirstClass
-        static void UnitTestFirstClass();
-
-        
-};
-
-
-class AC3Tier:public BerthClass
-{
-    private:
-        static const double sLoadFactor;
-        AC3Tier();
-        ~AC3Tier();
-
-    public:
-        
-
-        //Singleton AC3Tier
-        static const AC3Tier& Type()
-        {
-            static const AC3Tier obj;
-            return obj;
-        }
-        double GetLoadFactor() const;
-
-         //Output Stream Overloading
-        friend ostream& operator<<(ostream& os,const AC3Tier& ac3Tier);
-
-
-        //Static method to test class AC3Tier
-        static void UnitTestAC3Tier();
-
-        
-};
-
-
-class Sleeper:public BerthClass
-{
-    private:
-        static const double sLoadFactor;
-        Sleeper();
-        ~Sleeper();
-
-
-    public:
-        
-        //Singleton Sleeper
-        static const Sleeper& Type()
-        {
-            static const Sleeper obj;
-            return obj;
-        }
-        double GetLoadFactor() const;
-
-         //Output Stream Overloading
-        friend ostream& operator<<(ostream& os,const Sleeper& sleeper);        
-
-        //Static method to test class Sleeper
-        static void UnitTestSleeper();
-};
-
-
-class ACChairCar:public SeatingClass
-{
-    private:
-        static const double sLoadFactor;
-        ACChairCar();
-        ~ACChairCar();
-
-    public:
-
-        //Singleton ACChairCar
-        static const ACChairCar& Type()
-        {
-            static const ACChairCar obj;
-            return obj;
-        }
-        double GetLoadFactor() const;
-
-        //Output Stream Overloading
-        friend ostream& operator<<(ostream& os,const ACChairCar& acChairCar);
-
-        //Static method to test classtACChairCar
-        static void UnitTestACChairCar();
-        
-};
-
-class SecondSitting:public SeatingClass
-{
-    private:
-        static const double sLoadFactor;
-        SecondSitting();
-        ~SecondSitting();
-
-    public:
-
-        //Singleton SecondSitting
-        static const SecondSitting& Type()
-        {
-            static const SecondSitting obj;
-            return obj;
-        }
-        double GetLoadFactor() const;
-
-        //Output Stream Overloading
-        friend ostream& operator<<(ostream& os,const SecondSitting& secondSitting);
-
-        //Static method to test class SecondSitting
-        static void UnitTestSecondSitting();
-
+	typedef BookingClassesTypes<ACFirstClassType> ACFirstClass;
+	typedef BookingClassesTypes<FirstClassType> FirstClass;
+	typedef BookingClassesTypes<ExecutiveChairCarType> ExecutiveChairCar;
+	typedef BookingClassesTypes<AC2TierType> AC2Tier;
+	typedef BookingClassesTypes<AC3TierType> AC3Tier;
+	typedef BookingClassesTypes<ACChairCarType> ACChairCar;
+	typedef BookingClassesTypes<SleeperType> Sleeper;
+	typedef BookingClassesTypes<SecondSittingType> SecondSitting;
 
 };
+
+template<typename T>
+class BookingClassesTypes: public BookingClasses{
+	private:
+		static const string sName;
+		static const int sNumTiers;
+		static const double sReservationCharge;
+		static const bool sIsAc, sIsSeating,sIsLuxury;
+		static const double sLoadFactor;
+
+		BookingClassesTypes(const string& name = BookingClassesTypes<T>::sName, const bool isAc = BookingClassesTypes<T>::sIsAc,const bool isLuxury = BookingClassesTypes<T>::sIsLuxury, const bool isSeating = BookingClassesTypes<T>::sIsSeating):
+			BookingClasses(name, isAc, isSeating, isLuxury){}
+		~BookingClassesTypes() {}
+
+	public:
+		static const BookingClassesTypes<T>& Type(){
+			static const BookingClassesTypes<T> theObject;
+			return theObject;
+		}
+
+		const int GetNumberOfTiers() const { return sNumTiers; };
+		const double GetReservationCharge() const { return sReservationCharge; };
+		const double GetLoadFactor() const{	return BookingClassesTypes<T>::sLoadFactor;}
+};
+
 
 #endif
