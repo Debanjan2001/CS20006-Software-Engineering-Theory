@@ -28,17 +28,18 @@ class Date
         // Destructor
         ~Date();
 
+        const bool IsLeapYear() const;
+
         static Date CreateDate(int day,int month,int year);
-        int ComputeAge(const Date& otherDate);
-        bool IsWithinAYear(const Date& otherDate);
+        const int ComputeAge(const Date& otherDate) const;
+       
+        bool IsWithinAYear(const Date& dateOfBirth);
         bool operator==(const Date& date);
 
         // Output Stream Overloading friend function Declaration
         friend ostream& operator<<(ostream& os,const Date& date);
         
         bool operator<(const Date& date);
-        //Static method to test class Date
-        static void UnitTestDate();
 };
 
 #endif

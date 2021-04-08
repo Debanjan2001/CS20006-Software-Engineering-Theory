@@ -25,10 +25,10 @@ class Railways
     private:
 
         // List of Station as name-Station pairs
-        static map<const string,const Station*> sStations;
+        static map<const string,bool> sStations;
 
         // List of distance between a pair of Stations as Station-Station pairs
-        static map<pair<const Station*,const Station*>,int> sDistStations;
+        static map<pair<const string,const string>,int> sDistStations;
         
        
     private:
@@ -45,12 +45,12 @@ class Railways
             return indianRailways;
         }
 
-        // Gets Station from a given station name.
-        const Station* GetStation(const string& stationName) const;
     
-
         //Gets distance between two stations from their names
         int GetDistance(const string& from,const string& to) const;
+
+        void AddStation(const string& station);
+        void AddDistance(const string& station1, const string& station2,int distance);
 
 };
 

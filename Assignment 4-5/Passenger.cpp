@@ -40,9 +40,9 @@ const Gender& Passenger::GetGender() const
     return gender_;
 }
 
-const Disability& Passenger::GetDisabilityType() const
+const Disability* Passenger::GetDisabilityType() const
 {
-    return *disabilityType_;
+    return disabilityType_;
 }
 
 ostream& operator<<(ostream& os,const Passenger& passenger)

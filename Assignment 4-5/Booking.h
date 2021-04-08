@@ -28,8 +28,8 @@ class Passenger;
 class Booking
 {
     private:
-        const Station fromStation_,toStation_ ;
-        const Date date_;
+        const Station& fromStation_,toStation_ ;
+        const Date& date_;
         const BookingClasses& bookingClass_;
         const Passenger* passenger_;
         const int pnrNumber_;

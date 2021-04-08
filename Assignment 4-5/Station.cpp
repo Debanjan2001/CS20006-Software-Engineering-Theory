@@ -44,11 +44,12 @@ const Station Station::CreateStation(const string& name)
     }
 }
 
-// int Station::GetDistance(const Station& otherStation) const
-// {
-//     // Gets distance from self to another Station from a method of Singleton Railways.
-//     return (Railways::IndianRailways()).GetDistance(name_,otherStation.GetName());
-// }
+int Station::GetDistance(const Station& otherStation) const
+{
+    // Gets distance from self to another Station from a method of Singleton Railways.
+    return (Railways::IndianRailways()).GetDistance(name_,otherStation.GetName());
+}
+
 
 //Destructor
 Station::~Station()

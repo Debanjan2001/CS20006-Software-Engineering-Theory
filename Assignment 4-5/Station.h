@@ -23,18 +23,20 @@ class Station
 {
     private:
         const string& name_;
-        Station(const string& name);
 
     
     public: 
         //Constructor and Destructor
         ~Station();
+        Station(const string& name);
+
 
         //Gets name of Station
         string GetName() const;
 
         //Gets distance from self to another Station.
-        // int GetDistance (const Station& otherStation) const;
+        int GetDistance (const Station& otherStation) const;
+
 
         //Static method for checking validity of data
         //Returns reference to instance of Station class if data is valid

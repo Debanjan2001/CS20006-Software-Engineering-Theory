@@ -10,86 +10,91 @@ using namespace std;
 
 // ***** Project Headers
 #include "Railways.h"
+#include "Exceptions.h"
 
 // ***** Static definitions
-map<const string,const Station*> Railways::sStations;
-map<pair<const Station*,const Station*>,int> Railways::sDistStations;
+map<const string,bool> Railways::sStations;
+map<pair<const string,const string>,int> Railways::sDistStations;
 
 // Implementation of Railways
 Railways::Railways()
 {
     // Predefined data
-    sStations["Mumbai"] = new Station("Mumbai");
-    sStations["Delhi"] = new Station("Delhi");
-    sStations["Bangalore"] = new Station("Bangalore");
-    sStations["Kolkata"] = new Station("Kolkata");
-    sStations["Chennai"] = new Station("Chennai");
+    AddStation("Mumbai");
+    AddStation("Delhi");
+    AddStation("Bangalore");
+    AddStation("Kolkata");
+    AddStation("Chennai");
 
-    sDistStations[make_pair(sStations["Mumbai"],sStations["Delhi"])] = 1447;
+    AddDistance("Mumbai","Delhi",1447);
+    AddDistance("Mumbai","Bangalore",981);
+    AddDistance("Mumbai","Kolkata",2014);
+    AddDistance("Mumbai","Chennai",1338);
+    AddDistance("Delhi","Banglore",2150);
+    AddDistance("Delhi","Kolkata",1472);
+    AddDistance("Delhi","Chennai",2180);
+    AddDistance("Bangalore","Kolkata",1871);
+    AddDistance("Bangalore","Chennai",350);
+    AddDistance("Kolkata","Chennai",1659);
 
-    sDistStations[make_pair(sStations["Mumbai"],sStations["Bangalore"])] = 981;
-
-    sDistStations[make_pair(sStations["Mumbai"],sStations["Kolkata"])] = 2014;
-
-    sDistStations[make_pair(sStations["Mumbai"],sStations["Chennai"])] = 1338;
-
-    sDistStations[make_pair(sStations["Delhi"],sStations["Bangalore"])] = 2150;
-
-    sDistStations[make_pair(sStations["Delhi"],sStations["Kolkata"])] = 1472;
-    
-    sDistStations[make_pair(sStations["Delhi"],sStations["Chennai"])] = 2180;
-
-    sDistStations[make_pair(sStations["Bangalore"],sStations["Kolkata"])] = 1871;
-
-    sDistStations[make_pair(sStations["Bangalore"],sStations["Chennai"])] = 350;
-
-    sDistStations[make_pair(sStations["Kolkata"],sStations["Chennai"])] = 1659;
 }
 
 // Destructor
 Railways::~Railways()
 {
-    // Cleans up the stations created before 
-    map<const string,const Station*>::iterator it;
-
-    for(it = sStations.begin(); it!= sStations.end(); ++it)
-    {
-        delete it->second;
-    }
 } 
-
-
-const Station* Railways::GetStation(const string& stationName) const
-{
-    // Looks for a Station with matching name 
-    map<const string,const Station* >::iterator it;
-
-    for(it = sStations.begin(); it != sStations.end() ; ++it)
-    {
-        if( it->first == stationName)
-            return it->second;
-    }
-
-    // returns NULL if Station with given name is not found.
-    return NULL;
-}
 
 int Railways::GetDistance(const string& from,const string& to) const
 {
-    // Get source and destination stations from their names.
-    const Station* source = GetStation(from);
-    const Station* destination = GetStation(to);
-
+    
     // Gets distance between the two Stations
-    map<pair<const Station*,const Station*>,int>::iterator it;
-    it = sDistStations.find(make_pair(source,destination));
+    map<pair<const string,const string>,int>::iterator it;
+    it = sDistStations.find(make_pair(from,to));
 
     if( it == sDistStations.end() )
     {
-        it = sDistStations.find(make_pair(destination,source));
+        it = sDistStations.find(make_pair(to,from));
     }
 
     int distance = it->second;
     return distance;
 }
 
+void Railways::AddStation(const string& station)
+{
+    try
+    {
+        if(sStations.find(station) == sStations.end())
+            sStations[station] = true;
+        else
+            throw Bad_Railways("Exception! Duplication of Station Not Allowed");
+    }
+    catch(const Bad_Railways& e)
+    {
+               cout<<e.what()<<endl;;
+    }
+    
+}
+
+
+void Railways::AddDistance(const string& station1,const string& station2,int distance)
+{
+    try
+    {
+        if(sDistStations.find(make_pair(station1,station2)) == sDistStations.end())
+        {
+            if(sDistStations.find(make_pair(station2,station1)) == sDistStations.end())
+                sDistStations[make_pair(station1,station2)] = distance;
+            else
+                throw Bad_Railways("Exception occured! Distance already exists. ");
+        }
+        else
+            throw Bad_Railways("Exception occured! Distance already exists. ");
+
+    }
+    catch(const Bad_Railways& e)
+    {
+        cout<<e.what()<<endl;;
+    }
+    
+}

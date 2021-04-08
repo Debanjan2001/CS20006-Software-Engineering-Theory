@@ -30,19 +30,88 @@ Date Date::CreateDate(int date,int month,int year)
 {
     try
     {
+        if(false)
+        {
+            throw Bad_Date("Error");
+        }
+        else
+        {
+            return Date(date,month,year);
+        }
     }
     catch(Bad_Date& err)
     {
-        cerr << err.what();
+        throw err;
     }
-
-    return Date();
-    
 }
 
-// bool Date::IsWithinAYear(const Date& otherDate)
-// {   
-// }
+const bool Date::IsLeapYear() const
+{
+    if(year_ % 100 == 0)
+        return !(year_ % 400);
+    else
+        return !(year_ % 4);
+}
+
+bool Date::IsWithinAYear(const Date& otherDate)
+{
+    if(year_-otherDate.year_>1)
+        return false;
+    if(year_==otherDate.year_)
+        return true;
+    
+    if(month_> otherDate.month_)
+        return false;
+
+    if(month_ == otherDate.month_ && date_ >otherDate.date_ )
+        return false;
+    else
+        return true;
+
+}
+
+bool Date::operator<(const Date& otherDate)
+{
+    if(year_>otherDate.year_)
+        return false;
+    
+    if(year_<otherDate.year_)
+        return true;
+
+    if(month_ > otherDate.month_ )
+        return false;
+
+    if(month_ < otherDate.month_ )
+        return true;
+
+    if(date_ > otherDate.date_)
+        return false;
+
+    if(month_ < otherDate.month_ )
+        return true;
+    
+    return false;
+}
+
+const int Date::ComputeAge(const Date& dateOfBirth) const
+{
+    int age = year_ - dateOfBirth.year_;
+
+    if(month_ < dateOfBirth.month_)
+    {
+        age--;
+        return age;
+    }
+
+    if(month_ == dateOfBirth.month_ && date_<dateOfBirth.date_) 
+    {
+        age--;
+        return age;
+    }
+
+    return age;
+}
+
 
 bool Date::operator==(const Date& date)
 {
@@ -56,11 +125,6 @@ ostream& operator<<(ostream& os,const Date& date)
     return os;
 }
 
-//UnitTest
-void Date::UnitTestDate()
-{
-   
-}
 
 
 

@@ -37,7 +37,7 @@ class Passenger
         static Passenger CreatePassenger(const Gender& gender,const string& aadhar,const Date& dob,const Disability* disabilityType,const string& mobile ,const string& disabilityID ,const string& fName ,const string& mName ,const string& lName  );
 
         const string GetName() const;
-        const Disability& GetDisabilityType() const;
+        const Disability* GetDisabilityType() const;
         const Gender& GetGender() const;
         const Date& GetDateOfBirth() const;
         const string GetDisabilityID() const;
