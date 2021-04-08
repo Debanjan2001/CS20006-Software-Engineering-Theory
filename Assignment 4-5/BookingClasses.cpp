@@ -25,6 +25,12 @@ template<>
 const bool BookingClasses::ACFirstClass::sIsLuxury = true;
 template<>
 const double BookingClasses::ACFirstClass::sReservationCharge = 60.0;
+template<>
+const double BookingClasses::ACFirstClass::sMinTatkalCharge = 400.00;
+template<>
+const double BookingClasses::ACFirstClass::sMaxTatkalCharge = 500.00;
+template<>
+const int BookingClasses::ACFirstClass::sMinDistance = 500;
 
 
 template<>
@@ -41,6 +47,12 @@ template<>
 const bool BookingClasses::ExecutiveChairCar::sIsLuxury = true;
 template<>
 const double BookingClasses::ExecutiveChairCar::sReservationCharge = 60.0;
+template<>
+const double BookingClasses::ExecutiveChairCar::sMinTatkalCharge = 400.00;
+template<>
+const double BookingClasses::ExecutiveChairCar::sMaxTatkalCharge = 500.00;
+template<>
+const int BookingClasses::ExecutiveChairCar::sMinDistance = 250;
 
 
 
@@ -58,6 +70,12 @@ template<>
 const bool BookingClasses::AC2Tier::sIsLuxury = false;
 template<>
 const double BookingClasses::AC2Tier::sReservationCharge = 50.0;
+template<>
+const double BookingClasses::AC2Tier::sMinTatkalCharge = 400.00;
+template<>
+const double BookingClasses::AC2Tier::sMaxTatkalCharge = 500.00;
+template<>
+const int BookingClasses::AC2Tier::sMinDistance = 500;
 
 
 
@@ -75,6 +93,12 @@ template<>
 const bool BookingClasses::FirstClass::sIsLuxury = true;
 template<>
 const double BookingClasses::FirstClass::sReservationCharge = 50.0;
+template<>
+const double BookingClasses::FirstClass::sMinTatkalCharge = 400.00;
+template<>
+const double BookingClasses::FirstClass::sMaxTatkalCharge = 500.00;
+template<>
+const int BookingClasses::FirstClass::sMinDistance = 500;
 
 
 
@@ -92,6 +116,12 @@ template<>
 const bool BookingClasses::AC3Tier::sIsLuxury = false;
 template<>
 const double BookingClasses::AC3Tier::sReservationCharge = 40.0;
+template<>
+const double BookingClasses::AC3Tier::sMinTatkalCharge = 300.00;
+template<>
+const double BookingClasses::AC3Tier::sMaxTatkalCharge = 400.00;
+template<>
+const int BookingClasses::AC3Tier::sMinDistance = 500;
 
 
 
@@ -109,6 +139,12 @@ template<>
 const bool BookingClasses::ACChairCar::sIsLuxury = false;
 template<>
 const double BookingClasses::ACChairCar::sReservationCharge = 40.0;
+template<>
+const double BookingClasses::ACChairCar::sMinTatkalCharge = 125.00;
+template<>
+const double BookingClasses::ACChairCar::sMaxTatkalCharge = 225.00;
+template<>
+const int BookingClasses::ACChairCar::sMinDistance = 250;
 
 
 
@@ -126,6 +162,12 @@ template<>
 const bool BookingClasses::Sleeper::sIsLuxury = false;
 template<>
 const double BookingClasses::Sleeper::sReservationCharge = 20.0;
+template<>
+const double BookingClasses::Sleeper::sMinTatkalCharge = 100.00;
+template<>
+const double BookingClasses::Sleeper::sMaxTatkalCharge = 200.00;
+template<>
+const int BookingClasses::Sleeper::sMinDistance = 500;
 
 
 template<>
@@ -142,6 +184,12 @@ template<>
 const bool BookingClasses::SecondSitting::sIsLuxury = false;
 template<>
 const double BookingClasses::SecondSitting::sReservationCharge = 10.0;
+template<>
+const double BookingClasses::SecondSitting::sMinTatkalCharge = 10.00;
+template<>
+const double BookingClasses::SecondSitting::sMaxTatkalCharge = 15.00;
+template<>
+const int BookingClasses::SecondSitting::sMinDistance = 100;
 
 
 

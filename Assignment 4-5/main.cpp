@@ -3,11 +3,11 @@ using namespace std;
 
 #include "Gender.h"
 #include "Passenger.h"
-#include "Booking.h"
+// #include "Booking.h"
 #include "BookingClasses.h"
 #include "Date.h"
 #include "Station.h"
-#include "Railways.h"
+// #include "Railways.h"
 #include "Exceptions.h"
 #include "Disability.h"
 
@@ -34,10 +34,27 @@ int main(){
 
     // cout<<a<<endl;
     // const Gender* g = &Gender::Male::Type();
-    // cout<< Gender::IsMale()<<endl;
+    // cout<< Gender::IsMale(*g)<<endl;
+
+    // const Disability* d = &Disability::Cancer::Type();
+    // cout<< d->GetKey() <<endl;
+
 
     // cout<< BookingClasses::AC2Tier::Type().GetLoadFactor()<<endl;
 
-    
+// try{
+//     Station a = Station::CreateStation("sas");
+//     cout<<a.GetName()<<endl;
+//     cout<<a.GetName()<<endl;
+// }catch(Bad_Railways& err)
+// {
+//     cout<<err.what()<<endl;
+// }
+
+// Passenger a = Passenger::CreatePassenger(Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),&Disability::Orthopaedic::Type(),"100","20","apan","dey","sarkar");
+// cout<< a.GetDisabilityType().GetKey()<<endl;
+// cout<<a.GetGender().GetName()<<endl;
+
+
     return 0;
 }

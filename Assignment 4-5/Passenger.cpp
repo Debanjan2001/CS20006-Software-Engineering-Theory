@@ -12,14 +12,44 @@ using namespace std;
 #include "Passenger.h"
 
 // Constructor
-Passenger::Passenger(const string name,const long long int aadhar,const Date &dob,const string gender,const string category,const long long int mobile = 0):
-name_(name),dateOfBirth_(dob),gender_(gender),category_(category),aadhar_(static_cast<const long long int>(aadhar)),mobile_(static_cast<const long long int>(mobile))
+Passenger::Passenger(const string& fName,const string& mName,const string& lName,const string& aadhar,const Date& dob,const Gender& gender,const string& mobile,const Disability* disabilityType, const string& disabilityID ):
+firstName_(fName),middleName_(mName),lastName_(lName),dateOfBirth_(dob),gender_(gender),aadhar_(aadhar),mobile_(mobile),disabilityID_(disabilityID),disabilityType_(disabilityType){};
+
+Passenger Passenger::CreatePassenger(const Gender& gender,const string& aadhar,const Date& dob,const Disability* disabilityType,const string& mobile ="",const string& disabilityID = "",const string& fName = "",const string& mName = "",const string& lName = "" )
 {
+    return Passenger(fName,mName,lName,aadhar,dob,gender,mobile,disabilityType,disabilityID);
 }
 
-// Default Constructor
-Passenger::Passenger():name_(""),aadhar_(0),dateOfBirth_(Date()),gender_(""),category_(""),mobile_(0)
-{}
+const Date& Passenger::GetDateOfBirth() const
+{
+    return dateOfBirth_;
+}
+
+const string Passenger::GetName() const
+{
+    return firstName_+ " "+ middleName_+ " "+lastName_;
+}
+
+const string Passenger::GetDisabilityID() const
+{
+    return disabilityID_;
+}
+
+const Gender& Passenger::GetGender() const
+{
+    return gender_;
+}
+
+const Disability& Passenger::GetDisabilityType() const
+{
+    return *disabilityType_;
+}
+
+ostream& operator<<(ostream& os,const Passenger& passenger)
+{
+    os<< passenger.GetName()<<endl;
+    return os;
+}
 
 //Destructor
 Passenger::~Passenger()

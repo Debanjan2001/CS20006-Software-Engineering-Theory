@@ -23,28 +23,25 @@ class Station
 {
     private:
         const string& name_;
+        Station(const string& name);
+
     
     public: 
         //Constructor and Destructor
-        Station();
-        Station(const string& name);
         ~Station();
 
         //Gets name of Station
         string GetName() const;
 
         //Gets distance from self to another Station.
-        int GetDistance (const Station& otherStation) const;
+        // int GetDistance (const Station& otherStation) const;
 
         //Static method for checking validity of data
         //Returns reference to instance of Station class if data is valid
-        static const Station& CreateStation(const string& name);
+        static const Station CreateStation(const string& name);
 
         // Output Stream Overloading
         friend ostream& operator<<(ostream& os,const Station& station);
-
-        //Static method to test class Station
-        static void UnitTestStation();
 
 };
 
