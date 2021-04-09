@@ -10,22 +10,34 @@ using namespace std;
 
 int main()
 {
-    cout<<"***************************"<<endl;
+    cout<<"********************************************************"<<endl;
     cout<<"Unit Test for Station: "<<endl;
-    cout<<"***************************"<<endl;
+    cout<<"********************************************************"<<endl;
     Station::UnitTestStation();
     cout<<endl;
 
-    cout<<"***************************"<<endl;
+    cout<<"********************************************************"<<endl;
     cout<<"Unit Test for Date: "<<endl;
-    cout<<"***************************"<<endl;
+    cout<<"********************************************************"<<endl;
     Date::UnitTestDate();
     cout<<endl;
 
-    cout<<"***************************"<<endl;
+    cout<<"********************************************************"<<endl;
     cout<<"Unit Test for Passenger: "<<endl;
-    cout<<"***************************"<<endl;
+    cout<<"********************************************************"<<endl;
     Passenger::UnitTestPassenger();
+    cout<<endl;
+
+    cout<<"********************************************************"<<endl;
+    cout<<"Unit Test for Railways: "<<endl;
+    cout<<"********************************************************"<<endl;
+    Railways::UnitTestRailways();
+    cout<<endl;
+
+    cout<<"********************************************************"<<endl;
+    cout<<"Unit Test for Booking: "<<endl;
+    cout<<"********************************************************"<<endl;
+    Booking::UnitTestBooking();
     cout<<endl;
 
     return 0;

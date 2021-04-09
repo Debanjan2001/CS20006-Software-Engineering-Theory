@@ -230,9 +230,9 @@ const int PremiumTatkal::CalculateFare(const Passenger& passenger,const BookingC
     fare += (static_cast<double>(distance))*sBaseFarePerKM ;
     fare *= bookingClass.GetLoadFactor();
 
-    double premiumTatkalCharge = fare * (( &bookingClass == &BookingClasses::SecondSitting::Type())? 0.10: 0.30);
-    premiumTatkalCharge = max(premiumTatkalCharge,2.0*bookingClass.GetMinTatkalCharge());
-    premiumTatkalCharge = min(premiumTatkalCharge,2.0*bookingClass.GetMaxTatkalCharge());
+    double premiumTatkalCharge = fare * (( &bookingClass == &BookingClasses::SecondSitting::Type())? 0.20: 0.60);
+    premiumTatkalCharge = max(premiumTatkalCharge,bookingClass.GetMinTatkalCharge());
+    premiumTatkalCharge = min(premiumTatkalCharge,bookingClass.GetMaxTatkalCharge());
 
     if(distance<bookingClass.GetMinDistance())
         premiumTatkalCharge = 0;

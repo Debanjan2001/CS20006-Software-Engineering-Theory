@@ -68,3 +68,8 @@ ostream& operator<<(ostream& os,const Booking& booking)
     os<<"Passenger is: "<<booking.passenger_<<endl;
     return os;
 }
+
+void Booking::UnitTestBooking()
+{
+
+}

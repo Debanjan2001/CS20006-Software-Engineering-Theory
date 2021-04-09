@@ -53,7 +53,7 @@ const Date& Passenger::GetDateOfBirth() const
 
 const string Passenger::GetName() const
 {
-    return firstName_+ " "+ middleName_+ " "+lastName_;
+    return firstName_+" "+ middleName_+" "+lastName_;
 }
 
 const string Passenger::GetDisabilityID() const

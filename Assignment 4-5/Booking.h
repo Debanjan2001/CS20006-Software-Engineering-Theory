@@ -63,6 +63,8 @@ class Booking
         // Output Stream overloading 
         friend ostream& operator<<(ostream& os,const Booking& booking);
 
+        static void UnitTestBooking();
+
            
 };
 

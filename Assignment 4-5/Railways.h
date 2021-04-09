@@ -39,22 +39,22 @@ class Railways
         ~Railways();
         
         // Singleton Railways
-        static const Railways& IndianRailways()
+        static Railways& IndianRailways()
         {
-            static const Railways indianRailways;
+            static Railways indianRailways;
             return indianRailways;
         }
 
-    
         //Gets distance between two stations from their names
         const int GetDistance(const string& from,const string& to) const;
 
         // Gets Station from a given station name.
-         const Station* GetStation(const string& stationName) const;
+        const Station* GetStation(const string& stationName) const;
     
-
         void AddStation(const string& station);
         void AddDistance(const string& station1, const string& station2,int distance);
+
+        static void UnitTestRailways();
 
 };
 
