@@ -77,10 +77,12 @@ ostream& operator<<(ostream& os,const Booking& booking)
     os<<"PNR Number = "<<booking.pnrNumber_<<"\n";
     os<<"From Station = "<<booking.fromStation_.GetName()<<"\n";
     os<<"To Station = "<<booking.toStation_.GetName()<<"\n";
-    os<<"Travel Date = "<<booking.dateOfReservation_<<"\n";
-    os<<booking.bookingClass_.GetName()<<"\n";
+    os<<"Reservation Date = "<<booking.dateOfReservation_<<"\n";
+    os<<"Travel Date = "<<booking.dateOfBooking_<<"\n";
+    os<<"Booking Class:"<<booking.bookingClass_.GetName()<<"\n";
+    os<<"Booking Category:"<<booking.bookingCategory_.GetName()<<"\n";
     os<<"Fare = "<<booking.fare_<<"\n";
-    os<<"Passenger is: "<<booking.passenger_<<endl;
+    os<<booking.passenger_<<endl;
     return os;
 }
 

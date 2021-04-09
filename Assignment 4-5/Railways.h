@@ -29,7 +29,11 @@ class Railways
 
         // List of distance between a pair of Stations as Station-Station pairs
         static map<pair<const Station*,const Station*>,int> sDistStations;
-        
+
+        // Helper method to add station and add distance during initialisation and handling duplication.
+        void AddStation(const string& station);
+        void AddDistance(const string& station1, const string& station2,int distance);
+
        
     private:
         //Constructor made private to prevent creation of objects
@@ -39,9 +43,9 @@ class Railways
         ~Railways();
         
         // Singleton Railways
-        static Railways& IndianRailways()
+        static const Railways& IndianRailways()
         {
-            static Railways indianRailways;
+            static const Railways indianRailways;
             return indianRailways;
         }
 
@@ -51,10 +55,6 @@ class Railways
         // Gets Station from a given station name.
         const Station* GetStation(const string& stationName) const;
     
-        void AddStation(const string& station);
-        void AddDistance(const string& station1, const string& station2,int distance);
-
-        static void UnitTestRailways();
 
 };
 

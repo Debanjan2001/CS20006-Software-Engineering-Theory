@@ -42,9 +42,15 @@ const Passenger& Passenger::CreatePassenger(const string& fName ,const string& m
         }
    }
 
+    if( disabilityType!=NULL && disabilityID.length()==0)
+        throw Bad_Passenger("Bad_Passenger: No disability ID provided by Passenger.");
+   
+
     Passenger* p = new Passenger(fName,mName,lName,aadhar,dob,gender,mobile,disabilityType,disabilityID);
     return *p;
 }
+
+// Getter methods *****************************
 
 const Date& Passenger::GetDateOfBirth() const
 {
@@ -71,9 +77,22 @@ const Disability* Passenger::GetDisabilityType() const
     return disabilityType_;
 }
 
+// Output Stream overload   
 ostream& operator<<(ostream& os,const Passenger& passenger)
 {
-    os<< passenger.GetName()<<endl;
+    os<<"Passenger Info:"<<endl;
+    os<<"Name: "<< passenger.GetName()<<endl;
+    os<<"Gender: "<<passenger.GetGender().GetName()<<endl;
+    os<<"Date of Birth: "<<passenger.GetDateOfBirth()<<endl;
+    os<<"Aadhar no.: "<<passenger.aadhar_<<endl;
+    if(passenger.mobile_.length()>0)
+        os<<"Mobile No: "<<passenger.mobile_<<endl;
+    
+    if(passenger.GetDisabilityType()!=NULL)
+    {
+        os<<"Disability Type: "<<passenger.GetDisabilityType()->GetKey()<<endl;
+        os<<"Disability ID: "<<passenger.GetDisabilityID()<<endl; 
+    }
     return os;
 }
 
@@ -171,6 +190,18 @@ void Passenger::UnitTestPassenger()
     try
     {
         Passenger p = Passenger::CreatePassenger("Debanjan","","Saha",Gender::Male::Type(),"432768911296",Date::CreateDate(14,7,2001),"980203sas4",&Disability::Cancer::Type(),"22153");
+        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
+    }
+    catch(Bad_Passenger& ex)
+    {
+        cout<<ex.what()<<endl;
+        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
+        success++;
+    }
+
+    try
+    {
+        Passenger p = Passenger::CreatePassenger("Debanjan","","Saha",Gender::Male::Type(),"432768911296",Date::CreateDate(14,7,2001),"9802030004",&Disability::Cancer::Type());
         cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
     }
     catch(Bad_Passenger& ex)

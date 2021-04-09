@@ -24,6 +24,7 @@ string Station::GetName() const
     return name_;
 }
 
+// Factory Function for Creating Station
 const Station& Station::CreateStation(const string& name)
 {
     if(name.length() == 0)
@@ -44,6 +45,7 @@ ostream& operator<<(ostream& os,const Station& station)
     return os;
 }
 
+//Unit Tests
 void Station::UnitTestStation()
 {
     cout<<endl;
@@ -70,7 +72,7 @@ void Station::UnitTestStation()
         Station s = Station::CreateStation("Delhi");
         if(s.GetName()!="Delhi")
             throw Bad_Railways("Bad_Railways: Station name do not match");
-            
+
         cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
         success++;
     }

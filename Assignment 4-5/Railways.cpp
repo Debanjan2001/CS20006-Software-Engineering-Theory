@@ -76,6 +76,7 @@ const int Railways::GetDistance(const string& from,const string& to) const
     return distance;
 }
 
+// helper method to add station and avoid duplication
 void Railways::AddStation(const string& station)
 {
     if(sStations.find(station) == sStations.end())
@@ -84,6 +85,7 @@ void Railways::AddStation(const string& station)
         throw Bad_Railways("Bad_Railways: Station already exists.Duplication of Station Not Allowed");
 }
 
+// helper method to add distance between station and avoid symmetric addition
 void Railways::AddDistance(const string& from,const string& to,int distance)
 {
     const Station *station1 = GetStation(from);
@@ -98,106 +100,6 @@ void Railways::AddDistance(const string& from,const string& to,int distance)
     }
     else
         throw Bad_Railways("Bad_Railways: Distance already exists. Symmetric relationship is followed here.");
-}
-
-void Railways::UnitTestRailways()
-{
-    cout<<endl;
-
-    int success = 0,totTest=0;
-
-    // Not constant because now we need to analyse whether the system can add stations and distances. 
-    Railways& indianRailways = Railways::IndianRailways();
-    cout<<"CHECKING FOR POSITIVE TESTS\n"<<endl;
-    
-
-    try
-    {
-        indianRailways.AddStation("Hyderabad");
-        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
-        success++;
-    }
-    catch(Bad_Railways& ex)
-    {
-        cout << ex.what() << '\n';
-        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
-
-    }
-
-    try
-    {
-        indianRailways.AddDistance("Kolkata","Hyderabad",1496);
-        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
-        success++;
-    }
-    catch(Bad_Railways& ex)
-    {
-        cout << ex.what() << '\n';
-        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
-
-    }
-
-    try
-    {
-        string station = indianRailways.GetStation("Hyderabad")->GetName();
-        if(station!="Hyderabad")
-            throw Bad_Railways("Bad_Railways: Returned Station is not correct.");
-
-        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
-        success++;
-    }
-    catch(Bad_Railways& ex)
-    {
-        cout << ex.what() << '\n';
-        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
-
-    }
-
-    try
-    {
-        int distance = indianRailways.GetDistance("Hyderabad","Kolkata");
-        if(distance!=1496)
-            throw Bad_Railways("Bad_Railways: Returned Distance is not correct.");
-
-        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
-        success++;
-    }
-    catch(Bad_Railways& ex)
-    {
-        cout << ex.what() << '\n';
-        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
-
-    }
-
-    cout<<endl;
-    cout<<"CHECKING FOR NEGATIVE TESTS\n"<<endl;
-    try
-    {
-        indianRailways.AddStation("Kolkata");
-        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
-    }
-    catch(Bad_Railways& ex)
-    {
-        cout<<ex.what()<<endl;
-        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
-        success++;
-    }
-
-    try
-    {
-        indianRailways.AddDistance("Kolkata","Bangalore",1871);
-        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
-    }
-    catch(Bad_Railways& ex)
-    {
-        cout<<ex.what()<<endl;
-        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
-        success++;
-    }
-
-    cout<<endl;
-    cout<<success<<" OUT OF "<<totTest<<" TESTS [PASSED]"<<endl;
-
 }
 
 

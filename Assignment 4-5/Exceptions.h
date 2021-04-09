@@ -5,9 +5,12 @@ Debanjan Saha
 #ifndef __EXCEPTIONS_H
 #define __EXCEPTIONS_H
 
+// ***** C++ Standard Library Headers
+
 #include<iostream>
 using namespace std;
 
+// Bad_Date inherits from std::exception
 class Bad_Date: public exception
 {
     const char* msg_;
@@ -17,7 +20,7 @@ class Bad_Date: public exception
         const char* what() const throw();
 };
 
-
+// Bad_Passenger inherits from std::exception
 class Bad_Passenger: public exception
 {
     const char* msg_;
@@ -27,6 +30,7 @@ class Bad_Passenger: public exception
         const char* what() const throw();
 };
 
+// Bad_Railways inherits from std::exception
 class Bad_Railways: public exception
 {
     const char* msg_;
@@ -36,6 +40,7 @@ class Bad_Railways: public exception
         const char* what() const throw();
 };
 
+// Bad_dBooking inherits from std::exception
 class Bad_Booking: public exception
 {
     const char* msg_;

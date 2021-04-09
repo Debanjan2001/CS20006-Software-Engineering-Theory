@@ -10,13 +10,17 @@ Debanjan Saha
 #include<string>
 using namespace std;
 
+// Forward declaration
 template<typename T>
 class BookingClassesTypes;
 
+// Abstract Base Class
 class BookingClasses
 {
 	const string name_;
 	const bool isAc_, isSeating_, isLuxury_;
+	
+	// Types of BookingClasses.
 	struct ACFirstClassType{};
 	struct FirstClassType{};
 	struct ExecutiveChairCarType{};
@@ -28,11 +32,13 @@ class BookingClasses
 
 
 protected:
+
 	BookingClasses(const string& name, const bool isAc, const bool isSeating, const bool isLuxury): name_(name), isLuxury_(isLuxury), isAc_(isAc), isSeating_(isSeating){}
-	virtual ~BookingClasses() {}
+	virtual ~BookingClasses() {};
     
 public:
 
+	// All Getter methods required for further processing in booking
 	const string GetName() const {	return name_;}
 	virtual const double GetLoadFactor() const = 0;
 	virtual const int GetNumberOfTiers() const = 0;
@@ -57,6 +63,7 @@ public:
 	typedef BookingClassesTypes<SecondSittingType> SecondSitting;
 
 };
+
 
 template<typename T>
 class BookingClassesTypes: public BookingClasses{

@@ -12,13 +12,6 @@ using namespace std;
 #include "Date.h"
 #include "Exceptions.h"
 
-//Forward Declaration
-class Bad_Date;
-
-// Constructor without parameters (Default set to 1/1/1979).Since 1979,C++ started being developed.
-Date::Date():date_(1),month_(1),year_(1979)
-{}
-
 // Constructor with 3 parameters
 Date::Date(int d, int m, int y): date_(d),month_(m),year_(y)
 {}
@@ -27,6 +20,7 @@ Date::Date(int d, int m, int y): date_(d),month_(m),year_(y)
 Date::~Date()
 {}
 
+// Factory method for error handling before instantiation
 const Date& Date::CreateDate(int date,int month,int year)
 {
     vector<int> days ={31,28,31,30,31,30,31,31,30,31,30,31};
@@ -47,6 +41,7 @@ const Date& Date::CreateDate(int date,int month,int year)
     return *newDate;
 }
 
+// check for leap year (helper function)
 const bool Date::IsLeapYear(int year)
 {
     if(year % 100 == 0)
@@ -55,7 +50,8 @@ const bool Date::IsLeapYear(int year)
         return !(year % 4);
 }
 
-bool Date::IsWithinAYear(const Date& otherDate)
+// Checks whether this date is within a year of otherdate
+const bool Date::IsWithinAYear(const Date& otherDate) const 
 {
     if(year_-otherDate.year_>1)
         return false;
@@ -71,6 +67,8 @@ bool Date::IsWithinAYear(const Date& otherDate)
         return true;
 
 }
+
+// Checks whether this date precedes otherdate
 
 bool Date::operator<(const Date& otherDate)
 {
@@ -97,6 +95,7 @@ bool Date::operator<(const Date& otherDate)
     return false;
 }
 
+// age calculator
 const int Date::ComputeAge(const Date& dateOfBirth) const
 {
     int age = year_ - dateOfBirth.year_;
@@ -116,7 +115,7 @@ const int Date::ComputeAge(const Date& dateOfBirth) const
     return age;
 }
 
-
+// equality operator overload
 bool Date::operator==(const Date& date)
 {
     return date_== date.date_ && month_ == date.month_ && year_ == date.year_;
@@ -129,6 +128,7 @@ ostream& operator<<(ostream& os,const Date& date)
     return os;
 }
 
+// unit test
 void Date::UnitTestDate()
 {
     cout<<endl;
