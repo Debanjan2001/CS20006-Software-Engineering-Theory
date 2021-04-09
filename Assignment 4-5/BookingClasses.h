@@ -28,7 +28,7 @@ class BookingClasses
 
 
 protected:
-	BookingClasses(const string name, const bool isAc, const bool isSeating, const bool isLuxury): name_(name), isLuxury_(isLuxury), isAc_(isAc), isSeating_(isSeating){}
+	BookingClasses(const string& name, const bool isAc, const bool isSeating, const bool isLuxury): name_(name), isLuxury_(isLuxury), isAc_(isAc), isSeating_(isSeating){}
 	virtual ~BookingClasses() {}
     
 public:
@@ -67,7 +67,7 @@ class BookingClassesTypes: public BookingClasses{
 		static const bool sIsAc, sIsSeating,sIsLuxury;
 		static const double sLoadFactor;
 
-		BookingClassesTypes(const string name = BookingClassesTypes<T>::sName, const bool isAc = BookingClassesTypes<T>::sIsAc,const bool isLuxury = BookingClassesTypes<T>::sIsLuxury, const bool isSeating = BookingClassesTypes<T>::sIsSeating):
+		BookingClassesTypes(const string& name = BookingClassesTypes<T>::sName, const bool isAc = BookingClassesTypes<T>::sIsAc,const bool isLuxury = BookingClassesTypes<T>::sIsLuxury, const bool isSeating = BookingClassesTypes<T>::sIsSeating):
 			BookingClasses(name, isAc, isSeating, isLuxury){}
 		~BookingClassesTypes() {}
 

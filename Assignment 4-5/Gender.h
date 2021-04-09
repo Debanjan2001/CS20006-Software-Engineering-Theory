@@ -24,7 +24,7 @@ class Gender // Abstract Base Class
         struct FemaleType {};
     
     protected:
-        Gender(const string name) : name_(name) {}
+        Gender(const string& name) : name_(name) {}
         virtual ~Gender() { }
         
     public:
@@ -46,7 +46,7 @@ class GenderTypes : public Gender
         static const string sName;  // Respective name of the gender
         static const string sSalutation;    // Respective salutation for the gender
         
-        GenderTypes(const string name = GenderTypes<T>::sName) : Gender(name) { }
+        GenderTypes(const string& name = GenderTypes<T>::sName) : Gender(name) { }
         ~GenderTypes() { }
     
     public:

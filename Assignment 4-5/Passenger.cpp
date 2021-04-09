@@ -12,10 +12,10 @@ using namespace std;
 #include "Passenger.h"
 
 // Constructor
-Passenger::Passenger(const string fName,const string mName,const string lName,const string aadhar,const Date& dob,const Gender& gender,const string mobile,const Disability* disabilityType, const string disabilityID ):
+Passenger::Passenger(const string& fName,const string& mName,const string& lName,const string& aadhar,const Date& dob,const Gender& gender,const string& mobile,const Disability* disabilityType, const string& disabilityID ):
 firstName_(fName),middleName_(mName),lastName_(lName),dateOfBirth_(dob),gender_(gender),aadhar_(aadhar),mobile_(mobile),disabilityID_(disabilityID),disabilityType_(disabilityType){};
 
-const Passenger& Passenger::CreatePassenger(const string fName ,const string mName ,const string lName , const Gender& gender,const string aadhar,const Date& dob,const string mobile,const Disability* disabilityType,const string disabilityID)
+const Passenger& Passenger::CreatePassenger(const string& fName ,const string& mName ,const string& lName , const Gender& gender,const string& aadhar,const Date& dob,const string& mobile,const Disability* disabilityType,const string& disabilityID)
 {
     Passenger* p = new Passenger(fName,mName,lName,aadhar,dob,gender,mobile,disabilityType,disabilityID);
     return *p;

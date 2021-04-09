@@ -11,7 +11,7 @@ using namespace std;
 
 #include "BookingCategory.h"
 
-BookingCategory::BookingCategory(const string name): name_(name){};
+BookingCategory::BookingCategory(const string& name): name_(name){};
 
 BookingCategory::~BookingCategory() {};
 
@@ -32,7 +32,7 @@ General::General():BookingCategory("General"){};
 
 General::~General(){};
 
-ConcessionCategory::ConcessionCategory(const string name):BookingCategory(name){};
+ConcessionCategory::ConcessionCategory(const string& name):BookingCategory(name){};
 
 ConcessionCategory::~ConcessionCategory(){};
 
@@ -44,7 +44,7 @@ Ladies::Ladies():ConcessionCategory("Ladies"){};
 
 Ladies::~Ladies(){};
 
-PriorityCategory::PriorityCategory(const string name):BookingCategory(name){};
+PriorityCategory::PriorityCategory(const string& name):BookingCategory(name){};
 
 PriorityCategory::~PriorityCategory(){};
 
@@ -141,14 +141,14 @@ const bool Divyaang::IsEligible(const Passenger& passenger,const Date& dateOfRes
 
 const bool Tatkal::IsEligible(const Passenger& passenger,const Date& dateOfReservation, const Date& dateOfJourney) const
 {
-    //Assumming Date of Reservation to be within 1 day of Date of Booking
+    //Assumming Date of Reservation to be within 1 day of Date of Booking like GUI
     return true;
 }
 
 
 const bool PremiumTatkal::IsEligible(const Passenger& passenger,const Date& dateOfReservation, const Date& dateOfJourney) const
 {
-    //Assumming Date of Reservation to be within 1 day of Date of Booking
+    //Assumming Date of Reservation to be within 1 day of Date of Booking like GUI
     return true;
 }
 

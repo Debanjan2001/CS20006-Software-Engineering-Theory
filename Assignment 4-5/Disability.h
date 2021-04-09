@@ -27,7 +27,7 @@ class Disability // Abstract Base Class
         struct TBType{};
     
     protected:
-        Disability(const string name) : name_(name) {}
+        Disability(const string& name) : name_(name) {}
         virtual ~Disability() { }
         
     public:
@@ -52,7 +52,7 @@ class DisabilityTypes : public Disability
         static const string sName;  // Respective name of the Disability
         static const string sKey;    // Respective salutation for the Disability
         
-        DisabilityTypes(const string name = DisabilityTypes<T>::sName) : Disability(name) { }
+        DisabilityTypes(const string& name = DisabilityTypes<T>::sName) : Disability(name) { }
         ~DisabilityTypes() { }
     
     public:
