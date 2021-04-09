@@ -55,7 +55,7 @@ class Booking
 
         static vector<Booking *> sBookings;
 
-        static Booking CreateBooking(const Station& fromStation,const Station& toStation,const Date& dateOfBooking, const Date& dateOfReservation, const BookingClasses& bookingClass, const BookingCategory& bookingCategory,const Passenger& passenger);
+        static const Booking& CreateBooking(const Station& fromStation,const Station& toStation,const Date& dateOfBooking, const Date& dateOfReservation, const BookingClasses& bookingClass, const BookingCategory& bookingCategory,const Passenger& passenger);
 
         // Gets fare for all types of booking
         const int GetFare() const;

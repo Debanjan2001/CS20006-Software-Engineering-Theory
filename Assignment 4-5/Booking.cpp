@@ -24,12 +24,12 @@ fromStation_(fromStation),toStation_(toStation),dateOfBooking_(dateOfBooking),da
     // Booking is always successful.
     bookingStatus_ = true;
     bookingMessage_ = "BOOKING SUCCEEDED";
-    fare_ = bookingCategory_.CalculateFare(passenger_,bookingClass_);
+    int distance = Railways::IndianRailways().GetDistance(fromStation.GetName(),toStation.GetName());
+    fare_ = bookingCategory_.CalculateFare(passenger_,bookingClass_,distance);
     sBookings.push_back(this);
-    cout<<*this<<endl;
 }
 
-Booking Booking::CreateBooking(const Station& fromStation,const Station& toStation,const Date& dateOfBooking, const Date& dateOfReservation, const BookingClasses& bookingClass, const BookingCategory& bookingCategory,const Passenger& passenger)
+const Booking& Booking::CreateBooking(const Station& fromStation,const Station& toStation,const Date& dateOfBooking, const Date& dateOfReservation, const BookingClasses& bookingClass, const BookingCategory& bookingCategory,const Passenger& passenger)
 {
     try
     {
@@ -38,7 +38,10 @@ Booking Booking::CreateBooking(const Station& fromStation,const Station& toStati
             throw Bad_Booking("Bad");
         }
         else
-            return Booking(fromStation,toStation,dateOfBooking,dateOfReservation,bookingClass,bookingCategory,passenger);
+        {
+            Booking* b = new Booking(fromStation,toStation,dateOfBooking,dateOfReservation,bookingClass,bookingCategory,passenger);
+            return *b;
+        }
     }
     catch(const Bad_Booking& e)
     {

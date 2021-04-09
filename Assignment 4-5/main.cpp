@@ -52,7 +52,7 @@ int main(){
     //     cout<<err.what()<<endl;
     // }
 
-    Passenger a = Passenger::CreatePassenger(Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),&Disability::Orthopaedic::Type(),"100","20","apan","dey","sarkar");
+    Passenger a = Passenger::CreatePassenger(Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),&Disability::Cancer::Type(),"100","20","apan","dey","sarkar");
     // cout<< a.GetDisabilityType().GetKey()<<endl;
     // cout<<a.GetGender().GetName()<<endl;
 
@@ -69,8 +69,8 @@ int main(){
     // cout<<b.CalculateFare(a,BookingClasses::AC2Tier::Type())<<endl; 
     // cout<<b<<endl;
 
-    Booking a1 = Booking::CreateBooking(Station::CreateStation("Delhi"),Station::CreateStation("Mumbai"),Date::CreateDate(9,4,2021),Date::CreateDate(24,9,2021),BookingClasses::AC2Tier::Type(),Divyaang::Type(),a);
-    Booking a2 = Booking::CreateBooking(Station::CreateStation("Delhi"),Station::CreateStation("Chennai"),Date::CreateDate(9,4,2021),Date::CreateDate(24,9,2021),BookingClasses::AC3Tier::Type(),Divyaang::Type(),a);
+    Booking a1 = Booking::CreateBooking(Station::CreateStation("Delhi"),Station::CreateStation("Mumbai"),Date::CreateDate(9,4,2021),Date::CreateDate(24,9,2021),BookingClasses::AC3Tier::Type(),Tatkal::Type(),a);
+    Booking a2 = Booking::CreateBooking(Station::CreateStation("Bangalore"),Station::CreateStation("Chennai"),Date::CreateDate(9,4,2021),Date::CreateDate(20,9,2021),BookingClasses::ACFirstClass::Type(),Tatkal::Type(),a);
 
     vector<Booking*>::iterator it;
     for (it = Booking::sBookings.begin(); it < Booking::sBookings.end(); ++it) {

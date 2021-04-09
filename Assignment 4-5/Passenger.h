@@ -34,7 +34,7 @@ class Passenger
         //Constructor and Destructor
         ~Passenger();
 
-        static Passenger CreatePassenger(const Gender& gender,const string aadhar,const Date& dob,const Disability* disabilityType,const string mobile ,const string disabilityID ,const string fName ,const string mName ,const string lName  );
+        static const Passenger& CreatePassenger(const Gender& gender,const string aadhar,const Date& dob,const Disability* disabilityType,const string mobile ,const string disabilityID ,const string fName ,const string mName ,const string lName  );
 
         const string GetName() const;
         const Disability* GetDisabilityType() const;

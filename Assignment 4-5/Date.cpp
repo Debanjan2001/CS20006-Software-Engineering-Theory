@@ -26,7 +26,7 @@ Date::Date(int d, int m, int y): date_(d),month_(m),year_(y)
 Date::~Date()
 {}
 
-Date Date::CreateDate(int date,int month,int year)
+const Date& Date::CreateDate(int date,int month,int year)
 {
     try
     {
@@ -36,7 +36,8 @@ Date Date::CreateDate(int date,int month,int year)
         }
         else
         {
-            return Date(date,month,year);
+            Date* newDate = new Date(date,month,year);
+            return *newDate;
         }
     }
     catch(Bad_Date& err)

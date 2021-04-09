@@ -4,6 +4,7 @@ Debanjan Saha
 -----------------*/
 
 #include<iostream>
+#include<math.h>
 #include<map>
 
 using namespace std;
@@ -13,6 +14,8 @@ using namespace std;
 BookingCategory::BookingCategory(const string name): name_(name){};
 
 BookingCategory::~BookingCategory() {};
+
+const double BookingCategory::sBaseFarePerKM = 0.50; 
 
 const string BookingCategory::GetName() const
 {
@@ -151,34 +154,90 @@ const bool PremiumTatkal::IsEligible(const Passenger& passenger,const Date& date
 
 
 
-const int General::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const
+const int General::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
-    return 0;
+    double fare = 0.0;
+    fare += (static_cast<double>(distance))*sBaseFarePerKM ;
+    fare *= bookingClass.GetLoadFactor();
+    fare += bookingClass.GetReservationCharge();
+    
+    return (static_cast<int>(fare+0.50));
 }
 
-const int SeniorCitizen::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const
+const int SeniorCitizen::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
-    return 0;
+    double fare = 0.0;
+    fare += (static_cast<double>(distance))*sBaseFarePerKM ;
+    fare *= bookingClass.GetLoadFactor();
+    if( Gender::IsMale(passenger.GetGender()))
+        fare *= (1.00-sMaleConcession);
+    else
+        fare *= (1.00-sFemaleConcession);
+    fare += bookingClass.GetReservationCharge();
+   
+    return round(fare);
+
 }
 
-const int Ladies::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const
+const int Ladies::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
-    return 0;
+    double fare = 0.0;
+    fare += (static_cast<double>(distance))*sBaseFarePerKM ;
+    fare *= bookingClass.GetLoadFactor();
+    fare += bookingClass.GetReservationCharge();
+    
+    return round(fare);
 }
 
-const int Divyaang::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const
+const int Divyaang::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
-    return 0;
+    double fare = 0.0;
+    fare += (static_cast<double>(distance))*sBaseFarePerKM ;
+    fare *= bookingClass.GetLoadFactor();
+    fare *= (1.00-sDivyaangMatrix[make_pair(passenger.GetDisabilityType(),&bookingClass)]);
+    fare += bookingClass.GetReservationCharge();
+   
+    return round(fare);
+
 }
 
-const int Tatkal::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const
+const int Tatkal::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
-    return 0;
+    double fare = 0.0;
+    fare += (static_cast<double>(distance))*sBaseFarePerKM ;
+    fare *= bookingClass.GetLoadFactor();
+
+    double tatkalCharge = fare * (( &bookingClass == &BookingClasses::SecondSitting::Type())? 0.10: 0.30);
+   
+    tatkalCharge = max(tatkalCharge,bookingClass.GetMinTatkalCharge());
+    tatkalCharge = min(tatkalCharge,bookingClass.GetMaxTatkalCharge());
+
+    if(distance<bookingClass.GetMinDistance())
+        tatkalCharge = 0;
+    
+    fare += tatkalCharge;
+
+    fare += bookingClass.GetReservationCharge();
+    return round(fare);
 }
 
-const int PremiumTatkal::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const
+const int PremiumTatkal::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
-    return 0;
+    double fare = 0.0;
+    fare += (static_cast<double>(distance))*sBaseFarePerKM ;
+    fare *= bookingClass.GetLoadFactor();
+
+    double premiumTatkalCharge = fare * (( &bookingClass == &BookingClasses::SecondSitting::Type())? 0.10: 0.30);
+    premiumTatkalCharge = max(premiumTatkalCharge,2.0*bookingClass.GetMinTatkalCharge());
+    premiumTatkalCharge = min(premiumTatkalCharge,2.0*bookingClass.GetMaxTatkalCharge());
+
+    if(distance<bookingClass.GetMinDistance())
+        premiumTatkalCharge = 0;
+
+    fare += premiumTatkalCharge;
+
+    fare += bookingClass.GetReservationCharge();
+    return round(fare);
 }
 
 

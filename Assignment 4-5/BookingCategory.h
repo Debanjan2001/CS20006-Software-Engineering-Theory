@@ -24,8 +24,9 @@ class BookingCategory
         virtual ~BookingCategory() = 0;
 
     public:
+        static const double sBaseFarePerKM;
         const string GetName() const;
-        virtual const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const= 0;
+        virtual const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const= 0;
         virtual const bool IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney)const = 0;
 
         friend ostream& operator<<(ostream& os, const BookingCategory& bookingCategory);
@@ -38,7 +39,7 @@ class General: public BookingCategory
         ~General();
 
     public:
-        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const;
+        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const;
         const bool IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const;
         static const General& Type()
         {
@@ -72,7 +73,7 @@ class SeniorCitizen: public ConcessionCategory
         ~SeniorCitizen();
 
     public:
-        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const;
+        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const;
         const bool IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const;
         static const SeniorCitizen& Type()
         {
@@ -89,7 +90,7 @@ class Divyaang: public ConcessionCategory
         ~Divyaang();
     
     public:
-        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const;
+        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const;
         const bool IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const;
         static const Divyaang& Type()
         {
@@ -106,7 +107,7 @@ class Ladies: public ConcessionCategory
         ~Ladies();
 
     public:
-        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const;
+        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const;
         const bool IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const;
         static const Ladies& Type()
         {
@@ -123,7 +124,7 @@ class Tatkal: public PriorityCategory
         ~Tatkal();
 
     public:
-        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const;
+        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const;
         const bool IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const;
         static const Tatkal& Type()
         {
@@ -140,7 +141,7 @@ class PremiumTatkal: public PriorityCategory
         ~PremiumTatkal();
 
     public:
-        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass) const;
+        const int CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const;
         const bool IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const;
         static const PremiumTatkal& Type()
         {

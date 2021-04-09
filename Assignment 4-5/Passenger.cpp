@@ -15,9 +15,10 @@ using namespace std;
 Passenger::Passenger(const string fName,const string mName,const string lName,const string aadhar,const Date& dob,const Gender& gender,const string mobile,const Disability* disabilityType, const string disabilityID ):
 firstName_(fName),middleName_(mName),lastName_(lName),dateOfBirth_(dob),gender_(gender),aadhar_(aadhar),mobile_(mobile),disabilityID_(disabilityID),disabilityType_(disabilityType){};
 
-Passenger Passenger::CreatePassenger(const Gender& gender,const string aadhar,const Date& dob,const Disability* disabilityType,const string mobile ="",const string disabilityID = "",const string fName = "",const string mName = "",const string lName = "" )
+const Passenger& Passenger::CreatePassenger(const Gender& gender,const string aadhar,const Date& dob,const Disability* disabilityType,const string mobile ="",const string disabilityID = "",const string fName = "",const string mName = "",const string lName = "" )
 {
-    return Passenger(fName,mName,lName,aadhar,dob,gender,mobile,disabilityType,disabilityID);
+    Passenger* p = new Passenger(fName,mName,lName,aadhar,dob,gender,mobile,disabilityType,disabilityID);
+    return *p;
 }
 
 const Date& Passenger::GetDateOfBirth() const

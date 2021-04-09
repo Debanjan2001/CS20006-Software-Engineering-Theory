@@ -30,7 +30,7 @@ class Date
 
         const bool IsLeapYear() const;
 
-        static Date CreateDate(int day,int month,int year);
+        static const Date& CreateDate(int day,int month,int year);
         const int ComputeAge(const Date& otherDate) const;
        
         bool IsWithinAYear(const Date& dateOfBirth);
