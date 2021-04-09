@@ -1,0 +1,216 @@
+BOOKING SUCCEEDED:
+PNR Number = 1
+From Station = Delhi
+To Station = Mumbai
+Reservation Date = 10/4/2021
+Travel Date = 24/7/2021
+Booking Category:General
+Booking Class:AC 3 Tier
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 3
+   Luxury: No
+Fare = 1849
+Passenger Info:
+Name: Debanjan  Saha
+Gender: Male
+Date of Birth: 14/7/2001
+Aadhar no.: 432715911196
+Mobile No: 9800162288
+
+
+BOOKING SUCCEEDED:
+PNR Number = 2
+From Station = Delhi
+To Station = Mumbai
+Reservation Date = 10/4/2021
+Travel Date = 28/7/2021
+Booking Category:General
+Booking Class:AC First Class
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 2
+   Luxury: Yes
+Fare = 4763
+Passenger Info:
+Name: Debanjan  Saha
+Gender: Male
+Date of Birth: 14/7/2001
+Aadhar no.: 432715911196
+Mobile No: 9800162288
+
+
+BOOKING SUCCEEDED:
+PNR Number = 3
+From Station = Delhi
+To Station = Mumbai
+Reservation Date = 10/4/2021
+Travel Date = 23/7/2021
+Booking Category:Senior Citizen
+Booking Class:AC 3 Tier
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 3
+   Luxury: No
+Fare = 1125
+Passenger Info:
+Name: Arijit  Ghosh
+Gender: Male
+Date of Birth: 25/7/1960
+Aadhar no.: 432768211196
+Mobile No: 9830020322
+
+
+BOOKING SUCCEEDED:
+PNR Number = 4
+From Station = Delhi
+To Station = Mumbai
+Reservation Date = 10/4/2021
+Travel Date = 24/7/2021
+Booking Category:Senior Citizen
+Booking Class:AC First Class
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 2
+   Luxury: Yes
+Fare = 2411
+Passenger Info:
+Name: Debjani  Das
+Gender: Female
+Date of Birth: 24/2/1962
+Aadhar no.: 932768911196
+Mobile No: 9094215647
+Disability Type: Blind
+Disability ID: 22153
+
+
+BOOKING SUCCEEDED:
+PNR Number = 5
+From Station = Delhi
+To Station = Mumbai
+Reservation Date = 10/4/2021
+Travel Date = 25/2/2022
+Booking Category:Divyaang
+Booking Class:AC 3 Tier
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 3
+   Luxury: No
+Fare = 492
+Passenger Info:
+Name: Bob  
+Gender: Male
+Date of Birth: 20/5/1983
+Aadhar no.: 125698742152
+Mobile No: 8930015647
+Disability Type: Blind
+Disability ID: 22153
+
+
+BOOKING SUCCEEDED:
+PNR Number = 6
+From Station = Delhi
+To Station = Mumbai
+Reservation Date = 10/4/2021
+Travel Date = 24/7/2021
+Booking Category:Divyaang
+Booking Class:AC First Class
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 2
+   Luxury: Yes
+Fare = 2411
+Passenger Info:
+Name: Harleen  Kaur
+Gender: Female
+Date of Birth: 20/3/1994
+Aadhar no.: 654856327458
+Mobile No: 6564487921
+Disability Type: Cancer
+Disability ID: 22245
+
+
+BOOKING SUCCEEDED:
+PNR Number = 7
+From Station = Delhi
+To Station = Mumbai
+Reservation Date = 10/4/2021
+Travel Date = 11/4/2021
+Booking Category:Tatkal
+Booking Class:AC 3 Tier
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 3
+   Luxury: No
+Fare = 2249
+Passenger Info:
+Name: Debanjan  Saha
+Gender: Male
+Date of Birth: 14/7/2001
+Aadhar no.: 432715911196
+Mobile No: 9800162288
+
+
+BOOKING SUCCEEDED:
+PNR Number = 8
+From Station = Chennai
+To Station = Bangalore
+Reservation Date = 10/4/2021
+Travel Date = 11/4/2021
+Booking Category:Tatkal
+Booking Class:AC First Class
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 2
+   Luxury: Yes
+Fare = 1198
+Passenger Info:
+Name: Arijit  Ghosh
+Gender: Male
+Date of Birth: 25/7/1960
+Aadhar no.: 432768211196
+Mobile No: 9830020322
+
+
+BOOKING SUCCEEDED:
+PNR Number = 9
+From Station = Chennai
+To Station = Bangalore
+Reservation Date = 10/4/2021
+Travel Date = 24/7/2021
+Booking Category:Ladies
+Booking Class:AC 3 Tier
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 3
+   Luxury: No
+Fare = 478
+Passenger Info:
+Name: Bhavna Kumari Rajakrishnan
+Gender: Female
+Date of Birth: 14/7/1998
+Aadhar no.: 432715923496
+Mobile No: 9800162388
+
+
+BOOKING SUCCEEDED:
+PNR Number = 10
+From Station = Chennai
+To Station = Bangalore
+Reservation Date = 23/7/2021
+Travel Date = 24/7/2021
+Booking Category:Premium Tatkal
+Booking Class:AC 2 Tier
+   Mode: Sleeping
+   Comfort: AC
+   Bunks: 2
+   Luxury: No
+Fare = 750
+Passenger Info:
+Name: Bhavna Kumari Rajakrishnan
+Gender: Female
+Date of Birth: 14/7/1998
+Aadhar no.: 432715923496
+Mobile No: 9800162388
+
+

@@ -1,0 +1,106 @@
+********************************************************
+Unit Test for Station: 
+********************************************************
+
+CHECKING FOR POSITIVE TESTS
+
+Sub-Test 1 [PASSED]
+Sub-Test 2 [PASSED]
+
+CHECKING FOR NEGATIVE TESTS
+
+Bad_Railways: Station with empty name can't be created.
+Sub-Test 3 [PASSED]
+
+3 OUT OF 3 TESTS [PASSED]
+
+********************************************************
+Unit Test for Date: 
+********************************************************
+
+CHECKING FOR POSITIVE TESTS
+
+Sub-Test 1 [PASSED]
+Sub-Test 2 [PASSED]
+Sub-Test 3 [PASSED]
+Sub-Test 4 [PASSED]
+Sub-Test 5 [PASSED]
+Sub-Test 6 [PASSED]
+Sub-Test 7 [PASSED]
+Sub-Test 8 [PASSED]
+
+CHECKING FOR NEGATIVE TESTS
+
+Bad_Date: Invalid Year
+Sub-Test 9 [PASSED]
+Bad_Date: Invalid Year
+Sub-Test 10 [PASSED]
+Bad_Date: Invalid Date(Day number)
+Sub-Test 11 [PASSED]
+Bad_Date: Invalid Date(Day number)
+Sub-Test 12 [PASSED]
+Bad_Date: Invalid Date(Day number)
+Sub-Test 13 [PASSED]
+Bad_Date: Invalid Date(Day number)
+Sub-Test 14 [PASSED]
+Bad_Date: Invalid Month
+Sub-Test 15 [PASSED]
+Bad_Date: Invalid Month
+Sub-Test 16 [PASSED]
+
+16 OUT OF 16 TESTS [PASSED]
+
+********************************************************
+Unit Test for Passenger: 
+********************************************************
+
+CHECKING FOR POSITIVE TESTS
+
+Sub-Test 1 [PASSED]
+Sub-Test 2 [PASSED]
+
+CHECKING FOR NEGATIVE TESTS
+
+Bad_Passenger: Both First Name and Last Name empty
+Sub-Test 3 [PASSED]
+Bad_Passenger: Aadhar Number is not of length 12 digits 
+Sub-Test 4 [PASSED]
+Bad_Passenger: Aadhar Number is not valid 
+Sub-Test 5 [PASSED]
+Bad_Passenger: Mobile Number is not of length 10 digits 
+Sub-Test 6 [PASSED]
+Bad_Passenger: Mobile Number is not valid
+Sub-Test 7 [PASSED]
+Bad_Passenger: No disability ID provided by Passenger.
+Sub-Test 8 [PASSED]
+
+8 OUT OF 8 TESTS [PASSED]
+
+********************************************************
+Unit Test for Booking: 
+********************************************************
+
+CHECKING FOR POSITIVE TESTS
+
+Sub-Test 1 [PASSED]
+Sub-Test 2 [PASSED]
+
+CHECKING FOR NEGATIVE TESTS
+
+Bad_Booking: Either One or both of the Stations dont exist in master data
+Sub-Test 3 [PASSED]
+Bad_Booking: Date of Reservation does not precede Date of Booking
+Sub-Test 4 [PASSED]
+Bad_Booking: Destination and Source Station are same
+Sub-Test 5 [PASSED]
+Bad_Booking: Date of Booking is not within one year of Date of Reservation
+Sub-Test 6 [PASSED]
+Bad_Booking: Date of Birth of passenger does not precede Date of Reservation
+Sub-Test 7 [PASSED]
+Bad_Booking: Passenger is not eligible for the booking category
+Sub-Test 8 [PASSED]
+Bad_Booking: Passenger is not eligible for the booking category
+Sub-Test 9 [PASSED]
+
+9 OUT OF 9 TESTS [PASSED]
+
