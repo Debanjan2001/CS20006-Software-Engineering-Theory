@@ -141,15 +141,15 @@ const bool Divyaang::IsEligible(const Passenger& passenger,const Date& dateOfRes
 
 const bool Tatkal::IsEligible(const Passenger& passenger,const Date& dateOfReservation, const Date& dateOfJourney) const
 {
-    //
-    return false;
+    //Assumming Date of Reservation to be within 1 day of Date of Booking
+    return true;
 }
 
 
 const bool PremiumTatkal::IsEligible(const Passenger& passenger,const Date& dateOfReservation, const Date& dateOfJourney) const
 {
-    //
-    return false;
+    //Assumming Date of Reservation to be within 1 day of Date of Booking
+    return true;
 }
 
 
@@ -161,7 +161,7 @@ const int General::CalculateFare(const Passenger& passenger,const BookingClasses
     fare *= bookingClass.GetLoadFactor();
     fare += bookingClass.GetReservationCharge();
     
-    return (static_cast<int>(fare+0.50));
+    return round(fare);
 }
 
 const int SeniorCitizen::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
@@ -193,8 +193,11 @@ const int Divyaang::CalculateFare(const Passenger& passenger,const BookingClasse
 {
     double fare = 0.0;
     fare += (static_cast<double>(distance))*sBaseFarePerKM ;
+    
     fare *= bookingClass.GetLoadFactor();
+    
     fare *= (1.00-sDivyaangMatrix[make_pair(passenger.GetDisabilityType(),&bookingClass)]);
+    
     fare += bookingClass.GetReservationCharge();
    
     return round(fare);
