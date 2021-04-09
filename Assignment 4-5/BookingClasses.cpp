@@ -11,6 +11,7 @@ using namespace std;
 // ***** Project Headers
 #include "BookingClasses.h"
 
+// static constants defined here
 template<>
 const string BookingClasses::ACFirstClass::sName = "AC First Class";
 template<>

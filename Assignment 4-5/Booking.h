@@ -29,6 +29,8 @@ class Passenger;
 class Booking
 {
     private:
+        
+        //constant data members
         const Station& fromStation_,toStation_ ;
         const Date& dateOfBooking_,dateOfReservation_;
         const BookingClasses& bookingClass_;
@@ -53,8 +55,10 @@ class Booking
         // List of all bookings done
         ~Booking();
 
+        // static list of all bookings
         static vector<Booking *> sBookings;
 
+        // Factory Method for error handling before instatntiation
         static const Booking& CreateBooking(const string& from,const string& to,const Date& dateOfBooking,const Date& dateOfReservation, const BookingClasses& bookingClass, const BookingCategory& bookingCategory,const Passenger& passenger);
 
         // Gets fare for all types of booking
@@ -63,6 +67,7 @@ class Booking
         // Output Stream overloading 
         friend ostream& operator<<(ostream& os,const Booking& booking);
 
+        // Static method for unit testing 
         static void UnitTestBooking();
 
            

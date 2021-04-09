@@ -45,14 +45,14 @@ public:
 	virtual const double GetReservationCharge() const = 0;
 	
 	const bool& IsAC() const{	return isAc_;}
-	const bool& IsSitting() const{	return isSeating_;}
+	const bool& IsSeating() const{	return isSeating_;}
 	const bool& IsLuxury() const{	return isLuxury_;}
 	
 	virtual const int GetMinDistance() const = 0;
 	virtual const double GetMinTatkalCharge() const = 0 ;
 	virtual const double GetMaxTatkalCharge() const = 0 ;
 	
-
+	// Type defining 
 	typedef BookingClassesTypes<ACFirstClassType> ACFirstClass;
 	typedef BookingClassesTypes<FirstClassType> FirstClass;
 	typedef BookingClassesTypes<ExecutiveChairCarType> ExecutiveChairCar;
@@ -65,6 +65,7 @@ public:
 };
 
 
+// Implementation of parametric hierarchy
 template<typename T>
 class BookingClassesTypes: public BookingClasses{
 	private:
@@ -79,17 +80,22 @@ class BookingClassesTypes: public BookingClasses{
 		~BookingClassesTypes() {}
 
 	public:
+
+		//Static constant Meyer's Singleton
 		static const BookingClassesTypes<T>& Type(){
 			static const BookingClassesTypes<T> theObject;
 			return theObject;
 		}
-
+		
+		// Getter methods overloaded
 		const int GetMinDistance() const { return sMinDistance; }
 		const double GetMinTatkalCharge() const { return sMinTatkalCharge; }
 		const double GetMaxTatkalCharge() const { return sMaxTatkalCharge; }
 		const int GetNumberOfTiers() const { return sNumTiers; };
 		const double GetReservationCharge() const { return sReservationCharge; };
 		const double GetLoadFactor() const{	return BookingClassesTypes<T>::sLoadFactor;}
+
+		
 };
 
 

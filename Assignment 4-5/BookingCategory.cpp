@@ -11,22 +11,27 @@ using namespace std;
 
 #include "BookingCategory.h"
 
-BookingCategory::BookingCategory(const string& name): name_(name){};
-
-BookingCategory::~BookingCategory() {};
-
+// static constant defined here
 const double BookingCategory::sBaseFarePerKM = 0.50; 
 
+// getter method
 const string BookingCategory::GetName() const
 {
     return name_;
 }
 
+// Output stream overloading
 ostream& operator<<(ostream& os, const BookingCategory& bookingCategory)
 {
     os<<bookingCategory.GetName();
     return os;
 }
+
+// ***** Cluster of Constructor and Destructors ***********************
+
+BookingCategory::BookingCategory(const string& name): name_(name){};
+
+BookingCategory::~BookingCategory() {};
 
 General::General():BookingCategory("General"){};
 
@@ -55,9 +60,12 @@ Tatkal::~Tatkal(){};
 PremiumTatkal::PremiumTatkal():PriorityCategory("Premium Tatkal"){};
 
 PremiumTatkal::~PremiumTatkal(){};
+// ************************************************************************
 
+// master data map
 map<pair<const Disability*,const BookingClasses*>,double> Divyaang::sDivyaangMatrix;
 
+// Master data storing
 Divyaang::Divyaang():ConcessionCategory("Divyaang")
 {
     sDivyaangMatrix[make_pair( &Disability::Blind::Type(),&BookingClasses::ACFirstClass::Type() )] =  0.50; 
@@ -98,16 +106,21 @@ Divyaang::Divyaang():ConcessionCategory("Divyaang")
 
 };
 
+// Destructor
 Divyaang::~Divyaang(){};
 
+// Static constant concession percentages
 const double SeniorCitizen::sMaleConcession = 0.40;
 const double SeniorCitizen::sFemaleConcession = 0.50;
 
+//Eligibility Checker
 const bool General::IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const
 {
+    // always eligible
     return true;
 }
 
+//Eligibility Checker
 const bool SeniorCitizen::IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const
 {
     int age = dateOfReservation.ComputeAge(passenger.GetDateOfBirth());
@@ -119,6 +132,7 @@ const bool SeniorCitizen::IsEligible(const Passenger& passenger,const Date& date
     return false;
 }
 
+//Eligibility Checker
 const bool Ladies::IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const
 {
     int age = dateOfReservation.ComputeAge(passenger.GetDateOfBirth());
@@ -130,6 +144,7 @@ const bool Ladies::IsEligible(const Passenger& passenger,const Date& dateOfReser
     return false;
 }
 
+//Eligibility Checker
 const bool Divyaang::IsEligible(const Passenger& passenger,const Date& dateOfReservation,const Date& dateOfJourney) const
 {
     if(  passenger.GetDisabilityType() != NULL )
@@ -138,14 +153,14 @@ const bool Divyaang::IsEligible(const Passenger& passenger,const Date& dateOfRes
     return false;
 }
 
-
+//Eligibility Checker
 const bool Tatkal::IsEligible(const Passenger& passenger,const Date& dateOfReservation, const Date& dateOfJourney) const
 {
     //Assumming Date of Reservation to be within 1 day of Date of Booking like GUI
     return true;
 }
 
-
+//Eligibility Checker
 const bool PremiumTatkal::IsEligible(const Passenger& passenger,const Date& dateOfReservation, const Date& dateOfJourney) const
 {
     //Assumming Date of Reservation to be within 1 day of Date of Booking like GUI
@@ -154,6 +169,7 @@ const bool PremiumTatkal::IsEligible(const Passenger& passenger,const Date& date
 
 
 
+// Fare Calculation Method
 const int General::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
     double fare = 0.0;
@@ -164,6 +180,7 @@ const int General::CalculateFare(const Passenger& passenger,const BookingClasses
     return round(fare);
 }
 
+// Fare Calculation Method
 const int SeniorCitizen::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
     double fare = 0.0;
@@ -179,6 +196,7 @@ const int SeniorCitizen::CalculateFare(const Passenger& passenger,const BookingC
 
 }
 
+// Fare Calculation Method
 const int Ladies::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
     double fare = 0.0;
@@ -189,6 +207,7 @@ const int Ladies::CalculateFare(const Passenger& passenger,const BookingClasses&
     return round(fare);
 }
 
+// Fare Calculation Method
 const int Divyaang::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
     double fare = 0.0;
@@ -204,6 +223,7 @@ const int Divyaang::CalculateFare(const Passenger& passenger,const BookingClasse
 
 }
 
+// Fare Calculation Method
 const int Tatkal::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
     double fare = 0.0;
@@ -224,6 +244,7 @@ const int Tatkal::CalculateFare(const Passenger& passenger,const BookingClasses&
     return round(fare);
 }
 
+// Fare Calculation Method
 const int PremiumTatkal::CalculateFare(const Passenger& passenger,const BookingClasses& bookingClass,int distance) const
 {
     double fare = 0.0;

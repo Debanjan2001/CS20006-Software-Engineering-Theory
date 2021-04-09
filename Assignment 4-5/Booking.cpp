@@ -36,6 +36,7 @@ const int Booking::GetFare() const
     return fare_;
 }
 
+// Factory Method for error handling before instatntiation
 const Booking& Booking::CreateBooking(const string& from,const string& to,const Date& dateOfBooking,const Date& dateOfReservation, const BookingClasses& bookingClass, const BookingCategory& bookingCategory,const Passenger& passenger)
 {
     const Station* fromStation = Railways::IndianRailways().GetStation(from);
@@ -86,6 +87,7 @@ ostream& operator<<(ostream& os,const Booking& booking)
     return os;
 }
 
+//Unit test implementation
 void Booking::UnitTestBooking()
 {
     cout<<endl;
