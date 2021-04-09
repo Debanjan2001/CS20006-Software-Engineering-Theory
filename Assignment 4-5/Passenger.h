@@ -43,6 +43,8 @@ class Passenger
         const string GetDisabilityID() const;
 
         friend ostream& operator<<(ostream& os,const Passenger& passenger);
+
+        static void UnitTestPassenger();
 };  
 
 #endif

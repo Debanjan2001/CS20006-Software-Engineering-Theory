@@ -52,8 +52,8 @@ int main(){
     //     cout<<err.what()<<endl;
     // }
 
-    Passenger p1 = Passenger::CreatePassenger("apan","dey","sarkar",Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),"100");
-    Passenger p2 = Passenger::CreatePassenger("arpita","","sarkar",Gender::Female::Type(),"100",Date::CreateDate(14,5,1979),"100",&Disability::Cancer::Type(),"20");
+    // Passenger p1 = Passenger::CreatePassenger("apan","dey","sarkar",Gender::Male::Type(),"100",Date::CreateDate(14,7,2001),"100");
+    // Passenger p2 = Passenger::CreatePassenger("arpita","","sarkar",Gender::Female::Type(),"100",Date::CreateDate(14,5,1979),"100",&Disability::Cancer::Type(),"20");
     // cout<< a.GetDisabilityType().GetKey()<<endl;
     // cout<<a.GetGender().GetName()<<endl;
 
@@ -69,14 +69,17 @@ int main(){
     // const BookingCategory&b = SeniorCitizen::Type();
     // cout<<b.CalculateFare(a,BookingClasses::AC2Tier::Type())<<endl; 
     // cout<<b<<endl;
-    const Railways& rail = Railways::IndianRailways();
-    Booking a1 = Booking::CreateBooking(*rail.GetStation("Delhi"),Station::CreateStation("Mumbai"),Date::CreateDate(9,4,2021),Date::CreateDate(24,9,2021),BookingClasses::AC3Tier::Type(),Tatkal::Type(),p1);
-    Booking a2 = Booking::CreateBooking(*rail.GetStation("Delhi"),Station::CreateStation("Mumbai"),Date::CreateDate(9,4,2021),Date::CreateDate(20,9,2021),BookingClasses::ACFirstClass::Type(),Divyaang::Type(),p2);
+    // const Railways& rail = Railways::IndianRailways();
+    // Booking a1 = Booking::CreateBooking(*rail.GetStation("Delhi"),Station::CreateStation("Mumbai"),Date::CreateDate(9,4,2021),Date::CreateDate(24,9,2021),BookingClasses::AC3Tier::Type(),Tatkal::Type(),p1);
+    // Booking a2 = Booking::CreateBooking(*rail.GetStation("Delhi"),Station::CreateStation("Mumbai"),Date::CreateDate(9,4,2021),Date::CreateDate(20,9,2021),BookingClasses::ACFirstClass::Type(),Divyaang::Type(),p2);
 
-    vector<Booking*>::iterator it;
-    for (it = Booking::sBookings.begin(); it < Booking::sBookings.end(); ++it) {
-        cout <<(*(*it))<<endl;
-    }
+    // vector<Booking*>::iterator it;
+    // for (it = Booking::sBookings.begin(); it < Booking::sBookings.end(); ++it) {
+    //     cout <<(*(*it))<<endl;
+    // }
+
+    
+   
 
 
     return 0;

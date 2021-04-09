@@ -26,42 +26,78 @@ string Station::GetName() const
 
 const Station& Station::CreateStation(const string& name)
 {
-    try
-    {
-        if(name.length() == 0)
-        {
-           
-            throw Bad_Railways("Empty Station Name");
-        }
-        else
-        {
-            Station* station = new Station(name);
-            return *station;
-        }
-    }
-    catch(Bad_Railways& error)
-    {
-        throw error;
-    }
+    if(name.length() == 0)
+        throw Bad_Railways("Bad_Railways: Station with empty name can't be created.");
+    
+    Station* station = new Station(name);
+    return *station;
 }
-
-int Station::GetDistance(const Station& otherStation) const
-{
-    // Gets distance from self to another Station from a method of Singleton Railways.
-    return (Railways::IndianRailways()).GetDistance(name_,otherStation.GetName());
-}
-
 
 //Destructor
 Station::~Station()
-{
-}
-
+{}
 
 // Output Stream Overloading
 ostream& operator<<(ostream& os,const Station& station)
 {
     os<<station.GetName();
     return os;
+}
+
+void Station::UnitTestStation()
+{
+    cout<<endl;
+
+    int success = 0,totTest=0;
+
+    cout<<"CHECKING FOR POSITIVE TESTS\n"<<endl;
+    
+    try
+    {
+        Station s = Station::CreateStation("Delhi");
+        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
+        success++;
+    }
+    catch(Bad_Railways& ex)
+    {
+        cout << ex.what() << '\n';
+        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
+
+    }
+
+    try
+    {
+        Station s = Station::CreateStation("Delhi");
+        if(s.GetName()!="Delhi")
+            throw Bad_Railways("Bad_Railways: Station name do not match");
+            
+        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
+        success++;
+    }
+    catch(Bad_Railways& ex)
+    {
+        cout << ex.what() << '\n';
+        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
+
+    }
+
+
+    cout<<endl;
+    cout<<"CHECKING FOR NEGATIVE TESTS\n"<<endl;
+    try
+    {
+        Station s = Station::CreateStation("");
+        cout<<"Sub-Test "<< ++totTest<<" [FAILED]"<<endl;
+    }
+    catch(Bad_Railways& ex)
+    {
+        cout<<ex.what()<<endl;
+        cout<<"Sub-Test "<< ++totTest<<" [PASSED]"<<endl;
+        success++;
+    }
+
+    cout<<endl;
+    cout<<success<<" OUT OF "<<totTest<<" TESTS [PASSED]"<<endl;
+
 }
 

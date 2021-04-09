@@ -22,13 +22,14 @@ class Date
         //Constructor
         Date();
         Date(int d, int m, int y);
+        static const bool IsLeapYear(int year);
+
     
     public:
 
         // Destructor
         ~Date();
 
-        const bool IsLeapYear() const;
 
         static const Date& CreateDate(int day,int month,int year);
         const int ComputeAge(const Date& otherDate) const;
@@ -40,6 +41,8 @@ class Date
         friend ostream& operator<<(ostream& os,const Date& date);
         
         bool operator<(const Date& date);
+
+        static void UnitTestDate();
 };
 
 #endif
